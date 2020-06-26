@@ -75,6 +75,9 @@
       </a-input>
     </a-form-item>
 
+    <!-- Warning -->
+    <p class="guest-form__invitation-email__warning">{{ warningPlaceholder }}</p>
+
     <!-- Tags -->
     <a-form-item class="guest-form__item" style="text-align:center;">
       <a-checkbox
@@ -163,6 +166,10 @@ export default {
     emailPlaceholder() {
       return this.$root.$options.languages.lang.gettingStarted.guestsForm
         .placeholders.email[this.$root.$options.languages.current];
+    },
+    warningPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .placeholders.warning[this.$root.$options.languages.current];
     },
     fullNameValidator() {
       return this.$root.$options.languages.lang.gettingStarted.guestsForm
@@ -363,5 +370,22 @@ export default {
 
 .guest-form__item {
   margin-bottom: 8px;
+}
+
+.guest-form__invitation-email__warning {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  word-wrap: break-word;
 }
 </style>

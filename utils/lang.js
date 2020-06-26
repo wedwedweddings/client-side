@@ -315,6 +315,10 @@ export const lang = {
           en: "Guest email",
           es: "Email del invitado",
         },
+        warning: {
+          en: "We'll send an email to this guest to get assistance confirmation.",
+          es: "Enviaremos un email a este invitado para que confirme su asistencia.",
+        },
       },
       validators: {
         fullName: {
