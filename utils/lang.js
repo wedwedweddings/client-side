@@ -53,12 +53,12 @@ export const lang = {
     meta: {
       title: {
         en: "Welcome",
-        es: "Bienvenido",
+        es: "Organiza tu boda paso a paso - Online | Wed Wed Weddings 💍",
       },
       description: {
         en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
         es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
+          "¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.          ",
       },
     },
     main: {
@@ -116,7 +116,7 @@ export const lang = {
         en:
           "Get our latest updates first! 💍 <a href='https://wedwedweddings.com/faq'>Want to know something?</a><br/>Shoot us a message through...",
         es:
-          "¡Sé siempre de l@s primer@s en conocer las últimas novedades! 💍<br/><a href='https://wedwedweddings.com/faq'>¿Necesitas algo?</a> Envíanos un mensaje a través de...",
+          "¡Sé siempre de los primeros en conocer las últimas novedades! 💍<br/><a href='https://wedwedweddings.com/faq'>¿Necesitas algo?</a> Envíanos un mensaje a través de...",
       },
     },
   },
@@ -229,11 +229,11 @@ export const lang = {
         },
         firstName1: {
           en: "First firstname",
-          es: "Primer nombre",
+          es: "Nombre",
         },
         lastName1: {
           en: "First lastname",
-          es: "Primer apellido",
+          es: "Apellido",
         },
         emoji1: {
           en: "Select emoji",
@@ -245,11 +245,11 @@ export const lang = {
         },
         firstName2: {
           en: "Second firstname",
-          es: "Segundo nombre",
+          es: "Nombre",
         },
         lastName2: {
           en: "Second lastname",
-          es: "Segundo apellido",
+          es: "Apellido",
         },
         emoji2: {
           en: "Select emoji",
@@ -527,12 +527,12 @@ export const lang = {
     meta: {
       title: {
         en: "FAQ",
-        es: "FAQ",
+        es: "FAQ - Cómo organizar y planificar una Boda | Wed Wed Weddings 💍",
       },
       description: {
         en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
         es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
+          "¿Dudas sobre cómo organizar y planificar tu boda con Wed Wed Weddings 💍? Este es el apartado de FAQ donde puedes resolver todas tus preguntas.",
       },
     },
     description: {
@@ -608,7 +608,7 @@ export const lang = {
         },
         description: {
           en: "",
-          es: "Sí, pero no se notifica de ninguna manera los cambios que realicen un@ u otr@.",
+          es: "Sí, aparecerán los datos modificados, pero no se notifica de ninguna manera los cambios que realices.",
         },
       },
       // #6 - Funciones del usuario
@@ -632,7 +632,7 @@ export const lang = {
         description: {
           en: "",
           es:
-            "Puedes organizar en el planificador de mesas a los invitados de tu boda como quieras. En las mesas, puedes incluir hasta 12 comensales y no hay límite para añadir número de mesas. No olvides incluir una mesa para niños, si tienes pensado añadir una. Te aconsejamos organizar los invitados de tu boda en alas, es decir, los invitados correspondientes al/la novi@ en el lado en el que esa persona se sienta y hacer lo mismo con los de el/la otro novi@.",
+            "Puedes organizar en el planificador de mesas a los invitados de tu boda como quieras. En las mesas, puedes incluir hasta 12 comensales y no hay límite para añadir número de mesas. No olvides incluir una mesa para niños, si tienes pensado añadir una. Te aconsejamos organizar los invitados de tu boda en alas, es decir, los invitados correspondientes la novia o el novio en el lado en el que esa persona se sienta y hacer lo mismo con los del otro",
         },
       },
       // #8 - Planificador de mesas
@@ -644,7 +644,7 @@ export const lang = {
         description: {
           en: "",
           es:
-            "Sí, dentro del planificador de mesas. Primero debes eliminarl@ del asiento que tenga asignado y seleccionar el nuevo lugar en el quieres que esa persona esté.",
+            "Sí, dentro del planificador de mesas. Primero debes eliminarlo del asiento que tenga asignado y seleccionar el nuevo lugar en el quieres que esa persona esté.",
         },
       },
       // #9 - Planificador de mesas
@@ -695,7 +695,7 @@ export const lang = {
       {
         title: {
           en: "",
-          es: "¿Cómo creo a un/a invitad@?",
+          es: "¿Cómo creo un invitado?",
         },
         description: {
           en: "",
@@ -707,7 +707,7 @@ export const lang = {
       {
         title: {
           en: "",
-          es: "¿Cómo modifico los datos de un/a invitad@?",
+          es: "¿Cómo modifico los datos de un invitado?",
         },
         description: {
           en: "",
@@ -724,7 +724,7 @@ export const lang = {
         description: {
           en: "",
           es:
-            "No se pueden enviar. Debéis anotar vosotr@s las confirmaciones de quiénes asistirán a vuestra boda. En las próximas implementaciones se podrán enviar las invitaciones desde la web de Wed Wed Weddings.",
+            "No se pueden enviar. Debéis anotar vosotros mismos las confirmaciones de quiénes asistirán a vuestra boda. En las próximas implementaciones se podrán enviar las invitaciones desde la web de Wed Wed Weddings.",
         },
       },
       // #16 - Lista de invitados
@@ -736,7 +736,7 @@ export const lang = {
         description: {
           en: "",
           es:
-            "Sí, se pueden filtrar como quieras. En el panel donde se encuentra la Lista de invitados de tu boda, aparecen todos los filtros que puedes seleccionar. Puedes filtrar para ver si, por ejemplo, los invitad@s que pertenecen a la categoría ‘’Gimnasio’’ que vienen de parte de la novia, están sentados todos juntos en una mesa y también, por si falta alguien por sentar de esa categoría en concreto.",
+            "Sí, se pueden filtrar como quieras. En el panel donde se encuentra la Lista de invitados de tu boda, aparecen todos los filtros que puedes seleccionar. Puedes filtrar para ver por ejemplo, los invitados que pertenecen a la categoría ‘’Gimnasio’’ que vienen de parte de la novia, están sentados todos juntos en una mesa y también, por si falta alguien por sentar de esa categoría en concreto.",
         },
       },
       // #17 - Lista de regalos
@@ -784,7 +784,7 @@ export const lang = {
         description: {
           en: "",
           es:
-            "A muchas parejas les resulta muy útil para ir controlando el presupuesto final que les va a suponer el servicio de catering y para hacer una comparativa de precios de distintos caterings. También resulta muy útil para controlar cuántos menús, de carácter especial, se requieren para pedir al catering y ver también si se producen variaciones de precios.",
+            "A muchas parejas les resulta muy útil para ir controlando el presupuesto final que les va a suponer el servicio de catering y para hacer una comparativa de precios de distintos caterings. También resulta muy útil para realizar una estimación de cuántos menús de carácter especial, se requieren para pedir al catering y poder comprobar también si se producen variaciones de precios.",
         },
       },
       // #21 - Presupuesto del catering
@@ -832,11 +832,6 @@ export const lang = {
       title: {
         en: "Tables Planner",
         es: "Planificador",
-      },
-      description: {
-        en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
-        es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
       },
     },
     menu: {
