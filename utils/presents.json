@@ -1,0 +1,23 @@
+[
+    {
+        "weddingId": "5e95863fd5a0591f94dbca10",
+        "available": true,
+        "guestId": "5e958caad5a0591f94dbca13",
+        "title": "Leica",
+        "url": "https://www.amazon.es/Leica-D-LUX-7-C%C3%A1mara-digital/dp/B07KZLZ88Y/ref=sr_1_1?dchild=1&keywords=Camara+Leica&qid=1586864406&sr=8-1"
+    },
+    {
+        "weddingId": "5e95863fd5a0591f94dbca10",
+        "available": true,
+        "guestId": "5e958da9d5a0591f94dbca14",
+        "title": "iMac",
+        "url": "https://www.apple.com/es/shop/buy-mac/imac/27-pulgadas-procesador-de-seis-n%C3%BAcleos-a-3-ghz-con-turbo-boost-de-hasta-4,1-ghz-1tb"
+    },
+    {
+        "weddingId": "5e95863fd5a0591f94dbca10",
+        "available": true,
+        "guestId": "5e9599ba7684af2b982d2e9d",
+        "title": "Triumph Bobber",
+        "url": "https://www.triumphmotorcycles.es/configure/bike/44bc7a06-488a-42ee-a3e8-2722ee204b15/configure#config"
+    }
+]

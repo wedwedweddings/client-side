@@ -1,0 +1,250 @@
+<template>
+  <a-form :form="form" @submit="onSubmit">
+    <!-- Email -->
+    <a-form-item class="register-form__item">
+      <a-input
+        v-decorator="[
+          'email',
+          {
+            rules: [
+              {
+                type: 'email',
+                message: emailValidator,
+              },
+              {
+                required: true,
+                message: emailPlaceholder,
+              },
+            ],
+          },
+        ]"
+        :placeholder="emailPlaceholder"
+        autofocus
+      >
+        <a-icon slot="prefix" type="mail" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+
+    <!-- Warning -->
+    <p class="register-form__shared-password__warning">{{ warningPlaceholder }}</p>
+
+    <!-- Password -->
+    <a-form-item class="register-form__item" has-feedback>
+      <a-input
+        v-decorator="[
+          'password',
+          {
+            rules: [
+              {
+                required: true,
+                message: passwordValidator,
+                min: 8
+              },
+              {
+                validator: validateToNextPassword,
+              },
+            ],
+          },
+        ]"
+        :placeholder="passwordPlaceholder"
+        type="password"
+      >
+        <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+
+    <!-- Confirm -->
+    <a-form-item class="register-form__item" has-feedback>
+      <a-input
+        v-decorator="[
+          'confirm',
+          {
+            rules: [
+              {
+                required: true,
+                message: confirmPasswordPlaceholder,
+                min: 8
+              },
+              {
+                validator: compareToFirstPassword,
+              },
+            ],
+          },
+        ]"
+        :placeholder="confirmPasswordPlaceholder"
+        type="password"
+        @blur="handleConfirmBlur"
+      >
+        <a-icon slot="prefix" type="lock" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+
+    <!-- Terms and Conditions -->
+    <a-form-item class="register-form__item" style="text-align:center;">
+      <a-checkbox
+        v-decorator="[
+        'agreement',
+        {
+          valuePropName: 'checked'
+        }
+        ]"
+      >
+        <router-link :to="{ name: 'terms-and-conditions' }">{{ termsAndCondition }}</router-link>
+      </a-checkbox>
+    </a-form-item>
+
+    <!-- Submit -->
+    <a-form-item class="register-form__item" style="text-align:center;">
+      <a-button type="primary" html-type="submit">{{ registerButton }}</a-button>
+    </a-form-item>
+
+    <a-divider />
+
+    <!-- Have account or Forgot password -->
+    <p style="text-align:center;">
+      <router-link :to="{ name: 'login' }">{{ haveAccount }}</router-link>
+      <span>&nbsp;|&nbsp;</span>
+      <router-link :to="{ name: 'forgot-password' }">{{ forgotPassword }}</router-link>
+    </p>
+  </a-form>
+</template>
+
+<script>
+// Models
+import { register } from "../../models/auth";
+
+export default {
+  name: "RegisterForm",
+  data: () => ({
+    confirmDirty: false
+  }),
+  computed: {
+    // Lang
+    emailPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .placeholders.email[this.$root.$options.languages.current];
+    },
+    emailValidator() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .validators.email[this.$root.$options.languages.current];
+    },
+    warningPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .placeholders.warning[this.$root.$options.languages.current];
+    },
+    passwordPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .placeholders.password[this.$root.$options.languages.current];
+    },
+    passwordValidator() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .validators.password[this.$root.$options.languages.current];
+    },
+    confirmPasswordPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .placeholders.confirmPassword[this.$root.$options.languages.current];
+    },
+    confirmPasswordValidator() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .validators.confirmPassword[this.$root.$options.languages.current];
+    },
+    termsAndCondition() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .termsAndConditions[this.$root.$options.languages.current];
+    },
+    registerButton() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .registerButton[this.$root.$options.languages.current];
+    },
+    haveAccount() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .haveAccount[this.$root.$options.languages.current];
+    },
+    forgotPassword() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .forgotPassword[this.$root.$options.languages.current];
+    }
+  },
+  methods: {
+    compareToFirstPassword(rule, value, callback) {
+      const form = this.form;
+
+      if (value && value !== form.getFieldValue("password")) {
+        callback(this.confirmPasswordValidator);
+      } else {
+        callback();
+      }
+    },
+    handleConfirmBlur(e) {
+      const value = e.target.value;
+      this.confirmDirty = this.confirmDirty || !!value;
+    },
+    onSubmit(e) {
+      e.preventDefault();
+
+      this.form.validateFieldsAndScroll((err, values) => {
+        if (!err) {
+          if (values.agreement === true) {
+            this.requestRegister(values);
+          }
+        }
+      });
+    },
+    async requestRegister(body) {
+      try {
+        await register(body);
+        this.$emit("registered");
+      } catch (error) {
+        console.error(error);
+
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
+    },
+    validateToNextPassword(rule, value, callback) {
+      const form = this.form;
+
+      if (value && this.confirmDirty) {
+        form.validateFields(["confirm"], { force: true });
+      }
+
+      callback();
+    }
+  },
+  beforeCreate() {
+    this.form = this.$form.createForm(this, { name: "register" });
+  }
+};
+</script>
+
+<style scoped>
+.divider {
+  margin: 32px 0 8px 0;
+}
+
+.register-form__item {
+  margin-bottom: 8px;
+}
+
+.register-form__shared-password__warning {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  border-radius: 4px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 12px;
+  font-variant: tabular-nums;
+  line-height: 1.5;
+  list-style: none;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 8px 16px;
+  position: relative;
+  text-align: center;
+  word-wrap: break-word;
+}
+</style>
