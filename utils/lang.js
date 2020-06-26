@@ -53,12 +53,12 @@ export const lang = {
     meta: {
       title: {
         en: "Welcome",
-        es: "Bienvenido",
+        es: "Organiza tu boda paso a paso - Online | Wed Wed Weddings 💍",
       },
       description: {
         en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
         es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
+          "¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.          ",
       },
     },
     main: {
@@ -523,12 +523,12 @@ export const lang = {
     meta: {
       title: {
         en: "FAQ",
-        es: "FAQ",
+        es: "FAQ - Cómo organizar y planificar una Boda | Wed Wed Weddings 💍",
       },
       description: {
         en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
         es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
+          "¿Dudas sobre cómo organizar y planificar tu boda con Wed Wed Weddings 💍? Este es el apartado de FAQ donde puedes resolver todas tus preguntas.",
       },
     },
     description: {
@@ -828,11 +828,6 @@ export const lang = {
       title: {
         en: "Tables Planner",
         es: "Planificador",
-      },
-      description: {
-        en: "Application to manage weddings tasks like guests invitations, tables planning or menus.",
-        es:
-          "Sitio web para organizar bodas. Gestiona listas de invitados, listas de regalos y planifica las mesas y el catering.",
       },
     },
     menu: {
