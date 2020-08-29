@@ -1,58 +1,58 @@
-"use strict";
+'use strict'
 
 // Utils
-import { mergeParamsToBody, setLocalStorageWedding } from "../../utils/utils";
-import { xmlhttprequest as xhr } from "../../utils/xmlhttprequest";
+import { joinParamsAsString, setLocalStorageWedding } from '../../utils/utils'
+import { xmlhttprequest as xhr } from '../../utils/xmlhttprequest'
 
 export const getLast = () => {
   return new Promise((resolve, reject) => {
     // Request
     xhr({
-      method: "GET",
+      method: 'GET',
       url: `${process.env.VUE_APP_API}wedding/last`,
       async: true,
       credentials: true,
       headers: {
-        "Content-type": "application/x-www-form-urlencoded",
+        'Content-type': 'application/x-www-form-urlencoded',
       },
     })
       .then((data) => {
-        const wedding = JSON.parse(data).data.wedding;
-        resolve(setLocalStorageWedding(wedding));
+        const wedding = JSON.parse(data).data.wedding
+        resolve(setLocalStorageWedding(wedding))
       })
       .catch((error) => {
-        reject(error);
-      });
-  });
-};
+        reject(error)
+      })
+  })
+}
 
 export const add = (params) => {
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
     if (!params) {
-      reject("Body param required!");
+      reject('Body param required!')
     }
 
-    params.emoji1 = params.emoji1.split("-")[0];
-    params.emoji2 = params.emoji2.split("-")[0];
-    let body = mergeParamsToBody(params);
+    params.emoji1 = params.emoji1.split('-')[0]
+    params.emoji2 = params.emoji2.split('-')[0]
+    let body = joinParamsAsString(params)
 
     // Request
     xhr({
-      method: "POST",
+      method: 'POST',
       url: `${process.env.VUE_APP_API}wedding`,
       async: true,
       credentials: true,
       headers: {
-        "Content-type": "application/x-www-form-urlencoded",
+        'Content-type': 'application/x-www-form-urlencoded',
       },
       body,
     })
       .then((data) => {
-        resolve(JSON.parse(data).data.wedding);
+        resolve(JSON.parse(data).data.wedding)
       })
       .catch((error) => {
-        reject(error);
-      });
-  });
-};
+        reject(error)
+      })
+  })
+}

@@ -1,44 +1,44 @@
-"use strict";
+'use strict'
 
 // Utils
-import emojis from "./emojis";
+import emojis from './emojis'
 
 export const capitalize = (s) => {
-  if (typeof s !== "string") {
-    return "";
+  if (typeof s !== 'string') {
+    return ''
   }
 
-  return s.charAt(0).toUpperCase() + s.slice(1);
-};
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
 
 export const diffFields = (older, newer) => {
-  const newObj = {};
+  const newObj = {}
 
   Object.keys(newer).forEach((key) => {
     if (older[key] !== newer[key]) {
-      newObj[key] = newer[key];
+      newObj[key] = newer[key]
     }
-  });
+  })
 
-  return newObj;
-};
+  return newObj
+}
 
-export const mergeParamsToBody = (params) => {
-  let body = "";
-  let i = 0;
+export const joinParamsAsString = (params) => {
+  let body = ''
+  let i = 0
 
   Object.keys(params).forEach((key) => {
-    i++;
-    body += `${key}=${params[key]}`;
-    body += i < Object.keys(params).length ? "&" : "";
-  });
+    i++
+    body += `${key}=${params[key]}`
+    body += i < Object.keys(params).length ? '&' : ''
+  })
 
-  return body;
-};
+  return body
+}
 
 export const setLocalStorageWedding = (wedding) => {
   // Wedding ID
-  localStorage.weddingId = wedding._id;
+  localStorage.weddingId = wedding._id
 
   // Spouses
   const spouses = {
@@ -54,10 +54,10 @@ export const setLocalStorageWedding = (wedding) => {
     },
     both: {
       emoji: emojis.profile.both,
-      fullName: "Both",
+      fullName: 'Both',
       id: 0,
     },
-  };
+  }
 
-  localStorage.spouses = JSON.stringify(spouses);
-};
+  localStorage.spouses = JSON.stringify(spouses)
+}

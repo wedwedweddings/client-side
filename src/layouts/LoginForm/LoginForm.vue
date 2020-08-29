@@ -100,7 +100,7 @@ export default {
     forgotPassword() {
       return this.$root.$options.languages.lang.gettingStarted.registerForm
         .forgotPassword[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     onSubmit(e) {
@@ -127,11 +127,11 @@ export default {
           5
         );
       }
-    }
+    },
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "login" });
-  }
+  },
 };
 </script>
 
