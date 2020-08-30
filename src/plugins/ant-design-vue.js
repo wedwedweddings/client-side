@@ -17,12 +17,13 @@ import {
   Menu,
   Modal,
   Popover,
+  Radio,
   Row,
   Select,
   Steps,
   Tag,
   Timeline,
-  Tooltip
+  Tooltip,
 } from 'ant-design-vue'
 
 // Avatar
@@ -86,6 +87,11 @@ Vue.component(Modal.name, Modal)
 
 // Popover
 Vue.component(Popover.name, Popover)
+
+// Radio
+Vue.component(Radio.name, Radio)
+Vue.component(Radio.Button.name, Radio.Button)
+Vue.component(Radio.Group.name, Radio.Group)
 
 // Row
 Vue.component(Row.name, Row)

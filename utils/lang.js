@@ -1055,7 +1055,7 @@ export const lang = {
     meta: {
       title: {
         en: 'Wedding party!',
-        es: '¡Te vas de boda!',
+        es: '💍 ¡Te vas de boda! 🥳',
       },
       description: {
         en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
@@ -1064,8 +1064,46 @@ export const lang = {
       },
     },
     title: {
-      en: 'Wedding party! But you should confirm your assistance first',
-      es: '¡Te vas de boda! Pero antes debes confirmar tu asistencia',
+      en: 'Wedding party!',
+      es: '💍 ¡Te vas de boda! 🥳',
+    },
+    subtitle: {
+      en: 'But you should confirm your assistance first',
+      es: 'Pero antes debes confirmar tu asistencia',
+    },
+    mainGuestTitle: {
+      en: 'Do you want to modify your personal info?',
+      es: '¿Quieres modificar tus datos?',
+    },
+    companionsTitle: {
+      en: 'Do you have companion(s)?',
+      es: '¿Vienes con alguien?',
+    },
+    assistance: {
+      yes: {
+        en: 'Yes!',
+        es: '¡Sí!',
+      },
+      no: {
+        en: 'I can not assit',
+        es: 'No puedo ir',
+      },
+      pending: {
+        en: 'I do not know yet',
+        es: 'Aún no lo sé',
+      },
+    },
+    addCompanion: {
+      en: 'Add',
+      es: 'Añadir',
+    },
+    deleteCompanion: {
+      en: 'Delete',
+      es: 'Quitar',
+    },
+    updateInfo: {
+      en: 'Update info',
+      es: 'Actualizar información',
     },
   },
 }

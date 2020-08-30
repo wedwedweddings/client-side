@@ -1,11 +1,18 @@
 <template>
   <a-layout class="guest-landing__container">
     <a-layout-content>
-      <a-row type="flex" justify="space-around" align="middle">
+      <!-- Title & Subtitle -->
+      <a-row type="flex" justify="space-around">
         <a-col span="8">
-          <a-card class="guest-landing__card" :bordered="false" :title="title">
-            <GuestLandingForm />
-          </a-card>
+          <h1>{{ title }}</h1>
+          <h2>{{ subtitle }}</h2>
+        </a-col>
+      </a-row>
+
+      <!-- Guest & Companion(s) forms -->
+      <a-row type="flex" justify="space-around">
+        <a-col span="8">
+          <GuestLandingForms />
         </a-col>
       </a-row>
     </a-layout-content>
@@ -13,12 +20,14 @@
 </template>
 
 <script>
-import GuestLandingForm from "../../layouts/GuestLandingForm/GuestLandingForm";
+import GuestLandingForms from "../../layouts/GuestLandingForms/GuestLandingForms";
+// import PresentForm from "../../layouts/PresentForm/PresentForm";
 
 export default {
   name: "GuestLanding",
   components: {
-    GuestLandingForm,
+    GuestLandingForms,
+    // PresentForm,
   },
   computed: {
     // Lang
@@ -29,6 +38,11 @@ export default {
     },
     title() {
       return this.$root.$options.languages.lang.guestLanding.title[
+        this.$root.$options.languages.current
+      ];
+    },
+    subtitle() {
+      return this.$root.$options.languages.lang.guestLanding.subtitle[
         this.$root.$options.languages.current
       ];
     },
