@@ -11,8 +11,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "ant-design-vue": "^1.4.12",
-    "core-js": "^3.6.4",
+    "ant-design-vue": "^1.6.5",
+    "core-js": "^3.6.5",
     "jsonwebtoken": "^8.5.1",
     "vue": "^2.6.11",
     "vue-meta": "^2.3.3",

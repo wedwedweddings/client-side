@@ -1,0 +1,3 @@
+main.ant-layout-content {
+  min-height: calc(100vh - #{$header-height} - #{$footer-height});
+}

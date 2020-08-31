@@ -1,24 +1,29 @@
 <template>
   <div>
-    <h4>📎😀</h4>
-
     <!-- Full Name -->
-    <a-form-item class="guest-landing-form__item">
-      <a-input :value="companion.fullName" :change="onChange" autofocus>
+    <a-form-model-item class="guest-landing-form__item" prop="companionFullName">
+      <a-input type="text" v-model="companion.fullName" :change="onChange" autofocus>
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
-    </a-form-item>
+    </a-form-model-item>
 
     <!-- Menu -->
-    <a-form-item class="guest-landing-form__item">
-      <a-select :value="companion.menu" :change="onChange">
+    <a-form-model-item class="guest-landing-form__item" prop="companionMenu">
+      <a-select v-model="companion.menu" :change="onChange">
         <a-select-option
           v-for="(menu, key) in menus"
           :key="key"
           :value="key"
         >{{ menu.emoji + " " + getMenuName(key) }}</a-select-option>
       </a-select>
-    </a-form-item>
+    </a-form-model-item>
+
+    <a-form-model-item>
+      <a-button style="float: right;" size="small" @click="setTotalCompanionBlocks('delete')">
+        {{ deleteCompanion}}
+        <a-icon type="user-delete" />
+      </a-button>
+    </a-form-model-item>
   </div>
 </template>
 
@@ -38,24 +43,17 @@ export default {
         return { fullName: "", menu: "" };
       },
     },
+    index: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     // Lang
-    fullNamePlaceholder() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .placeholders.fullName[this.$root.$options.languages.current];
-    },
-    menuPlaceholder() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .placeholders.menu[this.$root.$options.languages.current];
-    },
-    fullNameValidator() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .validators.fullName[this.$root.$options.languages.current];
-    },
-    menuValidator() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .validators.menu[this.$root.$options.languages.current];
+    deleteCompanion() {
+      return this.$root.$options.languages.lang.guestLanding.deleteCompanion[
+        this.$root.$options.languages.current
+      ];
     },
   },
   model: {
@@ -65,7 +63,10 @@ export default {
   methods: {
     // Any change
     onChange() {
-      this.$emit("change", this.companion);
+      this.$emit("change", {
+        companion: this.companion,
+        index: this.index,
+      });
     },
 
     // Menu
@@ -74,9 +75,6 @@ export default {
         this.menus[menu].name[this.$root.$options.languages.current]
       );
     },
-  },
-  created() {
-    console.log("CompanionForm > created:", this.companion);
   },
 };
 </script>

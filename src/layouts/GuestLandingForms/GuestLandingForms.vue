@@ -1,42 +1,40 @@
 <template>
-  <a-form :form="form" @submit="onUpdateInvitation">
+  <a-form-model :model="model">
     <!-- Main Guest -->
-    <MainGuestForm v-model="mainGuest" />
+    <MainGuestForm v-model="model.mainGuest" />
 
     <a-divider />
 
     <!-- Companion(s) -->
     <a-card :title="companionsTitle">
-      <CompanionForm v-for="i in totalCompanionBlocks" :key="i" v-model="companions[i]" />
+      <CompanionForm
+        v-for="(item, index) in totalCompanionBlocks"
+        v-model="model.companions[index]"
+        :key="index"
+        :index="index"
+      />
 
       <a-divider />
 
-      <a-button @click="setTotalCompanionBlocks('plus')">
+      <a-button style="float: right;" size="small" @click="setTotalCompanionBlocks('plus')">
         {{ addCompanion}}
         <a-icon type="user-add" />
-      </a-button>
-
-      <a-button @click="setTotalCompanionBlocks('delete')">
-        {{ deleteCompanion}}
-        <a-icon type="user-delete" />
       </a-button>
     </a-card>
 
     <a-divider />
 
     <!-- Update Guest -->
-    <a-form-item class="guest-landing-form__item" style="text-align:center;">
-      <a-button type="primary" html-type="submit">
+    <a-form-model-item class="guest-landing-form__item" style="text-align:center;">
+      <a-button type="primary" html-type="submit" @click="onUpdateInvitation">
         {{ updateInfo}}
         <a-icon type="sync" />
       </a-button>
-    </a-form-item>
-  </a-form>
+    </a-form-model-item>
+  </a-form-model>
 </template>
 
 <script>
-// https://www.digitalocean.com/community/tutorials/vuejs-add-v-model-support
-
 // Modules
 import jwt from "jsonwebtoken";
 
@@ -45,8 +43,11 @@ import CompanionForm from "../../components/GuestLanding/CompanionForm";
 import MainGuestForm from "../../components/GuestLanding/MainGuestForm";
 
 // Models
-//import { add, updateById } from "../../models/guest";
-//import { getLast } from "../../models/wedding";
+import {
+  guestGetsOwnDataById as ggodbi,
+  guestGetsCompanionsById as ggcbi,
+  guestUpdatesOwnDataById as guodbi,
+} from "../../models/guest";
 
 export default {
   name: "GuestLandingForm",
@@ -55,8 +56,10 @@ export default {
     MainGuestForm,
   },
   data: () => ({
-    mainGuest: {},
-    companions: [],
+    model: {
+      mainGuest: {},
+      companions: [],
+    },
     totalCompanionBlocks: 1,
     song: {},
   }),
@@ -69,11 +72,6 @@ export default {
     },
     addCompanion() {
       return this.$root.$options.languages.lang.guestLanding.addCompanion[
-        this.$root.$options.languages.current
-      ];
-    },
-    deleteCompanion() {
-      return this.$root.$options.languages.lang.guestLanding.deleteCompanion[
         this.$root.$options.languages.current
       ];
     },
@@ -92,46 +90,43 @@ export default {
     },
   },
   methods: {
+    async updateMainGuest() {
+      const updated = await guodbi(
+        this.model.mainGuest._id,
+        this.model.mainGuest
+      );
+
+      console.log("Updated:", updated);
+    },
     // Companions
     setTotalCompanionBlocks(param) {
       if (
         param === "delete" &&
-        this.totalCompanionBlocks > this.companions.length
+        this.totalCompanionBlocks > this.model.companions.length
       ) {
         this.totalCompanionBlocks--;
+        this.model.companions.pop();
       } else if (param === "plus" && this.totalCompanionBlocks < 12) {
         this.totalCompanionBlocks++;
+        this.model.companions.push({ fullName: "", menu: "standard" });
       }
     },
     // Submit form
-    onUpdateInvitation(e) {
-      e.preventDefault();
-
-      this.form.validateFieldsAndScroll((err, values) => {
-        if (!err) {
-          // TODO: Dispatch queries to API
-
-          console.log("values:", values);
-        }
-      });
+    onUpdateInvitation() {
+      // TODO: Validate form...
+      this.updateMainGuest();
     },
   },
-  beforeCreate() {
-    // Setting up this form
-    this.form = this.$form.createForm(this, { name: "guest" });
-  },
-  created() {
-    // Setting up Guest and Companion(s) data
+  async created() {
+    // Setting up Guest data
     const token = this.$route.params.token;
     const decoded = jwt.verify(token, process.env.VUE_APP_JWT_SECRET);
-    this.mainGuest = decoded;
 
-    console.log("beforeCreate:", this.mainGuest);
+    this.model.mainGuest = await ggodbi(decoded.id);
 
-    this.companions.push({
-      fullName: "Lola",
-      menu: "vegan",
-    });
+    // Setting up Companion(s) data
+    this.model.companions = await ggcbi(this.model.mainGuest._id);
+    this.totalCompanionBlocks = this.model.companions.length;
   },
 };
 </script>

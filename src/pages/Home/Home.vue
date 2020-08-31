@@ -135,16 +135,16 @@ export default {
       return this.$root.$options.languages.lang.home.findUs.subtitle[
         this.$root.$options.languages.current
       ];
-    }
+    },
   },
   metaInfo() {
     return {
       // if no subcomponents specify a metaInfo.title, this title will be used
       title: this.metaTitle,
       // all titles will be injected into this template
-      titleTemplate: "%s | Wed Wed Weddings"
+      titleTemplate: "%s | Wed Wed Weddings",
     };
-  }
+  },
 };
 </script>
 

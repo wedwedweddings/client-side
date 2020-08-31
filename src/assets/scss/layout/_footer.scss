@@ -1,0 +1,9 @@
+#main-footer {
+  background-color: $color-grey-dark;
+  height: 20vh;
+  width: 100vw;
+
+  @include respond(phone) {
+    height: 16vh;
+  }
+}

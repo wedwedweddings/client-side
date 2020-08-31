@@ -1,0 +1,9 @@
+#main-header {
+  background-color: $color-white;
+  height: 33vh;
+  width: 100vw;
+
+  @include respond(phone) {
+    height: 25vh;
+  }
+}

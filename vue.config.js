@@ -23,11 +23,14 @@ module.exports = {
           'background-color-light': colors.blueFog.hex, // background color
           'background-color-base': colors.primary.superLight, // background color
           'layout-body-background': colors.blueFog.hex, // layout background color
-          'layout-header-background': "transparent", // layout background color
-          'layout-footer-background': colors.primary.superDarker // layout background color
+          'layout-header-background': 'transparent', // layout background color
+          'layout-footer-background': colors.primary.superDarker, // layout background color
         },
-        javascriptEnabled: true
-      }
-    }
-  }
+        javascriptEnabled: true,
+      },
+      /*scss: {
+        prependData: `@import "@/assets/scss/main.scss";`,
+      },*/
+    },
+  },
 }
