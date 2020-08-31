@@ -1,48 +1,44 @@
 <template>
-  <div class="home__container">
+  <div class="home_container">
     <div>
       <!-- Main -->
-      <a-row class="home__row home__main" type="flex" justify="center" align="middle">
+      <a-row class="home_main" type="flex" justify="center" align="middle">
         <a-col span="16">
           <div>
-            <h1 translate="no">
+            <h1 class="heading-primary heading-primary--main" translate="no">
               Wed Wed
-              <span class="home__title__detail" translate="no">Weddings</span>
+              <span class="heading--detail" translate="no">Weddings</span>
             </h1>
 
-            <h3 v-html="mainSubtitle"></h3>
+            <h3 class="heading-secondary" v-html="mainSubtitle"></h3>
           </div>
 
-          <div class="home__button-container">
+          <div class="button-container">
             <router-link :to="{ name: 'getting-started' }">
-              <a-button class="home__button" size="large" ghost>
-                {{
-                mainButton
-                }}
-              </a-button>
+              <a-button class="button" size="large" ghost>{{ mainButton }}</a-button>
             </router-link>
           </div>
         </a-col>
       </a-row>
     </div>
 
-    <div style="background-color: #db8979;">
+    <div class="home_whyus-container">
       <!-- Why Us -->
-      <a-row class="home__row home__whyus" type="flex" justify="center" align="middle">
-        <a-col class="home__whyus-col" :span="16">
+      <a-row class="home_whyus" type="flex" justify="center" align="middle">
+        <a-col :span="16">
           <h2>{{ whyUsTitle }}</h2>
 
           <a-row type="flex" justify="space-between" align="middle">
             <!-- Free -->
-            <a-col class="home__whyus-sub-col" :span="11">
-              <h3 class="home__whyus-free">{{ whyUsFree }}</h3>
+            <a-col :span="11">
+              <h4 class="whyus_free">{{ whyUsFree }}</h4>
             </a-col>
 
             <!-- List -->
-            <a-col class="home__whyus-sub-col" :span="11">
+            <a-col :span="11">
               <a-timeline>
                 <a-timeline-item
-                  class="home__whyus-text"
+                  class="whyus_text"
                   :key="index"
                   v-for="(item, index) in whyUsTimeline"
                 >{{ item }}</a-timeline-item>
@@ -53,20 +49,20 @@
       </a-row>
 
       <!-- Find Us -->
-      <a-row class="home__row home__contactus" type="flex" justify="center" align="middle">
-        <a-col class="home__contactus-col" :span="16">
-          <h3>{{ findUsTitle }}</h3>
+      <a-row class="home_findus" type="flex" justify="center" align="middle">
+        <a-col :span="16">
+          <h4>{{ findUsTitle }}</h4>
 
           <p v-html="findUsSubtitle"></p>
 
           <a-row type="flex" justify="center" align="middle">
-            <a-col class="home__contactus-col-icon" :span="1">
+            <a-col class="findus_icon-container" :span="1">
               <a href="https://www.instagram.com/wed.wed.weddings/">
                 <a-icon type="instagram" />
               </a>
             </a-col>
 
-            <a-col class="home__contactus-col-icon" :span="1">
+            <a-col class="findus_icon-container" :span="1">
               <a href="https://www.facebook.com/plan.your.wwwedding">
                 <a-icon type="facebook" />
               </a>
@@ -147,124 +143,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.home__container {
-  background: none;
-}
-
-/* Main */
-.home__main {
-  height: 85vh;
-}
-
-.home__main h1 {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 6rem;
-  font-weight: bold;
-  line-height: 6rem;
-  text-align: center;
-  text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.35);
-}
-
-.home__main h3 {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 2rem;
-  text-align: center;
-  text-shadow: 0px 0px 12px rgba(0, 0, 0, 0.35);
-}
-
-.home__title__detail {
-  filter: drop-shadow(0 0 0.2rem #e1e9f2);
-}
-
-.home__button-container {
-  margin: 64px 0;
-  text-align: center;
-}
-
-.home__button {
-  background-color: transparent;
-  border: 1px solid #db8979;
-  color: #db8979;
-}
-
-.home__button:hover {
-  background-color: #db8979 !important;
-  color: white;
-}
-
-/* Why Us */
-.home__whyus {
-  background-color: white;
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0% 88%);
-  padding: 72px 0;
-}
-
-.home__whyus h2 {
-  color: #4185a4;
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 2rem;
-  margin-bottom: 64px;
-  text-align: center;
-}
-
-.home__whyus-text {
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 1.1rem !important;
-  line-height: 1.25rem;
-}
-
-.home__whyus-sub-col:first-child {
-  text-align: right;
-}
-
-.home__whyus-free {
-  color: #4185a4;
-  font-size: 8rem;
-  font-weight: bold;
-  line-height: 8rem;
-  padding-bottom: 16px;
-}
-
-/* Contact Us */
-.home__contactus {
-  background-color: #db8979;
-  padding: 72px 0;
-}
-
-.home__contactus h3 {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 2rem;
-  font-weight: bold;
-  line-height: 2rem;
-  text-align: center;
-  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-}
-
-.home__contactus p {
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.25rem;
-  line-height: 1.5rem;
-  text-align: center;
-}
-
-.home__contactus-col-icon {
-  margin: 16px 0;
-  text-align: center;
-}
-
-.home__contactus-col-icon a {
-  color: white;
-  font-size: 1.75rem;
-  text-align: center;
-  transition: all 300ms;
-}
-
-.home__contactus-col-icon a:hover {
-  color: #f3dfd0;
-}
-</style>

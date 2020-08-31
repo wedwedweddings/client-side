@@ -3,7 +3,11 @@
     <!-- Logo -->
     <a-col :span="8">
       <router-link :to="{ name: 'home' }">
-        <img id="header__logo" src="@/assets/images/logo.png" :alt="logoAlt" />
+        <img
+          id="header__logo"
+          src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598891031/wedwedweddings.com/logo/logo-white_jblnr0.png"
+          :alt="logoAlt"
+        />
       </router-link>
     </a-col>
 
@@ -51,7 +55,7 @@ export default {
   name: "MainNavBar",
   props: ["isLoggedIn"],
   data: () => ({
-    showPrivate: false
+    showPrivate: false,
   }),
   methods: {
     onLogOut() {
@@ -60,7 +64,7 @@ export default {
       this.$route.path === "/"
         ? this.$router.push("/home")
         : this.$router.push("/");
-    }
+    },
   },
   computed: {
     showLoginButon() {
@@ -95,13 +99,13 @@ export default {
       return this.$root.$options.languages.lang.common.mainNavBar.menu.logOut[
         this.$root.$options.languages.current
       ];
-    }
+    },
   },
   watch: {
     isLoggedIn(value) {
       this.showPrivate = value;
-    }
-  }
+    },
+  },
 };
 </script>
 

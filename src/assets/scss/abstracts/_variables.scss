@@ -22,6 +22,9 @@ $color-grey-super-light: #f3f3f3;
 $color-white: #fff;
 $color-black: #000;
 
+$color-white-transparent: rgba(#fff, 0.75);
+$color-black-transparent: rgba(#000, 0.75);
+
 // Font settings
 $default-font-size: 1.6rem;
 
@@ -32,5 +35,5 @@ $gutter-vertical-small: 6rem;
 $gutter-horizontal: 6rem;
 
 // Sizes
-$header-height: 33vh;
-$footer-height: 20vh;
+$header-height: 72px;
+$footer-height: 48px;

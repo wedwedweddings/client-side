@@ -1,9 +1,31 @@
 #main-footer {
   background-color: $color-grey-dark;
-  height: 20vh;
+  height: $footer-height;
+  padding: 1rem 2rem;
+  text-align: center;
   width: 100vw;
 
-  @include respond(phone) {
-    height: 16vh;
+  & p {
+    color: $color-white;
+
+    & a {
+      color: $color-primary;
+      font-weight: bold;
+      transition: all 300ms;
+
+      &:hover {
+        text-shadow: 0 0 4px rgba($color-primary, 0.5);
+      }
+    }
+
+    & .icon--heart {
+      cursor: pointer;
+      transition: 300ms all;
+
+      &:hover {
+        color: $color-secondary;
+        filter: drop-shadow(0 0 4px $color-quaternary);
+      }
+    }
   }
 }

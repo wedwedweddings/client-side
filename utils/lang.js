@@ -63,8 +63,8 @@ export const lang = {
     },
     main: {
       subtitle: {
-        en: `Your special day starts <span class="home__title__detail">here</span> and <span class="home__title__detail">now</span>`,
-        es: `Tu día especial empieza <span class="home__title__detail">aquí</span> y <span class="home__title__detail">ahora</span>`,
+        en: `Your special day starts <span class="heading--detail">here</span> and <span class="heading--detail">now</span>`,
+        es: `Tu día especial empieza <span class="heading--detail">aquí</span> y <span class="heading--detail">ahora</span>`,
       },
       button: {
         en: 'Start now',

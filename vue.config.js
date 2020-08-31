@@ -28,9 +28,24 @@ module.exports = {
         },
         javascriptEnabled: true,
       },
-      /*scss: {
-        prependData: `@import "@/assets/scss/main.scss";`,
-      },*/
+      scss: {
+        prependData: `@import '@/assets/scss/abstracts/mixins.scss';`,
+        prependData: `@import '@/assets/scss/abstracts/variables.scss';`,
+
+        prependData: `@import '@/assets/scss/base/animations.scss';`,
+        prependData: `@import '@/assets/scss/base/base.scss';`,
+        prependData: `@import '@/assets/scss/base/typography.scss';`,
+
+        prependData: `@import '@/assets/scss/components/button.scss';`,
+
+        prependData: `@import '@/assets/scss/layout/content.scss';`,
+        prependData: `@import '@/assets/scss/layout/footer.scss';`,
+        prependData: `@import '@/assets/scss/layout/header.scss';`,
+
+        prependData: `@import '@/assets/scss/pages/index.scss';`,
+
+        prependData: `@import '@/assets/scss/main.scss';`,
+      },
     },
   },
 }
