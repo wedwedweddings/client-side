@@ -5,21 +5,76 @@ import { joinParamsAsString } from '../../utils/utils'
 import { xmlhttprequest as xhr } from '../../utils/xmlhttprequest'
 
 /**
- * ✔️ Actions by logged in users
+ * ⛔ Actions by NOT logged in users
  */
-export const getAllInWedding = () => {
+
+export const guestGetsOwnDataById = (guestId) => {
+  return new Promise((resolve, reject) => {
+    // Check params
+    if (!guestId) {
+      reject('Guest ID required!')
+    }
+
+    // Request
+    xhr({
+      method: 'GET',
+      url: `${process.env.VUE_APP_API}companion/own-data/${guestId}`,
+      async: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((data) => {
+        resolve(JSON.parse(data).data.guest)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
+export const guestUpdatesOwnDataById = (guestId, params) => {
+  return new Promise((resolve, reject) => {
+    // Check params
+    if (!guestId || !params) {
+      reject('Guest ID and body are required!')
+    }
+
+    params.accepted = false
+
+    let body = joinParamsAsString(params)
+
+    // Request
+    xhr({
+      method: 'PATCH',
+      url: `${process.env.VUE_APP_API}companion/own-data/${guestId}`,
+      async: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      body,
+    })
+      .then((data) => {
+        resolve(JSON.parse(data).data.guest)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
+export const guestGetsCompanionsById = (guestId) => {
   // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
-    if (!localStorage.weddingId) {
-      reject('Wedding ID in localStorage not found!')
+    if (!guestId) {
+      reject('GuestId param are required!')
     }
 
     xhr({
       method: 'GET',
-      url: `${process.env.VUE_APP_API}guest/all-in-wedding/${localStorage.weddingId}`,
+      url: `${process.env.VUE_APP_API}companion/${guestId}`,
       async: true,
-      credentials: true,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',
       },
@@ -33,78 +88,29 @@ export const getAllInWedding = () => {
   })
 }
 
-export const getOneInWedding = (guestId) => {
-  // Request
-  return new Promise((resolve, reject) => {
-    // Check Wedding Id in local storage
-    if (!localStorage.weddingId || !guestId) {
-      reject('Wedding ID in localStorage and guestId param are required!')
-    }
-
-    xhr({
-      method: 'GET',
-      url: `${process.env.VUE_APP_API}guest/one-in-wedding/${localStorage.weddingId}/${guestId}`,
-      async: true,
-      credentials: true,
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
-    })
-      .then((data) => {
-        resolve(JSON.parse(data).data.guest)
-      })
-      .catch((error) => {
-        reject(error)
-      })
-  })
-}
-
-export const add = (params) => {
-  // Request
-  return new Promise((resolve, reject) => {
-    // Check Wedding Id in local storage
-    if (!params || !localStorage.weddingId) {
-      reject('Wedding ID in localStorage not found!')
-    }
-
-    params.weddingId = localStorage.weddingId
-    let body = joinParamsAsString(params)
-
-    // Request
-    xhr({
-      method: 'POST',
-      url: `${process.env.VUE_APP_API}guest`,
-      async: true,
-      credentials: true,
-      headers: {
-        'Content-type': 'application/x-www-form-urlencoded',
-      },
-      body,
-    })
-      .then((data) => {
-        resolve(JSON.parse(data).data.guest)
-      })
-      .catch((error) => {
-        reject(error)
-      })
-  })
-}
-
-export const updateById = (guestId, params) => {
+export const guestUpdatesCompanion = (guestId, prev, params, mainGuest) => {
   return new Promise((resolve, reject) => {
     // Check params
-    if (!guestId || !params) {
+    if (!guestId || !prev || !params) {
       reject('Guest ID and body are required!')
     }
+
+    if (!prev.fullName || !prev.menu) {
+      reject('Previous companion fullName and menu required!')
+    }
+
+    params.relative = mainGuest.relative
+    params.weddingId = mainGuest.weddingId
+    params.accepted = false
+    params.assistance = mainGuest.assistance
 
     let body = joinParamsAsString(params)
 
     // Request
     xhr({
       method: 'PATCH',
-      url: `${process.env.VUE_APP_API}guest/${guestId}`,
+      url: `${process.env.VUE_APP_API}companion/${guestId}/${prev.fullName}/${prev.menu}`,
       async: true,
-      credentials: true,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',
       },
@@ -119,19 +125,22 @@ export const updateById = (guestId, params) => {
   })
 }
 
-export const deleteById = (guestId) => {
+export const guestDeletesCompanion = (guestId, prev) => {
   return new Promise((resolve, reject) => {
     // Check params
-    if (!guestId) {
-      reject('Guest ID required!')
+    if (!guestId || !prev) {
+      reject('Guest ID and body are required!')
+    }
+
+    if (!prev.fullName || !prev.menu) {
+      reject('Previous companion fullName and menu required!')
     }
 
     // Request
     xhr({
       method: 'DELETE',
-      url: `${process.env.VUE_APP_API}guest/${guestId}`,
+      url: `${process.env.VUE_APP_API}companion/${guestId}/${prev.fullName}/${prev.menu}`,
       async: true,
-      credentials: true,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',
       },

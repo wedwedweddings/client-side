@@ -1,8 +1,8 @@
 <template>
   <a-list-item-meta :description="getGuestDescription(guest)">
-    <a-badge style="margin-right:8px;" :status="badgeColor(guest.assistance)" slot="title">
+    <a-badge style="margin-right:8px;" :status="badgeColor(guest.accepted)" slot="title">
       <a-avatar
-        :style="avatarStyle()"
+        :style="avatarStyle(guest.assistance)"
         size="small"
       >{{ guest.relative === 1 ? "1" : guest.relative === 2 ? "2" : "1·2" }}</a-avatar>
     </a-badge>
@@ -28,7 +28,6 @@ import { getDescription as ggd, getMenu as ggm } from "../../controllers/guest";
 import { deleteById } from "../../models/guest";
 
 // Utils
-import colors from "../../../utils/colors";
 import emojis from "../../../utils/emojis";
 
 export default {
@@ -36,7 +35,7 @@ export default {
   props: ["guest"],
   data: () => ({
     emojis,
-    ref: this
+    ref: this,
   }),
   computed: {
     // Lang
@@ -51,20 +50,28 @@ export default {
     deleteSuccess() {
       return this.$root.$options.languages.lang.gettingStarted.guest
         .deleteSuccess[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
-    avatarStyle() {
-      return `background:${colors.terracotta.hex}; color:${colors.parchment.hex}; fontSize:10px; fontWeight:bold;`;
-    },
-    badgeColor(assistance) {
-      if (assistance === "yes") {
-        return "success";
-      } else if (assistance === "no") {
-        return "error";
+    avatarStyle(assistance) {
+      let color = "#52c41a";
+
+      switch (assistance) {
+        case "yes":
+          color = "#52c41a";
+          break;
+        case "no":
+          color = "#f5222d";
+          break;
+        case "pending":
+          color = "#faad14";
+          break;
       }
 
-      return "warning";
+      return `background:${color}; color:white; fontSize:10px; fontWeight:bold;`;
+    },
+    badgeColor(accepted) {
+      return accepted ? "success" : "warning";
     },
     async delete() {
       try {
@@ -94,7 +101,7 @@ export default {
         cancelText: "No",
         onOk() {
           ref.delete();
-        }
+        },
       });
     },
     onUpdate() {
@@ -114,10 +121,10 @@ export default {
       }
 
       return "";
-    }
+    },
   },
   beforeMount() {
     this.ref = this;
-  }
+  },
 };
 </script>

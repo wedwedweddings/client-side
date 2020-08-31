@@ -34,7 +34,12 @@
     <h4>¿Asistirás?</h4>
 
     <a-form-model-item class="guest-landing-form__item">
-      <a-radio-group button-style="solid" default-value="yes">
+      <a-radio-group
+        button-style="solid"
+        default-value="yes"
+        v-model="value.assistance"
+        :change="onChange"
+      >
         <a-radio-button value="yes">{{ getAssistance("yes") }}</a-radio-button>
         <a-radio-button value="no">{{ getAssistance("no") }}</a-radio-button>
         <a-radio-button value="pending">{{ getAssistance("pending") }}</a-radio-button>

@@ -19,7 +19,7 @@
     </a-form-model-item>
 
     <a-form-model-item>
-      <a-button style="float: right;" size="small" @click="setTotalCompanionBlocks('delete')">
+      <a-button style="float: right;" size="small" @click="onRemove()">
         {{ deleteCompanion}}
         <a-icon type="user-delete" />
       </a-button>
@@ -67,6 +67,11 @@ export default {
         companion: this.companion,
         index: this.index,
       });
+    },
+
+    // Remove companion
+    onRemove() {
+      this.$emit("remove", this.index);
     },
 
     // Menu
