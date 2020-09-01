@@ -1,0 +1,54 @@
+section.tables-planner_container {
+  background-image: linear-gradient(to left top, rgba($color-primary, 0.95), rgba($color-secondary, 0.95)),
+    url(https://res.cloudinary.com/wedwedweddings/image/upload/v1598890883/wedwedweddings.com/images/bg_yv8vld.jpg);
+  background-position: top center;
+  background-size: cover;
+  min-height: $min-height;
+  padding-top: $header-height * 2;
+
+  // Side
+  & aside.tables-planner_sider.ant-layout-sider {
+    padding: 0 16px 0 32px;
+
+    @include respond(tab-land) {
+      padding: 0 8px 0 16px;
+    }
+
+    @include respond(phone) {
+      padding: 0 16px;
+      margin-bottom: 3rem;
+    }
+  }
+
+  // Content
+  & .tables-planner_content {
+    padding: 0 32px 0 16px;
+
+    & .ant-col {
+      & .weddings_card {
+        height: 100%;
+
+        & .tables-planner_row {
+          margin-bottom: 16px;
+        }
+
+        @include respond(phone) {
+          min-height: 415px;
+        }
+      }
+    }
+
+    @include respond(tab-land) {
+      padding: 0 16px 0 8px;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  @include respond(phone) {
+    min-height: $min-height-mobile;
+    padding-top: $header-height-mobile;
+  }
+}

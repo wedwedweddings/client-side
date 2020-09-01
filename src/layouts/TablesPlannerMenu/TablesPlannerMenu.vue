@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="tables-planner-menu_container">
     <!-- CateringCalculator -->
     <CateringCalculator :content="guests" />
 
@@ -42,12 +42,12 @@ export default {
   components: {
     CateringCalculator,
     MenuGuestList,
-    MenuPresentList
+    MenuPresentList,
   },
   props: ["filters", "guests", "presents"],
   data: () => ({
     colors,
-    emojis
+    emojis,
   }),
   methods: {
     // Guest
@@ -72,26 +72,7 @@ export default {
     },
     onUpdatePresent(present) {
       this.$emit("updatePresent", present);
-    }
-  }
+    },
+  },
 };
 </script>
-
-<style scoped>
-.tables-planner-menu__divider {
-  color: #e1e9f2;
-}
-
-.tables-planner-menu__span {
-  color: #e1e9f2;
-  margin-right: 8px;
-}
-
-.tables-planner-menu__span-current-table {
-  border: 1px solid #e1e9f2;
-  border-radius: 2px;
-  color: #e1e9f2;
-  font-weight: bold;
-  padding: 0 4px;
-}
-</style>

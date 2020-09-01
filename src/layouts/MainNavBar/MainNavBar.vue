@@ -13,33 +13,30 @@
 
     <!-- Menu -->
     <a-col class="header_menu-container" :span="16">
-      <!-- Private -->
-      <a-menu class="header_menu" mode="horizontal" v-if="showPrivate">
-        <a-sub-menu>
-          <span slot="title">
-            <a-icon type="user" />
-            {{ mainNavBarMenuProfile }}
-          </span>
-
-          <a-menu-item key="guests">
-            <router-link :to="{ name: 'tables-planner' }">{{ mainNavBarMenuTablesPlanner }}</router-link>
-          </a-menu-item>
-
-          <a-menu-item key="logout" @click="onLogOut">{{ mainNavBarMenuLogOut }}</a-menu-item>
-        </a-sub-menu>
-      </a-menu>
-
-      <!-- Public -->
       <a-menu class="header_menu" mode="horizontal">
+        <!-- Public -->
         <a-menu-item key="faq">
           <router-link :to="{ name: 'faq' }">
-            <a-icon type="question" />
             {{ mainNavBarMenuFaq }}
+            <a-icon type="question" />
           </router-link>
         </a-menu-item>
 
-        <a-menu-item key="login" class="item--primary" v-if="!showPrivate && showLoginButon">
+        <a-menu-item key="login" class="item--primary" v-if="!isLoggedIn && showLoginButon">
           <router-link :to="{ name: 'login' }">{{ mainNavBarMenuLogin }}</router-link>
+        </a-menu-item>
+
+        <!-- Private -->
+        <a-menu-item key="tables-planner" v-if="isLoggedIn">
+          <router-link :to="{ name: 'tables-planner' }">
+            {{ mainNavBarMenuTablesPlanner }}
+            <a-icon type="control" />
+          </router-link>
+        </a-menu-item>
+
+        <a-menu-item key="logout" v-if="isLoggedIn" @click="onLogOut">
+          {{ mainNavBarMenuLogOut }}
+          <a-icon type="logout" />
         </a-menu-item>
       </a-menu>
     </a-col>
@@ -49,13 +46,10 @@
 <script>
 export default {
   name: "MainNavBar",
-  props: ["isLoggedIn"],
-  data: () => ({
-    showPrivate: false,
-  }),
   methods: {
     onLogOut() {
       localStorage.clear();
+
       this.showPrivate = false;
       this.$route.path === "/"
         ? this.$router.push("/home")
@@ -63,6 +57,9 @@ export default {
     },
   },
   computed: {
+    isLoggedIn() {
+      return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
+    },
     showLoginButon() {
       return this.$route.path !== "/login";
     },
@@ -97,10 +94,8 @@ export default {
       ];
     },
   },
-  watch: {
-    isLoggedIn(value) {
-      this.showPrivate = value;
-    },
+  created() {
+    console.log(this.isLoggedIn);
   },
 };
 </script>

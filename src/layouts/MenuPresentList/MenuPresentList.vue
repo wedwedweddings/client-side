@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div class="menu-present-list_container">
     <!-- Divider -->
-    <a-divider orientation="left">
-      <span class="settings-presents__divider">{{ presentsTitle }}</span>
-
+    <a-divider class="divider" orientation="left">
+      {{ presentsTitle }}
       <a-tag :color="colors.lakeshore.hex">
         <strong>{{ presents.length }}</strong>
         {{ emojis.gift }}
       </a-tag>
 
-      <a-button size="small" type="primary" ghost @click="onPresentModal">{{ addButton }}</a-button>
+      <a-button
+        class="btn-add"
+        size="small"
+        type="primary"
+        ghost
+        @click="onPresentModal"
+      >{{ addButton }}</a-button>
     </a-divider>
 
     <!-- Presents List -->
@@ -45,7 +50,7 @@ import emojis from "../../../utils/emojis";
 export default {
   name: "MenuPresentList",
   components: {
-    Present
+    Present,
   },
   props: ["content"],
   data: () => ({
@@ -53,7 +58,7 @@ export default {
     distance: 10,
     emojis,
     presents: [],
-    show: true
+    show: true,
   }),
   computed: {
     // Lang
@@ -66,7 +71,7 @@ export default {
       return this.$root.$options.languages.lang.tablesPlanner.menu.addButton[
         this.$root.$options.languages.current
       ];
-    }
+    },
   },
   methods: {
     onDeleted(presentId) {
@@ -77,13 +82,13 @@ export default {
     },
     onUpdate(present) {
       this.$emit("updatePresent", present);
-    }
+    },
   },
   watch: {
     content() {
       this.presents = this.content ? this.content : [];
-    }
-  }
+    },
+  },
 };
 </script>
 

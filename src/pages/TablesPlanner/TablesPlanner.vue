@@ -1,5 +1,5 @@
 <template>
-  <a-layout class="tables-planner__container">
+  <a-layout class="tables-planner_container">
     <!-- Modals -->
     <TablesPlannerModal
       :formType="currentModal"
@@ -11,7 +11,7 @@
     />
 
     <!-- Menu -->
-    <a-layout-sider class="tables-planner__sider" width="350px">
+    <a-layout-sider class="tables-planner_sider" :width="siderWidth">
       <TablesPlannerMenu
         :filters="filters"
         :guests="guests"
@@ -27,56 +27,46 @@
     </a-layout-sider>
 
     <!-- Content -->
-    <a-layout-content class="tables-planner__content">
-      <a-row type="flex" justify="space-around">
-        <!-- Tables Planner -->
-        <a-col :span="22">
-          <a-card
-            class="tables-planner__card"
-            :title="plannerTitle"
-            :bordered="false"
-          >
-            <!-- Buttons -->
-            <a-button
-              size="small"
-              slot="extra"
-              type="primary"
-              ghost
-              @click="onAddTable"
-              >{{ addTableButton }}</a-button
-            >
+    <a-layout-content class="tables-planner_content" v-if="siderWidth !== '100vw'">
+      <a-card class="weddings_card" :title="plannerTitle" :bordered="false">
+        <!-- Buttons -->
+        <a-button
+          size="small"
+          slot="extra"
+          type="primary"
+          ghost
+          @click="onAddTable"
+        >{{ addTableButton }}</a-button>
 
-            <!-- Tables -->
-            <a-row
-              type="flex"
-              justify="space-around"
-              class="tables-planner__row"
-              v-for="(r, i) in totalRows"
-              :key="`tables-planner__r-${i}`"
-            >
-              <a-col
-                v-for="(c, j) in totalCols(i)"
-                :key="`tables-planner__r-${i}--t-${tableIndex(i, j)}`"
-                :span="colSpan"
-              >
-                <TableCircle
-                  :alias="`tables-planner__r-${i}--t-${tableIndex(i, j)}`"
-                  :currentTable="currentTable"
-                  :filters="filters"
-                  :guests="guests"
-                  :tableIndex="tableIndex(i, j)"
-                  :maxSeatsPerTable="maxSeatsPerTable"
-                  :seatsPerTable="seatsPerTable"
-                  @changeInputSeats="onChangeInputSeats"
-                  @deleteTable="onDeleteTable"
-                  @tableCircle="onTableCircle"
-                  @updatedGuest="onUpdatedGuest"
-                />
-              </a-col>
-            </a-row>
-          </a-card>
-        </a-col>
-      </a-row>
+        <!-- Tables -->
+        <a-row
+          type="flex"
+          justify="space-around"
+          class="tables-planner_row"
+          v-for="(r, i) in totalRows"
+          :key="`tables-planner__r-${i}`"
+        >
+          <a-col
+            v-for="(c, j) in totalCols(i)"
+            :key="`tables-planner__r-${i}--t-${tableIndex(i, j)}`"
+            :span="colSpan"
+          >
+            <TableCircle
+              :alias="`tables-planner__r-${i}--t-${tableIndex(i, j)}`"
+              :currentTable="currentTable"
+              :filters="filters"
+              :guests="guests"
+              :tableIndex="tableIndex(i, j)"
+              :maxSeatsPerTable="maxSeatsPerTable"
+              :seatsPerTable="seatsPerTable"
+              @changeInputSeats="onChangeInputSeats"
+              @deleteTable="onDeleteTable"
+              @tableCircle="onTableCircle"
+              @updatedGuest="onUpdatedGuest"
+            />
+          </a-col>
+        </a-row>
+      </a-card>
     </a-layout-content>
   </a-layout>
 </template>
@@ -120,6 +110,7 @@ export default {
     presents: [],
     presentToUpdate: {},
     seatsPerTable: [],
+    siderWitdh: "25vw",
     tablesPerRow: 4,
     tablesPlannerId: "",
   }),
@@ -152,6 +143,8 @@ export default {
   },
   methods: {
     async init() {
+      this.siderWidth = this.calcSiderWidth();
+
       try {
         // Get last User Wedding created and set id in localStorage
         await getLast();
@@ -185,6 +178,17 @@ export default {
       } catch (error) {
         console.error("Error: Get seats per table in Wedding:", error);
       }
+    },
+    calcSiderWidth() {
+      if (window.innerWidth <= 600) {
+        return "100vw";
+      }
+
+      if (window.innerWidth <= 1200) {
+        return "40vw";
+      }
+
+      return "25vw";
     },
     onCloseModal() {
       this.guestToUpdate = {};
@@ -269,6 +273,11 @@ export default {
         : this.seatsPerTable.length % this.tablesPerRow;
     },
   },
+  created() {
+    window.addEventListener("resize", () => {
+      this.siderWidth = this.calcSiderWidth();
+    });
+  },
   beforeMount() {
     this.init();
   },
@@ -282,28 +291,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.tables-planner__container {
-  background: none;
-  min-height: 90vh;
-}
-
-.tables-planner__sider {
-  margin: 0 32px;
-  padding: 32px 0;
-}
-
-.tables-planner__content {
-  padding: 32px 16px;
-}
-
-.tables-planner__card {
-  border-radius: 4px;
-  width: 100%;
-}
-
-.tables-planner__row {
-  margin-bottom: 16px;
-}
-</style>

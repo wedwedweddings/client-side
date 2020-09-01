@@ -7,9 +7,18 @@
     padding-bottom: 20rem;
     width: 100%;
 
+    // Form
     & .login_forms {
       & .weddings_card {
-        min-height: 415px;
+        height: 100%;
+
+        @include respond(phone) {
+          min-height: 415px;
+        }
+      }
+
+      @include respond(tab-port) {
+        width: 60%;
       }
 
       @include respond(phone) {

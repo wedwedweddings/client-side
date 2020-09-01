@@ -2,7 +2,7 @@
   <div id="app">
     <a-layout id="main-layout">
       <a-layout-header id="main-header">
-        <MainNavBar :isLoggedIn="isLoggedIn" />
+        <MainNavBar />
       </a-layout-header>
 
       <a-layout-content id="main-content">
@@ -26,11 +26,6 @@ export default {
   components: {
     MainFooter,
     MainNavBar,
-  },
-  computed: {
-    isLoggedIn() {
-      return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
-    },
   },
 };
 </script>

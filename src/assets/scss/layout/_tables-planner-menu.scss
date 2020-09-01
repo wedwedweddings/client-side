@@ -1,0 +1,69 @@
+div.tables-planner-menu_container {
+  & .divider {
+    &::before {
+      border-color: $color-white;
+    }
+
+    &::after {
+      border-color: $color-white;
+    }
+  }
+
+  & .btn-add {
+    color: $color-white;
+    border-color: $color-white;
+
+    &:hover {
+      background-color: $color-white !important;
+      border-color: $color-white;
+      color: $color-secondary;
+    }
+  }
+
+  & > [class$='_container'] {
+    background-color: $color-primary-super-dark;
+    border-radius: 8px;
+    box-shadow: 0 1rem 1rem rgba($color-black, 0.2);
+    margin-bottom: 1.2rem;
+    padding: 1rem;
+  }
+
+  & .anticon-delete {
+    transition: all 300ms;
+
+    &:hover {
+      color: $color-error;
+    }
+  }
+
+  & .catering-calculator_container {
+    & > .ant-row-flex {
+      margin-bottom: 4px !important;
+    }
+
+    & .catering-calculator_span-total {
+      border: 1px solid $color-white;
+      border-radius: 2px;
+      color: $color-white;
+      font-weight: bold;
+      padding: 0 4px;
+    }
+
+    & .catering-calculator_span-menu {
+      color: $color-white;
+      margin-right: 4px;
+    }
+  }
+
+  & .menu-guest-list_container {
+    & .tag {
+      cursor: pointer;
+      float: left;
+      margin-bottom: 4px;
+
+      &:hover {
+        background-color: $color-secondary !important;
+      }
+    }
+  }
+}

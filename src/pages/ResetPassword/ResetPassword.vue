@@ -1,14 +1,13 @@
 <template>
-  <a-row type="flex" justify="space-around" align="middle">
-    <a-col span="8">
-      <a-card class="reset-password__card" :bordered="false" :title="title">
-        <ResetPasswordForm
-          :resetPasswordToken="resetPasswordToken"
-          @reseted="onReseted"
-        />
-      </a-card>
-    </a-col>
-  </a-row>
+  <div class="reset-password_container">
+    <a-row type="flex" justify="space-around" align="middle">
+      <a-col class="reset-password_forms" span="8">
+        <a-card class="weddings_card" :bordered="false" :title="title">
+          <ResetPasswordForm :resetPasswordToken="resetPasswordToken" @reseted="onReseted" />
+        </a-card>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script>
@@ -53,11 +52,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.reset-password__card {
-  border-radius: 4px;
-  margin: 32px 0;
-  width: 100%;
-}
-</style>

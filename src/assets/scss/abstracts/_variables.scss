@@ -25,6 +25,12 @@ $color-black: #000;
 $color-white-transparent: rgba(#fff, 0.75);
 $color-black-transparent: rgba(#000, 0.75);
 
+$color-error: #f5222d;
+$color-error-light: #ffccc7;
+
+$color-success: #a0d911;
+$color-success-light: #f4ffb8;
+
 $color-warning: #ffe58f;
 $color-warning-light: #ffe58f;
 
@@ -44,5 +50,5 @@ $header-height-mobile: $header-height * 2.5;
 $footer-height: 48px;
 $footer-height-mobile: $footer-height * 1.5;
 
-$min-height: calc(100vh - #{$footer-height});
-$min-height-mobile: calc(100vh - #{$footer-height-mobile});
+$min-height: calc(100vh - #{$footer-height} - 1px);
+$min-height-mobile: calc(100vh - #{$footer-height-mobile} - 1px);

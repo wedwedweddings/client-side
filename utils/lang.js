@@ -514,8 +514,8 @@ export const lang = {
       },
     },
     title: {
-      en: 'Forgot password?',
-      es: '¿Has olvidado la contraseña?',
+      en: '🤔 Forgot password?',
+      es: '🤔 ¿Has olvidado la contraseña?',
     },
     button: {
       en: 'Recover password',
@@ -530,8 +530,8 @@ export const lang = {
   resetPassword: {
     meta: {
       title: {
-        en: 'New password',
-        es: 'Nueva contraseña',
+        en: 'Recover password',
+        es: 'Recuperar contraseña',
       },
       description: {
         en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
@@ -540,8 +540,8 @@ export const lang = {
       },
     },
     title: {
-      en: 'Recover password',
-      es: 'Recuperar contraseña',
+      en: '🤐 Recover password',
+      es: '🤐 Recuperar contraseña',
     },
     button: {
       en: 'Change',

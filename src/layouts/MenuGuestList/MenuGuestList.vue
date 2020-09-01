@@ -1,15 +1,20 @@
 <template>
-  <div>
+  <div class="menu-guest-list_container">
     <!-- Divider -->
-    <a-divider orientation="left">
-      <span class="settings-guests__divider">{{ guestsTitle }}</span>
-
+    <a-divider class="divider" orientation="left">
+      {{ guestsTitle }}
       <a-tag :color="colors.lakeshore.hex">
         <strong>{{ guests.length }}</strong>
         {{ emojis.diner }}
       </a-tag>
 
-      <a-button size="small" type="primary" ghost @click="onGuestModal">{{ addButton }}</a-button>
+      <a-button
+        class="btn-add"
+        size="small"
+        type="primary"
+        ghost
+        @click="onGuestModal"
+      >{{ addButton }}</a-button>
     </a-divider>
 
     <!-- Tags -->
@@ -17,8 +22,8 @@
       <a-col>
         <div v-for="tag in this.tags" :key="tag.id">
           <a-tag
+            class="tag"
             :color="tagColor(tag.id)"
-            style="float:left;margin-bottom:4px;"
             @click="onFilterByTag(tag.id)"
           >{{ translateTag(tag.id) }}</a-tag>
         </div>
@@ -58,7 +63,7 @@ import { tags } from "../../../utils/tags";
 export default {
   name: "MenuGuestList",
   components: {
-    GuestListItem
+    GuestListItem,
   },
   props: ["content", "filters"],
   data: () => ({
@@ -67,7 +72,7 @@ export default {
     emojis,
     guests: [],
     show: true,
-    tags
+    tags,
   }),
   computed: {
     // Lang
@@ -80,7 +85,7 @@ export default {
       return this.$root.$options.languages.lang.tablesPlanner.menu.addButton[
         this.$root.$options.languages.current
       ];
-    }
+    },
   },
   methods: {
     avatarStyle() {
@@ -89,7 +94,7 @@ export default {
     avatarLetters(name) {
       return name
         .split(" ")
-        .map(n => {
+        .map((n) => {
           return n.split("")[0];
         })
         .join("")
@@ -126,15 +131,15 @@ export default {
       return colors.lakeshore.hex;
     },
     translateTag(tag) {
-      const match = this.tags.filter(t => t.id === tag);
+      const match = this.tags.filter((t) => t.id === tag);
       return match[0].name[this.$root.$options.languages.current];
-    }
+    },
   },
   watch: {
     content() {
       this.guests = this.content ? this.content : [];
-    }
-  }
+    },
+  },
 };
 </script>
 

@@ -60,7 +60,7 @@
           border-bottom: 2px solid $color-primary;
         }
 
-        & span {
+        & > span {
           background-color: $color-white !important;
           border-radius: 50%;
           color: $color-primary !important;

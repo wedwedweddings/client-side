@@ -21,10 +21,7 @@ export default {
     // Lang
     steps() {
       const list = [];
-
       const langs = this.$root.$options.languages;
-
-      console.log("langs:", langs.lang.gettingStarted.steps.length);
 
       for (let i = 0; i < langs.lang.gettingStarted.steps.length; i++) {
         list.push({

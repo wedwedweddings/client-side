@@ -142,3 +142,22 @@ body {
     }
   }
 }
+
+// Components
+.weddings_card {
+  & .ant-card-head {
+    @include respond(phone) {
+      text-align: center;
+    }
+  }
+}
+
+// Layout
+section.tables-planner_container {
+  & div.tables-planner-menu_container {
+    .ant-divider-inner-text {
+      color: $color-white;
+      font-size: 1.75rem;
+    }
+  }
+}

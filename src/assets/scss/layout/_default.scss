@@ -1,3 +1,7 @@
 #main-layout {
   min-height: $min-height;
+
+  @include respond(phone) {
+    min-height: $min-height-mobile;
+  }
 }
