@@ -1,7 +1,7 @@
 <template>
-  <a-form :form="form" @submit="onSubmit">
+  <a-form class="weddings_form" :form="form" @submit="onSubmit">
     <!-- Email -->
-    <a-form-item class="login-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'email',
@@ -26,7 +26,7 @@
     </a-form-item>
 
     <!-- Password -->
-    <a-form-item class="login-form__item" has-feedback>
+    <a-form-item class="weddings_form-item" has-feedback>
       <a-input
         v-decorator="[
           'password',
@@ -48,7 +48,7 @@
     </a-form-item>
 
     <!-- Submit -->
-    <a-form-item class="login-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-button type="primary" html-type="submit">{{ button }}</a-button>
     </a-form-item>
 
@@ -134,30 +134,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.divider {
-  margin: 32px 0 8px 0;
-}
-
-.login-form__item {
-  margin-bottom: 8px;
-}
-
-.login-form__shared-password__warning {
-  background-color: #fffbe6;
-  border: 1px solid #ffe58f;
-  border-radius: 4px;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 12px;
-  font-variant: tabular-nums;
-  line-height: 1.5;
-  list-style: none;
-  margin: 0;
-  margin-bottom: 8px;
-  padding: 8px 16px;
-  position: relative;
-  text-align: center;
-  word-wrap: break-word;
-}
-</style>

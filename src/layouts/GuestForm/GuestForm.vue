@@ -1,7 +1,7 @@
 <template>
-  <a-form :form="form" @submit="onGuest">
+  <a-form class="weddings_form" :form="form" @submit="onGuest">
     <!-- Full Name -->
-    <a-form-item class="guest-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'fullName',
@@ -22,7 +22,7 @@
     </a-form-item>
 
     <!-- Relative -->
-    <a-form-item class="guest-form__item">
+    <a-form-item class="weddings_form-item">
       <a-select
         v-decorator="[
           'relative',
@@ -39,7 +39,7 @@
     </a-form-item>
 
     <!-- Menu -->
-    <a-form-item class="guest-form__item">
+    <a-form-item class="weddings_form-item">
       <a-select
         v-decorator="[
           'menu',
@@ -56,7 +56,7 @@
     </a-form-item>
 
     <!-- Email -->
-    <a-form-item class="guest-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'email',
@@ -76,10 +76,10 @@
     </a-form-item>
 
     <!-- Warning -->
-    <p class="guest-form__invitation-email__warning">{{ warningPlaceholder }}</p>
+    <p class="message--warning">{{ warningPlaceholder }}</p>
 
     <!-- Tags -->
-    <a-form-item class="guest-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-checkbox
         style="font-size:12px;"
         :defaultChecked="hasGuest ? isTagSelected(t.id) : false"
@@ -91,7 +91,7 @@
     </a-form-item>
 
     <!-- Add Guest -->
-    <a-form-item class="guest-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-button type="primary" html-type="submit">
         {{ guestButton}}
         <a-icon type="user-add" />
@@ -101,7 +101,7 @@
     <a-divider v-if="visible" />
 
     <!-- Continue -->
-    <a-form-item class="guest-form__item" style="text-align:center;" v-if="visible">
+    <a-form-item class="weddings_form-item" style="text-align:center;" v-if="visible">
       <p>{{ later }}</p>
       <a-button size="small" type="primary" ghost @click="onContinue">{{ continueButton }}</a-button>
     </a-form-item>
@@ -128,20 +128,20 @@ export default {
     spouses: {
       one: {
         fullName: "Cónyuge 1",
-        id: 1
+        id: 1,
       },
       two: {
         fullName: "Cónyuge 2",
-        id: 2
+        id: 2,
       },
       both: {
         emoji: emojis.profile.both,
         fullName: "",
-        id: 0
-      }
+        id: 0,
+      },
     },
     selectedTags: [],
-    tags
+    tags,
   }),
   computed: {
     hasGuest() {
@@ -215,7 +215,7 @@ export default {
     continueButton() {
       return this.$root.$options.languages.lang.gettingStarted.guestsForm
         .continueButton[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     onGuest(e) {
@@ -318,7 +318,7 @@ export default {
           this.selectedTags.push(e.target.value);
         }
       } else {
-        const found = this.selectedTags.findIndex(tag => {
+        const found = this.selectedTags.findIndex((tag) => {
           return tag === e.target.value;
         });
 
@@ -330,9 +330,9 @@ export default {
       this.selectedTags.sort();
     },
     translateTag(tag) {
-      const match = this.tags.filter(t => t.id === tag);
+      const match = this.tags.filter((t) => t.id === tag);
       return match[0].name[this.$root.$options.languages.current];
-    }
+    },
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "guest" });
@@ -356,36 +356,9 @@ export default {
         fullName: this.guestToUpdate.fullName,
         menu: this.guestToUpdate.menu,
         relative: this.guestToUpdate.relative,
-        email: this.guestToUpdate.email
+        email: this.guestToUpdate.email,
       });
     }
-  }
+  },
 };
 </script>
-
-<style scoped>
-.divider {
-  margin: 32px 0 8px 0;
-}
-
-.guest-form__item {
-  margin-bottom: 8px;
-}
-
-.guest-form__invitation-email__warning {
-  background-color: #fffbe6;
-  border: 1px solid #ffe58f;
-  border-radius: 4px;
-  color: rgba(0, 0, 0, 0.65);
-  font-size: 12px;
-  font-variant: tabular-nums;
-  line-height: 1.5;
-  list-style: none;
-  margin: 0;
-  margin-bottom: 8px;
-  padding: 8px 16px;
-  position: relative;
-  text-align: center;
-  word-wrap: break-word;
-}
-</style>

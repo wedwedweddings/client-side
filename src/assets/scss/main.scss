@@ -6,9 +6,16 @@
 @import 'base/typography';
 
 @import 'components/button';
+@import 'components/card';
+@import 'components/form';
+@import 'components/guest-avatar';
+@import 'components/steps';
 
 @import 'layout/content';
 @import 'layout/footer';
 @import 'layout/header';
 
+@import 'pages/forgot-password';
+@import 'pages/getting-started';
 @import 'pages/index';
+@import 'pages/login';

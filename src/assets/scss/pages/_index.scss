@@ -5,13 +5,11 @@
       url(https://res.cloudinary.com/wedwedweddings/image/upload/v1598890883/wedwedweddings.com/images/bg_yv8vld.jpg);
     background-position: top center;
     background-size: cover;
-
-    height: 85vh;
-
-    padding-top: $header-height;
+    box-shadow: inset 0 -1rem 2rem rgba($color-black, 0.2);
+    height: 90vh;
 
     & .button-container {
-      margin: 64px 0;
+      margin: 32px 0;
       text-align: center;
 
       & .button {
@@ -23,9 +21,13 @@
           background-color: $color-white !important;
           color: $color-primary;
           font-weight: bold;
-          box-shadow: 0 4px 1rem $color-black-transparent;
+          box-shadow: 0 4px 1rem rgba($color-black, 0.25);
         }
       }
+    }
+
+    @include respond(phone) {
+      padding-top: $header-height-mobile;
     }
   }
 

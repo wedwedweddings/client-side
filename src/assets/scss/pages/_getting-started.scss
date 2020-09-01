@@ -1,0 +1,62 @@
+.getting-started_container {
+  background-color: $color-secondary;
+  min-height: $min-height;
+  padding-top: $header-height;
+
+  & > div {
+    padding-bottom: 20rem;
+    width: 100%;
+
+    // Steps
+    & .getting-started_steps {
+      @include respond(tab-port) {
+        width: 25%;
+      }
+
+      @include respond(phone) {
+        display: none;
+      }
+    }
+
+    // Forms
+    & .getting-started_forms {
+      & .ant-col {
+        width: 100%;
+      }
+
+      @include respond(tab-port) {
+        width: 60%;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+      }
+    }
+
+    // Guest avatars
+    & .getting-started_guests {
+      position: relative;
+
+      & .weddings_card {
+        height: 100%;
+
+        @include respond(phone) {
+          min-height: 128px;
+        }
+      }
+    }
+
+    @include respond(big-desktop) {
+      @include absCenter();
+    }
+
+    @include respond(phone) {
+      padding-bottom: 0;
+    }
+  }
+
+  @include respond(phone) {
+    min-height: $min-height-mobile;
+    padding-top: $header-height-mobile;
+  }
+}

@@ -1,0 +1,14 @@
+.weddings_card {
+  background-color: $color-white !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2rem 3rem rgba($color-black, 0.15);
+  margin: 32px 0;
+
+  & .ant-card-head-title {
+    color: $color-primary !important;
+  }
+
+  @include respond(phone) {
+    border-radius: 0 !important;
+  }
+}

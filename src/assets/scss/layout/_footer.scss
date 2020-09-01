@@ -2,11 +2,13 @@
   background-color: $color-grey-dark;
   height: $footer-height;
   padding: 1rem 2rem;
+  position: relative;
   text-align: center;
   width: 100vw;
 
   & p {
     color: $color-white;
+    width: 100%;
 
     & a {
       color: $color-primary;
@@ -27,5 +29,11 @@
         filter: drop-shadow(0 0 4px $color-quaternary);
       }
     }
+
+    @include absCenter();
+  }
+
+  @include respond(phone) {
+    height: $footer-height-mobile;
   }
 }

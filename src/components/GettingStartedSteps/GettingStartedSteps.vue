@@ -1,9 +1,10 @@
 <template>
-  <a-steps class="steps__container" direction="vertical" :current="current">
+  <a-steps class="weddings_steps" direction="vertical" progress-dot :current="current">
     <a-step
-      class="steps__step"
+      class="weddings_step"
       :key="index"
-      :title="step"
+      :title="step.title"
+      :description="step.description"
       v-for="(step, index) in steps"
     />
   </a-steps>
@@ -21,16 +22,16 @@ export default {
     steps() {
       const list = [];
 
-      for (
-        let i = 0;
-        i < this.$root.$options.languages.lang.gettingStarted.steps.length;
-        i++
-      ) {
-        list.push(
-          this.$root.$options.languages.lang.gettingStarted.steps[i][
-            this.$root.$options.languages.current
-          ]
-        );
+      const langs = this.$root.$options.languages;
+
+      console.log("langs:", langs.lang.gettingStarted.steps.length);
+
+      for (let i = 0; i < langs.lang.gettingStarted.steps.length; i++) {
+        list.push({
+          title: langs.lang.gettingStarted.steps[i].title[langs.current],
+          description:
+            langs.lang.gettingStarted.steps[i].description[langs.current],
+        });
       }
 
       return list;
@@ -38,13 +39,3 @@ export default {
   },
 };
 </script>
-
-<style>
-.ant-steps-item-title {
-  color: white !important;
-}
-
-.steps__container {
-  padding: 0 0 0 48px;
-}
-</style>

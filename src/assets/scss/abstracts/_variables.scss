@@ -25,6 +25,9 @@ $color-black: #000;
 $color-white-transparent: rgba(#fff, 0.75);
 $color-black-transparent: rgba(#000, 0.75);
 
+$color-warning: #ffe58f;
+$color-warning-light: #ffe58f;
+
 // Font settings
 $default-font-size: 1.6rem;
 
@@ -36,4 +39,10 @@ $gutter-horizontal: 6rem;
 
 // Sizes
 $header-height: 72px;
+$header-height-mobile: $header-height * 2.5;
+
 $footer-height: 48px;
+$footer-height-mobile: $footer-height * 1.5;
+
+$min-height: calc(100vh - #{$footer-height});
+$min-height-mobile: calc(100vh - #{$footer-height-mobile});

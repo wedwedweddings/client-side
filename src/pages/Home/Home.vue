@@ -1,26 +1,21 @@
 <template>
   <div class="home_container">
-    <div>
-      <!-- Main -->
-      <a-row class="home_main" type="flex" justify="center" align="middle">
-        <a-col span="16">
-          <div>
-            <h1 class="heading-primary heading-primary--main" translate="no">
-              Wed Wed
-              <span class="heading--detail" translate="no">Weddings</span>
-            </h1>
+    <!-- Main -->
+    <a-row class="home_main" type="flex" justify="center" align="middle">
+      <a-col span="16">
+        <div>
+          <h1 class="heading-primary heading-primary--main" translate="no">Wed Wed Weddings</h1>
 
-            <h3 class="heading-secondary" v-html="mainSubtitle"></h3>
-          </div>
+          <h3 class="heading-secondary" v-html="mainSubtitle"></h3>
+        </div>
 
-          <div class="button-container">
-            <router-link :to="{ name: 'getting-started' }">
-              <a-button class="button" size="large" ghost>{{ mainButton }}</a-button>
-            </router-link>
-          </div>
-        </a-col>
-      </a-row>
-    </div>
+        <div class="button-container">
+          <router-link :to="{ name: 'getting-started' }">
+            <a-button class="button" size="large" ghost>{{ mainButton }}</a-button>
+          </router-link>
+        </div>
+      </a-col>
+    </a-row>
 
     <div class="home_whyus-container">
       <!-- Why Us -->

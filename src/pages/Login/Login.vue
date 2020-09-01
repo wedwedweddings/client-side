@@ -1,15 +1,13 @@
 <template>
-  <a-layout class="login__container">
-    <a-layout-content>
-      <a-row type="flex" justify="space-around" align="middle">
-        <a-col span="8">
-          <a-card class="login__card" :bordered="false" :title="title">
-            <LoginForm />
-          </a-card>
-        </a-col>
-      </a-row>
-    </a-layout-content>
-  </a-layout>
+  <div class="login_container">
+    <a-row type="flex" justify="space-around" align="middle">
+      <a-col class="login_forms" span="8">
+        <a-card class="weddings_card" :bordered="false" :title="title">
+          <LoginForm />
+        </a-card>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script>
@@ -43,14 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.login__container {
-  background: none;
-}
-
-.login__card {
-  border-radius: 4px;
-  margin: 64px 0;
-}
-</style>

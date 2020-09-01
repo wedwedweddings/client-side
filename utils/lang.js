@@ -131,24 +131,54 @@ export const lang = {
     },
     steps: [
       {
-        en: 'Profile data',
-        es: 'Datos del perfil',
+        title: {
+          en: 'Profile data',
+          es: 'Datos del perfil',
+        },
+        description: {
+          en: 'Sólo necesitamos tu email y una contraseña para comenzar',
+          es: 'Sólo necesitamos tu email y una contraseña para comenzar',
+        },
       },
       {
-        en: 'Wedding data',
-        es: 'Datos de la boda',
+        title: {
+          en: 'Wedding data',
+          es: 'Datos de la boda',
+        },
+        description: {
+          en: 'Contadnos un poco más sobre vosotros',
+          es: 'Contadnos un poco más sobre vosotros',
+        },
       },
       {
-        en: 'Guests',
-        es: 'Invitados',
+        title: {
+          en: 'Guests ⭐',
+          es: 'Invitados ⭐',
+        },
+        description: {
+          en: '¿Quiénes van a ir a la boda?',
+          es: '¿Quiénes van a ir a la boda?',
+        },
       },
       {
-        en: 'Presents',
-        es: 'Regalos',
+        title: {
+          en: 'Presents',
+          es: 'Regalos',
+        },
+        description: {
+          en: '¿Tenéis pensada una lista de regalos?',
+          es: '¿Tenéis pensada una lista de regalos?',
+        },
       },
       {
-        en: 'Start planning',
-        es: 'Empezar a planificar',
+        title: {
+          en: 'Ready?',
+          es: '¿Vamos?',
+        },
+        description: {
+          en: 'Start planning',
+          es: 'Empezar a planificar',
+        },
       },
     ],
     registerForm: {
@@ -159,8 +189,8 @@ export const lang = {
         },
       },
       title: {
-        en: 'Register',
-        es: 'Registro',
+        en: '🗝️ Register',
+        es: '🗝️ Registro',
       },
       placeholders: {
         email: {
@@ -219,13 +249,13 @@ export const lang = {
         },
       },
       title: {
-        en: 'Wedding',
-        es: 'Boda',
+        en: '📝 Wedding',
+        es: '📝 Boda',
       },
       placeholders: {
         spouse1: {
-          en: 'Spouse 1',
-          es: 'Cónyuge 1',
+          en: '❤️ Spouse 1 @ Team 1',
+          es: '❤️ Cónyuge 1 @ Team 1',
         },
         firstName1: {
           en: 'First firstname',
@@ -240,8 +270,8 @@ export const lang = {
           es: 'Elige un emoticono',
         },
         spouse2: {
-          en: 'Spouse 2',
-          es: 'Cónyuge 2',
+          en: '❤️ Spouse 2 @ Team 2',
+          es: '❤️ Cónyuge 2 @ Team 2',
         },
         firstName2: {
           en: 'Second firstname',
@@ -295,8 +325,8 @@ export const lang = {
         },
       },
       title: {
-        en: 'Guests',
-        es: 'Invitados',
+        en: '💃🕺 Guests',
+        es: '💃🕺 Invitados',
       },
       placeholders: {
         fullName: {
@@ -316,8 +346,8 @@ export const lang = {
           es: 'Email del invitado',
         },
         warning: {
-          en: "We'll send an email to this guest to get assistance confirmation.",
-          es: 'Enviaremos un email a este invitado para que confirme su asistencia.',
+          en: "⭐ We'll send an email to this guest to get assistance confirmation ⭐",
+          es: '⭐ Enviaremos un email a este invitado para que confirme su asistencia ⭐',
         },
       },
       validators: {
@@ -385,8 +415,8 @@ export const lang = {
         },
       },
       title: {
-        en: 'Presents',
-        es: 'Regalos',
+        en: '🎁 Presents',
+        es: '🎁 Regalos',
       },
       placeholders: {
         title: {

@@ -1,5 +1,5 @@
 <template>
-  <a-form :form="form" @submit="onSubmit">
+  <a-form class="weddings_form" :form="form" @submit="onSubmit">
     <!-- Spouse 1 -->
     <a-divider
       class="divider"
@@ -7,7 +7,7 @@
     >{{ this.spouses.one.emoji + " " + spouse1Placeholder }}</a-divider>
 
     <!-- First Name 1 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'firstName1',
@@ -21,7 +21,7 @@
     </a-form-item>
 
     <!-- Last Name 1 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'lastName1',
@@ -34,7 +34,7 @@
     </a-form-item>
 
     <!-- Emoji 1 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-select
         v-decorator="[
           'emoji1',
@@ -58,7 +58,7 @@
     >{{ this.spouses.two.emoji + " " + spouse2Placeholder }}</a-divider>
 
     <!-- First Name 2 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'firstName2',
@@ -71,7 +71,7 @@
     </a-form-item>
 
     <!-- Last Name 2 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'lastName2',
@@ -84,7 +84,7 @@
     </a-form-item>
 
     <!-- Emoji 2 -->
-    <a-form-item class="wedding-form__item">
+    <a-form-item class="weddings_form-item">
       <a-select
         v-decorator="[
           'emoji2',
@@ -102,7 +102,7 @@
     </a-form-item>
 
     <!-- Submit -->
-    <a-form-item class="register-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-button type="primary" html-type="submit">{{ continueButton }}</a-button>
     </a-form-item>
   </a-form>
@@ -124,23 +124,23 @@ export default {
         {
           type: "object",
           required: true,
-          message: "Please select time!"
-        }
-      ]
+          message: "Please select time!",
+        },
+      ],
     },
     emojis: emojis,
     spouses: {
       one: {
         emoji: "",
         fullName: "",
-        id: 1
+        id: 1,
       },
       two: {
         emoji: "",
         fullName: "",
-        id: 2
-      }
-    }
+        id: 2,
+      },
+    },
   }),
   computed: {
     // Lang
@@ -207,7 +207,7 @@ export default {
     continueButton() {
       return this.$root.$options.languages.lang.gettingStarted.weddingForm
         .continueButton[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     onChangeEmoji(e) {
@@ -246,20 +246,10 @@ export default {
         // Message
         this.$message.warning("Something failed! Please try again.", 5);
       }
-    }
+    },
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "wedding" });
-  }
+  },
 };
 </script>
-
-<style scoped>
-.divider {
-  margin: 32px 0 8px 0;
-}
-
-.wedding-form__item {
-  margin-bottom: 8px;
-}
-</style>

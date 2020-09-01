@@ -1,10 +1,10 @@
 <template>
   <a-row>
     <!-- Logo -->
-    <a-col :span="8">
+    <a-col class="header_logo-container" :span="8">
       <router-link :to="{ name: 'home' }">
         <img
-          id="header__logo"
+          id="header_logo"
           src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598891031/wedwedweddings.com/logo/logo-white_jblnr0.png"
           :alt="logoAlt"
         />
@@ -12,16 +12,16 @@
     </a-col>
 
     <!-- Menu -->
-    <a-col :span="16">
+    <a-col class="header_menu-container" :span="16">
       <!-- Private -->
-      <a-menu class="header__menu header__menu-private" mode="horizontal" v-if="showPrivate">
+      <a-menu class="header_menu" mode="horizontal" v-if="showPrivate">
         <a-sub-menu>
-          <span slot="title" class="header__menu-private-wrapper">
+          <span slot="title">
             <a-icon type="user" />
             {{ mainNavBarMenuProfile }}
           </span>
 
-          <a-menu-item key="guests" class="header__menu-private-wrapper-submenu-item">
+          <a-menu-item key="guests">
             <router-link :to="{ name: 'tables-planner' }">{{ mainNavBarMenuTablesPlanner }}</router-link>
           </a-menu-item>
 
@@ -30,7 +30,7 @@
       </a-menu>
 
       <!-- Public -->
-      <a-menu class="header__menu" mode="horizontal">
+      <a-menu class="header_menu" mode="horizontal">
         <a-menu-item key="faq">
           <router-link :to="{ name: 'faq' }">
             <a-icon type="question" />
@@ -38,11 +38,7 @@
           </router-link>
         </a-menu-item>
 
-        <a-menu-item
-          key="login"
-          class="header__menu-item__primary"
-          v-if="!showPrivate && showLoginButon"
-        >
+        <a-menu-item key="login" class="item--primary" v-if="!showPrivate && showLoginButon">
           <router-link :to="{ name: 'login' }">{{ mainNavBarMenuLogin }}</router-link>
         </a-menu-item>
       </a-menu>
@@ -108,50 +104,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-span:not(:hover),
-a:not(:hover) {
-  color: rgba(255, 255, 255, 0.65) !important;
-}
-
-.header__menu-private-wrapper-submenu-item a:not(:hover) {
-  color: rgba(0, 0, 0, 0.65) !important;
-}
-
-#header__logo {
-  height: 64px;
-  opacity: 0.95;
-  padding: 12px 0px;
-}
-
-#header__logo-text {
-  color: rgba(255, 255, 255, 0.85) !important;
-  font-size: 16px;
-  font-weight: bold;
-  margin-left: 8px;
-  vertical-align: middle;
-}
-
-.header__menu {
-  background: none;
-  border: none;
-  float: right;
-}
-
-.header__menu-item__primary {
-  background: #4185a4;
-  border: none !important;
-  border-radius: 4px;
-  line-height: 32px;
-  margin: 0px 0px 8px 16px;
-}
-
-.header__menu-item__primary a:hover {
-  color: rgba(255, 255, 255, 0.85) !important;
-}
-
-.header__menu-item__primary:hover {
-  background: #db8979 !important;
-}
-</style>

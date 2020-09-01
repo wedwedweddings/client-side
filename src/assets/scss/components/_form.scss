@@ -1,0 +1,24 @@
+form {
+  &.weddings_form {
+    & .weddings_form-item {
+      margin-bottom: 8px;
+    }
+
+    & .message--warning {
+      background-color: $color-warning-light;
+      border: 1px solid $color-warning;
+      border-radius: 4px;
+      color: rgba($color-black, 0.65);
+      font-size: 12px;
+      font-variant: tabular-nums;
+      line-height: 1.5;
+      list-style: none;
+      margin: 0;
+      margin-bottom: 8px;
+      padding: 8px 16px;
+      position: relative;
+      text-align: center;
+      word-wrap: break-word;
+    }
+  }
+}

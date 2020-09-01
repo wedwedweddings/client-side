@@ -1,7 +1,7 @@
 <template>
-  <a-form :form="form" @submit="onPresent">
+  <a-form class="weddings_form" :form="form" @submit="onPresent">
     <!-- Title -->
-    <a-form-item class="present-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'title',
@@ -15,7 +15,7 @@
     </a-form-item>
 
     <!-- URL -->
-    <a-form-item class="present-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input v-decorator="[
           'url'
         ]" placeholder="URL">
@@ -24,7 +24,7 @@
     </a-form-item>
 
     <!-- Bought by -->
-    <a-form-item class="register-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-select
         :placeholder="boughtByPlaceholder"
         showSearch
@@ -43,7 +43,7 @@
     </a-form-item>
 
     <!-- Add Present -->
-    <a-form-item class="present-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-button type="primary" html-type="submit">
         {{ presentButton }}
         <a-icon type="plus-circle" />
@@ -53,7 +53,7 @@
     <a-divider v-if="visible" />
 
     <!-- Continue -->
-    <a-form-item class="present-form__item" style="text-align:center;" v-if="visible">
+    <a-form-item class="weddings_form-item" style="text-align:center;" v-if="visible">
       <p>{{ later }}</p>
       <a-button size="small" type="primary" ghost @click="onContinue">{{ continueButton }}</a-button>
     </a-form-item>
@@ -74,12 +74,12 @@ export default {
   data: () => ({
     fetching: false,
     guests: [],
-    selectedGuest: ""
+    selectedGuest: "",
   }),
   computed: {
     selectedGuestFullName() {
       if (this.guests.length > 0 && this.selectedGuest !== "") {
-        return this.guests.find(g => {
+        return this.guests.find((g) => {
           return g._id === this.selectedGuest;
         });
       }
@@ -138,7 +138,7 @@ export default {
     continueButton() {
       return this.$root.$options.languages.lang.gettingStarted.presentsForm
         .continueButton[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     onChangeGuest(guest) {
@@ -207,7 +207,7 @@ export default {
           5
         );
       }
-    }
+    },
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "present" });
@@ -223,19 +223,9 @@ export default {
       this.form.setFieldsValue({
         title: this.presentToUpdate.title,
         url: this.presentToUpdate.url,
-        guestId: this.selectedGuest
+        guestId: this.selectedGuest,
       });
     }
-  }
+  },
 };
 </script>
-
-<style scoped>
-.divider {
-  margin: 32px 0 8px 0;
-}
-
-.present-form__item {
-  margin-bottom: 8px;
-}
-</style>

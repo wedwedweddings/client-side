@@ -1,11 +1,13 @@
 <template>
-  <a-row type="flex" justify="space-around" align="middle">
-    <a-col span="8">
-      <a-card class="forgot-password__card" :bordered="false" :title="title">
-        <ForgotPasswordForm />
-      </a-card>
-    </a-col>
-  </a-row>
+  <div class="forgot-password_container">
+    <a-row type="flex" justify="space-around" align="middle">
+      <a-col class="forgot-password_forms" span="8">
+        <a-card class="weddings_card" :bordered="false" :title="title">
+          <ForgotPasswordForm />
+        </a-card>
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script>
@@ -39,11 +41,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.forgot-password__card {
-  border-radius: 4px;
-  margin: 32px 0;
-  width: 100%;
-}
-</style>

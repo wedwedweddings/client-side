@@ -1,7 +1,7 @@
 <template>
-  <a-form :form="form" @submit="onSubmit">
+  <a-form class="weddings_form" :form="form" @submit="onSubmit">
     <!-- Email -->
-    <a-form-item class="forgot-password-form__item">
+    <a-form-item class="weddings_form-item">
       <a-input
         v-decorator="[
           'email',
@@ -26,7 +26,7 @@
     </a-form-item>
 
     <!-- Submit -->
-    <a-form-item class="forgot-password-form__item" style="text-align:center;">
+    <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-button type="primary" html-type="submit">{{ button }}</a-button>
     </a-form-item>
   </a-form>
@@ -57,7 +57,7 @@ export default {
       return this.$root.$options.languages.lang.forgotPassword.submitSuccess[
         this.$root.$options.languages.current
       ];
-    }
+    },
   },
   methods: {
     onSubmit(e) {
@@ -89,16 +89,10 @@ export default {
           5
         );
       }
-    }
+    },
   },
   beforeCreate() {
     this.form = this.$form.createForm(this, { name: "forgot-password" });
-  }
+  },
 };
 </script>
-
-<style scoped>
-.forgot-password-form__item {
-  margin-bottom: 8px;
-}
-</style>

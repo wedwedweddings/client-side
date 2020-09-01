@@ -3,4 +3,83 @@
   height: $header-height;
   position: absolute;
   width: 100vw;
+  z-index: 1;
+
+  & .header_logo-container {
+    & #header_logo {
+      height: $header-height;
+      opacity: 0.95;
+      padding: 8px 0;
+    }
+
+    @include respond(phone) {
+      padding: 3rem 0 0 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+  & .header_menu-container {
+    & .header_menu {
+      background: none;
+      border: none;
+      height: $header-height;
+      padding: 12px 0;
+      text-align: right;
+
+      & li {
+        margin: 0;
+        padding: 0 1.5rem;
+
+        &.item--primary {
+          &:hover {
+            border-bottom: 2px solid transparent;
+          }
+
+          & a {
+            background-color: $color-white !important;
+            border: 1px solid $color-white;
+            border-radius: 4px;
+
+            color: $color-primary !important;
+            padding: 0 16px;
+            transition: all 300ms;
+
+            &:hover {
+              box-shadow: 0 4px 12px rgba($color-black, 0.25);
+              color: $color-secondary !important;
+            }
+          }
+        }
+
+        & a {
+          color: $color-white !important;
+        }
+
+        &:hover {
+          border-bottom: 2px solid $color-primary;
+        }
+
+        & span {
+          background-color: $color-white !important;
+          border-radius: 50%;
+          color: $color-primary !important;
+          padding: 0.8125rem 1.2rem;
+        }
+      }
+    }
+
+    @include respond(phone) {
+      padding: 0 30%;
+      width: 100%;
+
+      & .header_menu {
+        text-align: center;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    height: $header-height-mobile;
+  }
 }
