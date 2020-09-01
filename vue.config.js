@@ -41,18 +41,22 @@ module.exports = {
         prependData: `@import '@/assets/scss/components/form.scss';`,
         prependData: `@import '@/assets/scss/components/guest-avatar.scss';`,
         prependData: `@import '@/assets/scss/components/steps.scss';`,
+        prependData: `@import '@/assets/scss/components/table-circle.scss';`,
 
         prependData: `@import '@/assets/scss/layout/content.scss';`,
         prependData: `@import '@/assets/scss/layout/footer.scss';`,
         prependData: `@import '@/assets/scss/layout/header.scss';`,
         prependData: `@import '@/assets/scss/layout/tables-planner-menu.scss';`,
 
+        prependData: `@import '@/assets/scss/pages/faq.scss';`,
         prependData: `@import '@/assets/scss/pages/forgot-password.scss';`,
         prependData: `@import '@/assets/scss/pages/getting-started.scss';`,
         prependData: `@import '@/assets/scss/pages/index.scss';`,
         prependData: `@import '@/assets/scss/pages/login.scss';`,
+        prependData: `@import '@/assets/scss/pages/privacy-policy.scss';`,
         prependData: `@import '@/assets/scss/pages/reset-password.scss';`,
         prependData: `@import '@/assets/scss/pages/tables-planner.scss';`,
+        prependData: `@import '@/assets/scss/pages/terms-and-conditions.scss';`,
 
         prependData: `@import '@/assets/scss/main.scss';`,
       },

@@ -1,14 +1,14 @@
 <template>
   <div
-    :class="`table-circle__container ${containerClass}`"
+    :class="`table-circle_container ${containerClass}`"
     :style="`width:${width}px;`"
     @click="onTableCircle"
   >
     <!-- Options -->
     <div v-if="isSelected">
-      <a-row class="table-circle__options-row" type="flex" justify="space-around">
+      <a-row class="table-circle_row" type="flex" justify="space-around">
         <a-col span="16">
-          <span style="font-weight:bold;">{{ table + " " + parseInt(currentTable + 1) }}</span>
+          <span>{{ table + " " + parseInt(currentTable + 1) }}</span>
         </a-col>
 
         <a-col span="4" justify="right" v-if="guestsInTable.length > 0">
@@ -22,10 +22,10 @@
     </div>
 
     <!-- List -->
-    <div style="margin-top:8px; max-height:80%; overflow:auto; width:100%;" v-if="!this.showTable">
-      <a-list class="table-circle__list" :dataSource="guestsInTable">
+    <div class="table-circle_list-container" v-if="!this.showTable">
+      <a-list class="table-circle_list" :dataSource="guestsInTable">
         <a-list-item
-          class="table-circle__list-item"
+          class="table-circle_list-item"
           slot="renderItem"
           slot-scope="item"
         >· {{ item.fullName }}</a-list-item>
@@ -34,7 +34,7 @@
 
     <!-- Circle -->
     <div
-      class="table-circle__body"
+      class="table-circle_body"
       :style="`width:${tableWidth}px; height:${tableWidth}px; margin:${tableMargin * 0.5}px ${tableMargin}px; background:${tableColor};`"
       v-if="this.showTable"
     >
@@ -54,11 +54,10 @@
 
     <!-- Seats Input -->
     <div v-if="isSelected && showTable">
-      <a-row class="table-circle__options-row" type="flex" justify="center">
-        <a-col class="table-circle__options-input">
+      <a-row class="table-circle_row" type="flex" justify="center">
+        <a-col>
           <a-input
             size="small"
-            style="width:100px;"
             type="number"
             :addonAfter="emojis.diner"
             :defaultValue="seatsPerTable[tableIndex]"
@@ -83,7 +82,7 @@ import Seat from "../Seat/Seat";
 export default {
   name: "TableCircle",
   components: {
-    Seat
+    Seat,
   },
   props: [
     "alias",
@@ -92,7 +91,7 @@ export default {
     "guests",
     "maxSeatsPerTable",
     "seatsPerTable",
-    "tableIndex"
+    "tableIndex",
   ],
   data: () => ({
     emojis,
@@ -101,21 +100,19 @@ export default {
     tableWidth: 0,
     showTable: true,
     totalSeats: 0,
-    width: 0
+    width: 0,
   }),
   computed: {
     containerClass() {
       if (this.isSelected) {
-        return "table-circle__container__selected";
-      } else if (!this.showTable) {
-        return "table-circle__container__bordered";
+        return "table-circle_container--selected";
       }
 
       return "";
     },
     guestsInTable() {
       if (this.guests.length > 0) {
-        return this.guests.filter(g => {
+        return this.guests.filter((g) => {
           if (g.seat !== "") {
             let table = g.seat.split("--t-")[1];
             table = parseInt(table.substr(0, table.indexOf("--")));
@@ -145,7 +142,7 @@ export default {
     deleteConfirmYes() {
       return this.$root.$options.languages.lang.tablesPlanner.planner
         .deleteConfirmYes[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     delete() {
@@ -163,7 +160,7 @@ export default {
         cancelText: "No",
         onOk() {
           ref.delete();
-        }
+        },
       });
     },
     onSwitch() {
@@ -183,12 +180,12 @@ export default {
       this.tableMargin = (this.width - this.tableWidth) * 0.5;
 
       this.totalSeats = this.seatsPerTable[this.tableIndex];
-    }
+    },
   },
   watch: {
     guests() {
       this.init();
-    }
+    },
   },
   beforeMount() {
     this.ref = this;
@@ -200,40 +197,6 @@ export default {
     if (!this.isSelected) {
       this.showTable = true;
     }
-  }
+  },
 };
 </script>
-
-<style scoped>
-.table-circle__container {
-  padding: 8px 0;
-  transition: all 300ms;
-}
-
-.table-circle__container__selected {
-  background: #e1e9f2;
-  border-radius: 4px;
-  box-shadow: 0px 16px 32px rgba(0, 0, 0, 0.15);
-}
-
-.table-circle__options-row {
-  margin: 0 8px;
-  padding: 4px;
-}
-
-.table-circle__list {
-  margin: 12px 8px;
-}
-
-.table-circle__list-item {
-  border: none;
-  font-size: 11px;
-  margin: 0 0 2px 0;
-  padding: 0;
-  text-align: left;
-}
-
-.table-circle__body {
-  border-radius: 50%;
-}
-</style>

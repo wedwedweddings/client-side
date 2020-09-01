@@ -9,7 +9,7 @@
     & #header_logo {
       height: $header-height;
       opacity: 0.95;
-      padding: 8px 0;
+      padding: 16px 0 8px 0;
     }
 
     @include respond(phone) {
@@ -28,11 +28,20 @@
       text-align: right;
 
       & li {
+        color: $color-white !important;
         margin: 0;
         padding: 0 1.5rem;
 
+        &:hover {
+          color: $color-secondary-light !important;
+          border-color: transparent;
+        }
+
         &.item--primary {
-          &:hover {
+          &:active,
+          &:focus,
+          &:hover,
+          &:visited {
             border-bottom: 2px solid transparent;
           }
 
@@ -40,7 +49,6 @@
             background-color: $color-white !important;
             border: 1px solid $color-white;
             border-radius: 4px;
-
             color: $color-primary !important;
             padding: 0 16px;
             transition: all 300ms;
@@ -52,12 +60,28 @@
           }
         }
 
-        & a {
-          color: $color-white !important;
+        &.ant-menu-submenu {
+          & .ant-menu-submenu-title {
+            & span {
+              color: $color-white;
+
+              &:active,
+              &:focus,
+              &:hover,
+              &:visited {
+                color: $color-white;
+              }
+            }
+          }
         }
 
-        &:hover {
-          border-bottom: 2px solid $color-primary;
+        & a {
+          color: $color-white !important;
+
+          &:hover {
+            color: $color-secondary-light !important;
+            border-color: transparent;
+          }
         }
 
         & > span {

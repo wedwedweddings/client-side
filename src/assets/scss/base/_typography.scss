@@ -143,6 +143,32 @@ body {
   }
 }
 
+// Terms & Conditions
+.faq_container,
+.privacy-policy_container,
+.terms-and-conditions_container {
+  & h2 {
+    color: $color-primary;
+  }
+
+  & h3 {
+    color: $color-grey;
+  }
+
+  & p {
+    color: $color-grey;
+  }
+}
+
+// Tables Planner
+.tables-planner-menu_container {
+  & .divider {
+    & .ant-tag {
+      font-size: 1.2rem;
+    }
+  }
+}
+
 // Components
 .weddings_card {
   & .ant-card-head {

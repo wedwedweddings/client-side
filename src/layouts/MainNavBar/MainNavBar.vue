@@ -46,22 +46,27 @@
 <script>
 export default {
   name: "MainNavBar",
+  data: () => ({
+    isLoggedIn: false,
+  }),
   methods: {
+    getLoggedIn() {
+      return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
+    },
     onLogOut() {
-      localStorage.clear();
+      localStorage.removeItem("isLoggedIn");
 
-      this.showPrivate = false;
+      this.isLoggedIn = this.getLoggedIn();
+      console.log("onLogOut:", this.isLoggedIn);
+
       this.$route.path === "/"
         ? this.$router.push("/home")
         : this.$router.push("/");
     },
   },
   computed: {
-    isLoggedIn() {
-      return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
-    },
     showLoginButon() {
-      return this.$route.path !== "/login";
+      return this.$route.path !== "/login" && !this.isLoggedIn;
     },
     // Lang
     logoAlt() {
@@ -95,7 +100,12 @@ export default {
     },
   },
   created() {
-    console.log(this.isLoggedIn);
+    this.isLoggedIn = this.getLoggedIn();
+    console.log("created:", this.isLoggedIn);
+
+    window.addEventListener("storage", () => {
+      this.isLoggedIn = this.getLoggedIn();
+    });
   },
 };
 </script>

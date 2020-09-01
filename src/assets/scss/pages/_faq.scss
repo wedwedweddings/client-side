@@ -1,0 +1,53 @@
+.faq_container {
+  background-image: linear-gradient(to left top, rgba($color-primary, 0.95), rgba($color-secondary, 0.95));
+  background-position: top center;
+  background-size: cover;
+  min-height: $min-height;
+  padding-top: $header-height * 1.25;
+
+  & .faq_row {
+    width: 100%;
+
+    & .faq_col {
+      background-color: $color-white;
+      border-radius: 8px;
+      box-shadow: 0 2rem 3rem rgba($color-black, 0.15);
+      margin-bottom: 6rem;
+      padding: 3rem 6rem;
+
+      & .faq-icon {
+        text-align: center;
+
+        & a {
+          color: $color-primary;
+          font-size: 1.75rem;
+          text-align: center;
+          transition: all 300ms;
+
+          &:hover {
+            color: $color-secondary;
+          }
+
+          @include respond(phone) {
+            font-size: 3rem;
+          }
+        }
+
+        @include respond(phone) {
+          width: 12vw;
+        }
+      }
+
+      @include respond(phone) {
+        border-radius: 0;
+        margin: 0;
+        width: 100vw;
+      }
+    }
+  }
+
+  @include respond(phone) {
+    min-height: $min-height-mobile;
+    padding-top: $header-height-mobile;
+  }
+}

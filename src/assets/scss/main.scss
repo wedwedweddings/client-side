@@ -10,15 +10,19 @@
 @import 'components/form';
 @import 'components/guest-avatar';
 @import 'components/steps';
+@import 'components/table-circle';
 
 @import 'layout/content';
 @import 'layout/footer';
 @import 'layout/header';
 @import 'layout/tables-planner-menu';
 
+@import 'pages/faq';
 @import 'pages/forgot-password';
 @import 'pages/getting-started';
 @import 'pages/index';
 @import 'pages/login';
+@import 'pages/privacy-policy';
 @import 'pages/reset-password';
 @import 'pages/tables-planner';
+@import 'pages/terms-and-conditions';

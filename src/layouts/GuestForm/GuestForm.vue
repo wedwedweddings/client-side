@@ -76,7 +76,7 @@
     </a-form-item>
 
     <!-- Warning -->
-    <p class="message--warning">{{ warningPlaceholder }}</p>
+    <p class="message--warning" v-if="!hasGuest">{{ warningPlaceholder }}</p>
 
     <!-- Tags -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
