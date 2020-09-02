@@ -84,7 +84,7 @@ export const lang = {
         {
           en: '',
           es: '',
-        }
+        },
       ],
       row1: [
         {
@@ -112,23 +112,28 @@ export const lang = {
         {
           en: '',
           es: '',
-        },{
-          en: '',
-          es: '',
-        },{
-          en: '',
-          es: '',
-        },{
-          en: '',
-          es: '',
-        },{
-          en: '',
-          es: '',
-        },{
+        },
+        {
           en: '',
           es: '',
         },
-      ]
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+      ],
       timeline: [
         {
           en: 'Create an account',

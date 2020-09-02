@@ -8,24 +8,6 @@
     box-shadow: inset 0 -1rem 2rem rgba($color-black, 0.2);
     height: 90vh;
 
-    & .button-container {
-      margin: 32px 0;
-      text-align: center;
-
-      & .button {
-        background-color: transparent;
-        border: 1px solid $color-white;
-        color: $color-white;
-
-        &:hover {
-          background-color: $color-white !important;
-          color: $color-primary;
-          font-weight: bold;
-          box-shadow: 0 4px 1rem rgba($color-black, 0.25);
-        }
-      }
-    }
-
     @include respond(phone) {
       padding-top: $header-height-mobile;
     }
@@ -79,14 +61,6 @@
       & .col--2l {
         & img {
           border-radius: 0 0 200px 0 !important;
-        }
-      }
-
-      & .col--2r {
-        & ul {
-          & li {
-            list-style: none;
-          }
         }
       }
     }
