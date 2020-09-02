@@ -1,0 +1,44 @@
+.guest-landing_container {
+  background-image: linear-gradient(to left top, rgba($color-primary, 0.95), rgba($color-secondary, 0.95)),
+    url(https://res.cloudinary.com/wedwedweddings/image/upload/v1598890883/wedwedweddings.com/images/bg_yv8vld.jpg);
+  background-position: top center;
+  background-size: cover;
+  min-height: $min-height;
+  padding-top: $header-height;
+
+  & > div {
+    width: 100%;
+
+    // Forms
+    & .weddings_forms {
+      & .weddings_divider {
+        margin: 2rem auto;
+        min-width: 0;
+        width: 35% !important;
+      }
+
+      & .weddings_card {
+        & .assistance-item {
+          text-align: center;
+        }
+      }
+
+      @include respond(tab-port) {
+        width: 60%;
+      }
+
+      @include respond(phone) {
+        width: 100%;
+      }
+    }
+
+    @include respond(phone) {
+      padding-bottom: 0;
+    }
+  }
+
+  @include respond(phone) {
+    min-height: $min-height-mobile;
+    padding-top: $header-height-mobile;
+  }
+}

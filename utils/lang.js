@@ -83,8 +83,8 @@ export const lang = {
           es: "gestionar invitaciones de boda",
         },
         {
-          en: "wedding planner",
-          es: "organizador de bodas",
+          en: 'wedding planner',
+          es: 'organizador de bodas',
         },
       ],
       row1: [

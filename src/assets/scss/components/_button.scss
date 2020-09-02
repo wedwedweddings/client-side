@@ -115,3 +115,14 @@
     }
   }
 }
+
+// Guest Landing
+.guest-landing_container {
+  & .weddings_form {
+    & .weddings_form-item {
+      & .button {
+        background-color: $color-white;
+      }
+    }
+  }
+}

@@ -70,6 +70,10 @@ body {
   }
 }
 
+/**
+ * Pages
+ */
+
 // Home
 .home_container {
   // All paragraphs in Home
@@ -186,7 +190,7 @@ body {
   }
 }
 
-// Terms & Conditions
+// FAQ, Privacy Policy and Terms & Conditions
 .faq_container,
 .privacy-policy_container,
 .terms-and-conditions_container {
@@ -212,7 +216,42 @@ body {
   }
 }
 
-// Components
+// Guest Landing
+.guest-landing_container {
+  & h1 {
+    color: $color-white;
+    margin-bottom: 1rem;
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  & h2 {
+    color: $color-white;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  & .weddings_form {
+    & .weddings_form-item {
+      & .button {
+        color: $color-secondary;
+        font-weight: bold;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Components
+ */
+
+// Card
 .weddings_card {
   & .ant-card-head {
     @include respond(phone) {
@@ -221,7 +260,11 @@ body {
   }
 }
 
-// Layout
+/**
+ * Layout
+ */
+
+// Tables Planner Menu
 section.tables-planner_container {
   & div.tables-planner-menu_container {
     .ant-divider-inner-text {

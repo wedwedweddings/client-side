@@ -51,6 +51,7 @@ module.exports = {
         prependData: `@import '@/assets/scss/pages/faq.scss';`,
         prependData: `@import '@/assets/scss/pages/forgot-password.scss';`,
         prependData: `@import '@/assets/scss/pages/getting-started.scss';`,
+        prependData: `@import '@/assets/scss/pages/guest-landing.scss';`,
         prependData: `@import '@/assets/scss/pages/index.scss';`,
         prependData: `@import '@/assets/scss/pages/login.scss';`,
         prependData: `@import '@/assets/scss/pages/privacy-policy.scss';`,

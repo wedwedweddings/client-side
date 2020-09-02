@@ -57,7 +57,6 @@ export default {
       localStorage.removeItem("isLoggedIn");
 
       this.isLoggedIn = this.getLoggedIn();
-      console.log("onLogOut:", this.isLoggedIn);
 
       this.$route.path === "/"
         ? this.$router.push("/home")
@@ -101,7 +100,6 @@ export default {
   },
   created() {
     this.isLoggedIn = this.getLoggedIn();
-    console.log("created:", this.isLoggedIn);
 
     window.addEventListener("storage", () => {
       this.isLoggedIn = this.getLoggedIn();

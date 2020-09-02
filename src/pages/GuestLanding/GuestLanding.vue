@@ -1,22 +1,16 @@
 <template>
-  <a-layout class="guest-landing__container">
-    <a-layout-content>
-      <!-- Title & Subtitle -->
-      <a-row type="flex" justify="space-around">
-        <a-col span="8">
-          <h1>{{ title }}</h1>
-          <h2>{{ subtitle }}</h2>
-        </a-col>
-      </a-row>
+  <div class="guest-landing_container">
+    <!-- Title & Subtitle -->
+    <h1>{{ title }}</h1>
+    <h2>{{ subtitle }}</h2>
 
-      <!-- Guest & Companion(s) forms -->
-      <a-row type="flex" justify="space-around">
-        <a-col span="8">
-          <GuestLandingForms />
-        </a-col>
-      </a-row>
-    </a-layout-content>
-  </a-layout>
+    <!-- Guest & Companion(s) forms -->
+    <a-row type="flex" justify="center" align="middle">
+      <a-col class="weddings_forms" span="8">
+        <GuestLandingForms />
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script>
@@ -57,14 +51,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.guest-landing__container {
-  background: none;
-}
-
-.guest-landing__card {
-  border-radius: 4px;
-  margin: 64px 0;
-}
-</style>
