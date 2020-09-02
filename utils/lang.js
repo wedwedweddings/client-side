@@ -77,10 +77,20 @@ export const lang = {
         es: 'Organiza tu boda con nosotros',
       },
       whyUs: {
+        images: [
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          }
+        ],
         row1: [
           {
-            en: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
-            es: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
+            en: '',
+            es: '',
           },
           {
             en: '',
