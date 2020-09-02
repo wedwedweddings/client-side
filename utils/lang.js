@@ -167,9 +167,9 @@ export const lang = {
       },
       subtitle: {
         en:
-          "Get our latest updates first! 💍 <a href='https://wedwedweddings.com/faq'>Want to know something?</a><br/>Shoot us a message through...",
+          "Get our latest updates first!<br />💍<br /><a href='https://wedwedweddings.com/faq'>Want to know something?</a><br/>Shoot us a message through...",
         es:
-          "¡Sé siempre de los primeros en conocer las últimas novedades! 💍<br/><a href='https://wedwedweddings.com/faq'>¿Necesitas algo?</a> Envíanos un mensaje a través de...",
+          "¡Sé siempre de los primeros en conocer las últimas novedades!<br />💍<br /><a href='https://wedwedweddings.com/faq'>¿Necesitas algo?</a> Envíanos un mensaje a través de...",
       },
     },
   },
