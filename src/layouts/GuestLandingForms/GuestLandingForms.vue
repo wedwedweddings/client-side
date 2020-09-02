@@ -95,8 +95,9 @@ export default {
         .addSuccess[this.$root.$options.languages.current];
     },
     updateSuccess() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .updateSuccess[this.$root.$options.languages.current];
+      return this.$root.$options.languages.lang.guestLanding.updateSuccess[
+        this.$root.$options.languages.current
+      ];
     },
   },
   methods: {
@@ -165,10 +166,19 @@ export default {
 
       Promise.all(promises)
         .then(() => {
-          console.log("Companions updated!");
+          // Message
+          this.$message.success(this.updateSuccess, 5);
         })
         .catch((reason) => {
-          console.log(reason);
+          console.error(reason);
+
+          // Message
+          this.$message.warning(
+            this.$root.$options.languages.lang.common.failMessage[
+              this.$root.$options.languages.current
+            ],
+            5
+          );
         });
     },
     async deleteCompanion(index) {

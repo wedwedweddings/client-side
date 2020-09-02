@@ -98,11 +98,14 @@ export default {
       ];
     },
   },
-  created() {
+  beforeMount() {
     this.isLoggedIn = this.getLoggedIn();
 
-    window.addEventListener("storage", () => {
-      this.isLoggedIn = this.getLoggedIn();
+    // I don't know how to do it better 🤷
+    document.body.addEventListener("mousemove", () => {
+      if (this.isLoggedIn !== this.getLoggedIn()) {
+        this.isLoggedIn = this.getLoggedIn();
+      }
     });
   },
 };

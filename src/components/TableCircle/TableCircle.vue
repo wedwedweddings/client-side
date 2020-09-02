@@ -149,8 +149,10 @@ export default {
       this.$emit("deleteTable", this.tableIndex);
     },
     onChangeInputSeats(e) {
-      this.totalSeats = e.target.valueAsNumber;
-      this.$emit("changeInputSeats", e.target.valueAsNumber);
+      if (e.target.value.length > 0) {
+        this.totalSeats = e.target.valueAsNumber;
+        this.$emit("changeInputSeats", e.target.valueAsNumber);
+      }
     },
     onDeleteConfirm(ref) {
       this.$confirm({

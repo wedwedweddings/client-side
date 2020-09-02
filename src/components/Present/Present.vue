@@ -33,7 +33,7 @@ export default {
   data: () => ({
     emojis,
     guestFullName: "",
-    ref: this
+    ref: this,
   }),
   computed: {
     marked() {
@@ -51,14 +51,17 @@ export default {
     deleteSuccess() {
       return this.$root.$options.languages.lang.gettingStarted.present
         .deleteSuccess[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     async checkGuest() {
       try {
         if (this.marked) {
           const guest = await gogiw(this.present.guestId);
-          this.guestFullName = guest.fullName;
+
+          if (guest) {
+            this.guestFullName = guest.fullName;
+          }
         }
       } catch (error) {
         console.error(error);
@@ -92,22 +95,22 @@ export default {
         cancelText: "No",
         onOk() {
           ref.delete();
-        }
+        },
       });
     },
     onUpdate() {
       this.$emit("updatePresent", this.present);
-    }
+    },
   },
   watch: {
     present() {
       this.checkGuest();
-    }
+    },
   },
   beforeMount() {
     this.ref = this;
     this.checkGuest();
-  }
+  },
 };
 </script>
 

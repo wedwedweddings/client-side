@@ -84,7 +84,7 @@
         style="font-size:12px;"
         :defaultChecked="hasGuest ? isTagSelected(t.id) : false"
         :key="t.id"
-        :value="t.id"
+        :name="t.id"
         v-for="t in tags"
         @change="onChangeTag"
       >{{ translateTag(t.id) }}</a-checkbox>
@@ -238,12 +238,15 @@ export default {
     },
     async requestAdd(body) {
       try {
-        this.form.resetFields();
         await add(body);
         this.$emit("updatedGuest");
 
         // Message
         this.$message.success(this.addSuccess, 5);
+
+        // Clear tags
+        this.selectedTags = [];
+        this.clearTags();
       } catch (error) {
         console.error(error);
 
@@ -284,6 +287,21 @@ export default {
       return this.menus[menu].name[this.$root.$options.languages.current];
     },
     // Tags
+    clearTags() {
+      const tagsElems = Array.from(
+        document.querySelectorAll(".weddings_form-item [type='checkbox']")
+      );
+
+      tagsElems.forEach((t) => {
+        if (
+          Array.from(t.parentElement.classList).includes("ant-checkbox-checked")
+        ) {
+          t.parentElement.classList.remove("ant-checkbox-checked");
+        }
+      });
+
+      console.log("tagsElems:", tagsElems);
+    },
     checkSelectedTagsAtInit() {
       if (this.hasGuest) {
         if (this.guestToUpdate.tags.indexOf(",") === -1) {
@@ -314,12 +332,12 @@ export default {
     },
     onChangeTag(e) {
       if (e.target.checked) {
-        if (!this.selectedTags.includes(e.target.value)) {
-          this.selectedTags.push(e.target.value);
+        if (!this.selectedTags.includes(e.target.name)) {
+          this.selectedTags.push(e.target.name);
         }
       } else {
         const found = this.selectedTags.findIndex((tag) => {
-          return tag === e.target.value;
+          return tag === e.target.name;
         });
 
         if (found >= 0) {

@@ -1211,5 +1211,9 @@ export const lang = {
       en: 'Update info',
       es: 'Actualizar información',
     },
+    updateSuccess: {
+      en: 'Thanks for updating your data!',
+      es: '¡Gracias por actualizar tus datos!',
+    },
   },
 }

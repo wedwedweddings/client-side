@@ -79,9 +79,15 @@ export default {
   computed: {
     selectedGuestFullName() {
       if (this.guests.length > 0 && this.selectedGuest !== "") {
-        return this.guests.find((g) => {
+        const found = this.guests.find((g) => {
           return g._id === this.selectedGuest;
         });
+
+        if (found) {
+          return found;
+        }
+
+        return "";
       }
 
       return "";

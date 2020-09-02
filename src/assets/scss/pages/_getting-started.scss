@@ -20,10 +20,6 @@
 
     // Forms
     & .getting-started_forms {
-      & .ant-col {
-        width: 100%;
-      }
-
       @include respond(tab-port) {
         width: 60%;
       }
@@ -43,6 +39,11 @@
         @include respond(phone) {
           min-height: 128px;
         }
+      }
+
+      @include respond(phone) {
+        min-height: 20vh;
+        width: 100%;
       }
     }
 
