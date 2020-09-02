@@ -104,7 +104,7 @@ export default {
     async init() {
       // Decoding token
       const token = this.$route.params.token;
-      const decoded = jwt.verify(token, process.env.VUE_APP_JWT_SECRET);
+      const decoded = jwt.verify(token);
 
       // Setting up Guest data
       this.model.mainGuest = await ggodbi(decoded.id);
