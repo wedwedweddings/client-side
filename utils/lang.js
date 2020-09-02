@@ -78,57 +78,57 @@ export const lang = {
       },
       images: [
         {
-          en: '',
-          es: '',
+          en: 'manage wedding invitations',
+          es: 'gestionar invitaciones de boda',
         },
         {
-          en: '',
-          es: '',
+          en: 'wedding planner',
+          es: 'organizador de bodas',
         }
       ],
       row1: [
         {
-          en: '',
-          es: '',
+          en: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
+          es: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
         },
         {
-          en: '',
-          es: '',
+          en: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
+          es: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
         },
         {
-          en: '',
-          es: '',
+          en: 'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings',
+          es: 'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.',
         },
         {
-          en: '',
-          es: '',
+          en: 'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
+          es: 'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
         },
         {
-          en: '',
-          es: '',
+          en: '¿Quieres saber cómo vamos a ayudaros?',
+          es: '¿Quieres saber cómo vamos a ayudaros?',
         },
       ],
       row2: [
         {
-          en: '',
-          es: '',
+          en: 'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
+          es: 'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
         },{
-          en: '',
-          es: '',
+          en: '💰 Fijar vuestro presupuesto.',
+          es: '💰 Fijar vuestro presupuesto.',
         },{
-          en: '',
-          es: '',
+          en: '🧮 Crear una lista de proveedores para el catering y sus precios.',
+          es: '🧮 Crear una lista de proveedores para el catering y sus precios.',
         },{
-          en: '',
-          es: '',
+          en: '💃 Organizar vuestra lista de invitados.',
+          es: '💃 Organizar vuestra lista de invitados.',
         },{
-          en: '',
-          es: '',
+          en: '🎁 Tener ideas para vuestra lista de regalos de boda.',
+          es: '🎁 Tener ideas para vuestra lista de regalos de boda.',
         },{
-          en: '',
-          es: '',
+          en: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
+          es: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
         },
-      ]
+      ],
       timeline: [
         {
           en: 'Create an account',
