@@ -167,7 +167,7 @@ export const lang = {
       },
       subtitle: {
         en:
-          "Get our latest updates first!<br />💍<br /><a href='https://wedwedweddings.com/faq'>Want to know something?</a><br/>Shoot us a message through...",
+          "Get our latest updates first!git <br />💍<br /><a href='https://wedwedweddings.com/faq'>Want to know something?</a><br/>Shoot us a message through...",
         es:
           "¡Sé siempre de los primeros en conocer las últimas novedades!<br />💍<br /><a href='https://wedwedweddings.com/faq'>¿Necesitas algo?</a> Envíanos un mensaje a través de...",
       },
@@ -632,7 +632,19 @@ export const lang = {
         description: {
           en: '',
           es:
-            'Wed Wed Weddings es un ‘’wedding planner’’ gratuito online en el que podrás planificar la organización de tu boda paso a paso con nosotros. En Wed Wed Weddings, podrás crear y organizar las mesas de los invitados de tu boda de forma totalmente gratuita, además de la lista de regalos y planificar el presupuesto del catering.',
+            'Wed Wed Weddings es un ‘’wedding planner’’ gratuito online en el que podréis planificar la organización de vuestra boda paso a paso con nosotros. En Wed Wed Weddings, podréis crear y organizar las invitaciones y mesas de los invitados de forma totalmente gratuita, además de la lista de regalos y planificar el presupuesto del catering.',
+        },
+      },
+       // #1 - Preguntas Frecuentes
+       {
+        title: {
+          en: '',
+          es: '¿Cómo planificar tu boda Wed Wed Weddings?',
+        },
+        description: {
+          en: '',
+          es:
+            'Para organizar tu boda de manera sencilla con nosotros, los pasos a seguir son los siguientes: debéis registraros en la web utilizando un solo correo electrónico, que será con el que se gestionará la boda; a continuación, crear una lista de invitados que podréis modificar y gestionar cuantas veces queráis; después, podéis crear vuestra lista de regalos de boda y asignarlos a los invitados y, por último, organizar a los invitados en las mesas del convite tantas veces como queráis.',
         },
       },
       // #1 - Preguntas Frecuentes
