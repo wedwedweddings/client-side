@@ -76,61 +76,59 @@ export const lang = {
         en: 'Manage your wedding with us',
         es: 'Organiza tu boda con nosotros',
       },
-      whyUs: {
-        images: [
-          {
-            en: '',
-            es: '',
-          },
-          {
-            en: '',
-            es: '',
-          }
-        ],
-        row1: [
-          {
-            en: '',
-            es: '',
-          },
-          {
-            en: '',
-            es: '',
-          },
-          {
-            en: '',
-            es: '',
-          },
-          {
-            en: '',
-            es: '',
-          },
-          {
-            en: '',
-            es: '',
-          },
-        ],
-        row2: [
-          {
-            en: '',
-            es: '',
-          },{
-            en: '',
-            es: '',
-          },{
-            en: '',
-            es: '',
-          },{
-            en: '',
-            es: '',
-          },{
-            en: '',
-            es: '',
-          },{
-            en: '',
-            es: '',
-          },
-        ]
-      },
+      images: [
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        }
+      ],
+      row1: [
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+        {
+          en: '',
+          es: '',
+        },
+      ],
+      row2: [
+        {
+          en: '',
+          es: '',
+        },{
+          en: '',
+          es: '',
+        },{
+          en: '',
+          es: '',
+        },{
+          en: '',
+          es: '',
+        },{
+          en: '',
+          es: '',
+        },{
+          en: '',
+          es: '',
+        },
+      ]
       timeline: [
         {
           en: 'Create an account',
