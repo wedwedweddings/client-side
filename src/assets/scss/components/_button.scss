@@ -95,7 +95,7 @@
 
       & .button {
         background-color: transparent;
-        border: 1px solid $color-white;
+        border: 2px solid $color-white;
         color: $color-white;
         height: 60px;
         width: 200px;
@@ -105,6 +105,11 @@
           color: $color-primary;
           font-weight: bold;
           box-shadow: 0 4px 1rem rgba($color-black, 0.25);
+        }
+
+        @include respond(phone) {
+          height: 48px;
+          width: 128px;
         }
       }
     }

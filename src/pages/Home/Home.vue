@@ -18,33 +18,20 @@
     </a-row>
 
     <!-- Why Us -->
-    <div class="whyus-findus_container">
-      <a-row class="whyus_title" type="flex" justify="center" align="middle">
-        <a-col :span="16">
-          <h2>{{ whyUsTitle }}</h2>
-        </a-col>
-      </a-row>
+    <div class="whyus_container">
+      <!-- Title -->
+      <div class="whyus_title">
+        <h2>{{ whyUsTitle }}</h2>
+      </div>
 
+      <!-- Row 1 -->
       <a-row class="whyus_image">
+        <!-- Text -->
         <a-col class="col--1l" :span="12">
-          <p class="txt-welcome" v-for="(p, i) in whyUsRow(1)" :key="`row-${i}`">{{ p }}</p>
-
-          <!-- <p class="txt-welcome">Antes de nada… ¡Felicidades por vuestro compromiso!</p>
-
-          <p
-            class="txt-welcome"
-          >Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.</p>
-
-          <p
-            class="txt-welcome"
-          >Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.</p>
-
-          <p
-            class="txt-welcome"
-          >Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.</p>
-
-          <p class="txt-welcome">¿Quieres saber cómo vamos a ayudaros?</p>-->
+          <p class="home_txt" v-for="(p, i) in whyUsRow(1)" :key="`row-${i}`">{{ p }}</p>
         </a-col>
+
+        <!-- Image -->
         <a-col class="col--1r" :span="12">
           <img
             src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598987101/wedwedweddings.com/images/home-01_jowckk.jpg"
@@ -53,7 +40,9 @@
         </a-col>
       </a-row>
 
+      <!-- Row 2 -->
       <a-row class="whyus_image">
+        <!-- Image -->
         <a-col class="col--2l" :span="12">
           <img
             src="https://res.cloudinary.com/wedwedweddings/image/upload/v1599030279/wedwedweddings.com/images/home-03_sjmi08.jpg"
@@ -61,82 +50,62 @@
           />
         </a-col>
 
+        <!-- Text -->
         <a-col class="col--2r" :span="12">
-          <p class="txt-welcome" v-for="(p, i) in whyUsRow(2)" :key="`row-${i}`">{{ p }}</p>
-
-          <!-- <p
-            class="txt-welcome"
-          >A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.</p>
-
-          <ul>
-            <li class="txt-welcome">💰 Fijar vuestro presupuesto.</li>
-            <li
-              class="txt-welcome"
-            >🧮 Crear una lista de proveedores para el catering y sus precios.</li>
-            <li class="txt-welcome">💃 Organizar vuestra lista de invitados.</li>
-            <li class="txt-welcome">🎁 Tener ideas para vuestra lista de regalos de boda.</li>
-            <li
-              class="txt-welcome"
-            >👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.</li>
-          </ul>
-
-          <p class="txt-welcome"></p>-->
+          <p class="home_txt" v-for="(p, i) in whyUsRow(2)" :key="`row-${i}`">{{ p }}</p>
         </a-col>
       </a-row>
 
-      <a-row class="whyus_list-container" type="flex" justify="center" align="middle">
-        <a-col :span="16">
-          <a-row class="whyus_list--intro" type="flex" justify="center">
-            <a-col :span="16">
-              <p
-                class="txt-welcome"
-              >Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:</p>
-            </a-col>
-          </a-row>
+      <!-- Intro -->
+      <div class="whyus_intro">
+        <p
+          class="home_txt"
+        >Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:</p>
+      </div>
 
-          <a-row type="flex" justify="space-between" align="middle">
-            <!-- Free -->
-            <a-col class="whyus_list--free" :span="11">
-              <h4 class="whyus_free">{{ whyUsFree }}</h4>
-            </a-col>
+      <div class="whyus_wrapper--colored">
+        <a-row class="whyus_container" type="flex" justify="center" align="middle">
+          <!-- Free -->
+          <a-col class="whyus_free-block" :span="11">
+            <p class="whyus_free">{{ whyUsFree }}</p>
+          </a-col>
 
-            <!-- List -->
-            <a-col class="whyus_list" :span="11">
-              <a-timeline>
-                <a-timeline-item
-                  class="whyus_text"
-                  :key="index"
-                  v-for="(item, index) in whyUsTimeline"
-                >{{ item }}</a-timeline-item>
-              </a-timeline>
-            </a-col>
-          </a-row>
-        </a-col>
-      </a-row>
-
-      <!-- Find Us -->
-      <a-row class="home_findus" type="flex" justify="center" align="middle">
-        <a-col :span="16">
-          <h4>{{ findUsTitle }}</h4>
-
-          <p v-html="findUsSubtitle"></p>
-
-          <a-row type="flex" justify="center" align="middle">
-            <a-col class="findus_icon-container" :span="1">
-              <a href="https://www.instagram.com/wed.wed.weddings/">
-                <a-icon type="instagram" />
-              </a>
-            </a-col>
-
-            <a-col class="findus_icon-container" :span="1">
-              <a href="https://www.facebook.com/plan.your.wwwedding">
-                <a-icon type="facebook" />
-              </a>
-            </a-col>
-          </a-row>
-        </a-col>
-      </a-row>
+          <!-- List -->
+          <a-col class="whyus_list" :span="11">
+            <a-timeline>
+              <a-timeline-item
+                class="whyus_text"
+                :key="index"
+                v-for="(item, index) in whyUsTimeline"
+              >{{ item }}</a-timeline-item>
+            </a-timeline>
+          </a-col>
+        </a-row>
+      </div>
     </div>
+
+    <!-- Find Us -->
+    <a-row class="findus_container" type="flex" justify="center" align="middle">
+      <a-col :span="16">
+        <h4>{{ findUsTitle }}</h4>
+
+        <p class="home_txt" v-html="findUsSubtitle"></p>
+
+        <a-row type="flex" justify="center" align="middle">
+          <a-col class="findus_icon-container" :span="1">
+            <a href="https://www.instagram.com/wed.wed.weddings/">
+              <a-icon type="instagram" />
+            </a>
+          </a-col>
+
+          <a-col class="findus_icon-container" :span="1">
+            <a href="https://www.facebook.com/plan.your.wwwedding">
+              <a-icon type="facebook" />
+            </a>
+          </a-col>
+        </a-row>
+      </a-col>
+    </a-row>
   </div>
 </template>
 

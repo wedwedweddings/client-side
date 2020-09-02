@@ -13,26 +13,18 @@
     }
   }
 
-  & .whyus-findus_container {
-    background-color: $color-secondary;
+  & .whyus_container {
+    background-color: $color-white;
 
     // Why Us
     & .whyus_title {
-      background-color: $color-white;
-
-      & .ant-col {
-        @include respond(phone) {
-          padding: 0 3rem;
-        }
+      @include respond(phone) {
+        padding: 0 3rem;
       }
     }
 
     & .whyus_image {
-      background-color: $color-white;
-
       & [class^='col--'] {
-        min-height: 256px;
-
         & img {
           height: auto;
           width: 100%;
@@ -65,51 +57,65 @@
       }
     }
 
-    & .whyus_list-container {
-      background-color: $color-white;
-      clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0% 88%);
-      padding: 72px 0;
+    & .whyus_intro {
+      padding: 4rem 25vw;
 
-      & > .ant-col {
-        & .whyus_list--intro {
-          & > .ant-col {
+      @include respond(tab-land) {
+        padding: 4rem 15vw;
+      }
+
+      @include respond(phone) {
+        padding: 0rem 3rem;
+      }
+    }
+
+    & .whyus_wrapper--colored {
+      background-color: $color-secondary;
+
+      & .whyus_container {
+        background-color: $color-white;
+        clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0% 88%);
+        padding: 2rem 0;
+
+        & .ant-col {
+          &.whyus_free-block {
+            padding-right: 2rem;
+          }
+
+          &.whyus_list {
+            padding-left: 2rem;
+
             @include respond(phone) {
-              width: 100%;
+              padding: 0 8rem;
             }
           }
 
           @include respond(phone) {
             padding: 2rem 3rem;
-          }
-        }
-
-        & .whyus_list--free {
-          @include respond(phone) {
-            width: 100%;
-          }
-        }
-
-        & .whyus_list {
-          @include respond(phone) {
-            padding: 0 10vw;
             width: 100%;
           }
         }
 
         @include respond(phone) {
-          width: 100%;
+          padding: 0 0 6rem 0;
         }
-      }
-
-      @include respond(phone) {
-        padding: 0 0 6rem 0;
       }
     }
   }
 
-  & .home_findus {
+  & .findus_container {
     background-color: $color-secondary;
     padding: 72px 0;
+
+    & > .ant-col {
+      @include respond(phone) {
+        width: 100%;
+      }
+
+      @include respond(phone) {
+        padding: 2rem 3rem;
+      }
+    }
 
     & .findus_icon-container {
       text-align: center;

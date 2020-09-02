@@ -72,6 +72,11 @@ body {
 
 // Home
 .home_container {
+  // All paragraphs in Home
+  & p.home_txt {
+    font-size: 1.8rem;
+  }
+
   // Main
   & .home_main {
     & .button-container {
@@ -84,31 +89,20 @@ body {
     }
   }
 
-  & .whyus-findus_container {
-    // Why Us
+  // Why Us
+  & .whyus_container {
     & .whyus_title {
-      & .ant-col {
-        & h2 {
-          color: $color-primary;
-          font-size: 4rem;
-          font-weight: bold;
-          padding: 4rem 0 6rem 0;
-          text-align: center;
-
-          @include respond(phone) {
-            font-size: 2.5rem;
-            padding: 3rem 0 2rem 0;
-          }
-        }
+      & h2 {
+        color: $color-primary;
+        font-size: 4rem;
+        font-weight: bold;
+        padding: 2rem 0;
+        text-align: center;
 
         @include respond(phone) {
-          width: 100%;
+          font-size: 3rem;
         }
       }
-    }
-
-    & .txt-welcome {
-      font-size: 1.8rem;
     }
 
     & .whyus_image {
@@ -121,75 +115,71 @@ body {
       }
     }
 
-    & .whyus_list-container {
-      & .whyus_list--intro {
-        text-align: center;
-        padding-bottom: 4rem;
+    & .whyus_intro {
+      text-align: center;
 
-        @include respond(phone) {
-          text-align: start;
-        }
-      }
-
-      & .whyus_list--free {
-        text-align: right;
-
-        & .whyus_free {
-          color: $color-primary;
-          font-size: 8rem;
-          font-weight: bold;
-          padding-bottom: 16px;
-
-          @include respond(phone) {
-            font-size: 8rem;
-          }
-        }
-
-        @include respond(phone) {
-          text-align: center;
-        }
-      }
-
-      & .whyus_text {
-        color: $color-grey;
-        font-size: 1.25rem;
-
-        @include respond(phone) {
-          font-size: 2rem;
-        }
-      }
-
-      & .ant-timeline {
-        text-align: left;
+      @include respond(phone) {
+        text-align: start;
       }
     }
 
-    & .home_findus {
-      & h4 {
-        color: $color-white;
-        font-size: 3rem;
-        font-weight: bold;
-        line-height: 2rem;
-        margin-bottom: 64px;
-        text-align: center;
-      }
+    & .whyus_wrapper--colored {
+      & .whyus_container {
+        & .whyus_free-block {
+          text-align: right;
 
-      & p {
-        color: $color-white;
-        font-size: 1.25rem;
-        text-align: center;
+          & .whyus_free {
+            color: $color-primary;
+            font-size: 8rem;
+            font-weight: bold;
 
-        & a {
-          color: $color-white;
-          text-decoration: underline;
+            @include respond(phone) {
+              margin-bottom: 1rem;
+            }
+          }
 
-          &:hover {
-            color: $color-quaternary;
+          @include respond(phone) {
+            text-align: center;
           }
         }
 
-        @include respond(phone) {
-          font-size: 2rem;
+        & .whyus_list {
+          & .ant-timeline {
+            text-align: left;
+
+            & .whyus_text {
+              color: $color-grey;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  & .findus_container {
+    & h4 {
+      color: $color-white;
+      font-size: 4rem;
+      font-weight: bold;
+      padding-bottom: 2rem;
+      text-align: center;
+
+      @include respond(phone) {
+        font-size: 3rem;
+      }
+    }
+
+    & p.home_txt {
+      color: $color-white;
+      text-align: center;
+
+      & a {
+        color: $color-white;
+        text-decoration: underline;
+
+        &:hover {
+          color: $color-quaternary;
         }
       }
     }
