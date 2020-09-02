@@ -1,14 +1,14 @@
 <template>
-  <a-card :title="mainGuestTitle">
+  <a-card class="weddings_card" :title="mainGuestTitle">
     <!-- Full Name -->
-    <a-form-model-item class="guest-landing-form__item">
+    <a-form-model-item class="weddings_form-item">
       <a-input type="text" v-model="value.fullName" :change="onChange" autofocus>
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
     </a-form-model-item>
 
     <!-- Menu -->
-    <a-form-model-item class="guest-landing-form__item">
+    <a-form-model-item class="weddings_form-item">
       <a-select v-model="value.menu" :change="onChange">
         <a-select-option
           v-for="(menu, key) in menus"
@@ -19,7 +19,7 @@
     </a-form-model-item>
 
     <!-- Email -->
-    <a-form-model-item class="guest-landing-form__item">
+    <a-form-model-item class="weddings_form-item">
       <a-input
         type="email"
         v-model="value.email"
@@ -31,9 +31,9 @@
     </a-form-model-item>
 
     <!-- Assistance -->
-    <h4>¿Asistirás?</h4>
+    <h4 class="assistance-item">¿Asistirás?</h4>
 
-    <a-form-model-item class="guest-landing-form__item">
+    <a-form-model-item class="weddings_form-item assistance-item">
       <a-radio-group
         button-style="solid"
         default-value="yes"

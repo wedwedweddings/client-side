@@ -1,12 +1,12 @@
 <template>
-  <a-form-model :model="model">
+  <a-form-model class="weddings_form" :model="model">
     <!-- Main Guest -->
     <MainGuestForm v-model="model.mainGuest" />
 
-    <a-divider />
+    <a-divider class="weddings_divider" />
 
     <!-- Companion(s) -->
-    <a-card :title="companionsTitle">
+    <a-card class="weddings_card" :title="companionsTitle">
       <CompanionForm
         v-for="(item, index) in companionsLength"
         v-model="model.companions[index]"
@@ -23,11 +23,11 @@
       </a-button>
     </a-card>
 
-    <a-divider />
+    <a-divider class="weddings_divider" />
 
     <!-- Update Guest -->
-    <a-form-model-item class="guest-landing-form__item" style="text-align:center;">
-      <a-button type="primary" html-type="submit" @click="onUpdateInvitation">
+    <a-form-model-item class="weddings_form-item" style="text-align:center;">
+      <a-button class="button" type="primary" html-type="submit" @click="onUpdateInvitation">
         {{ updateInfo}}
         <a-icon type="sync" />
       </a-button>
@@ -212,13 +212,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.divider {
-  margin: 32px 0 8px 0;
-}
-
-.guest-landing-form__item {
-  margin-bottom: 8px;
-}
-</style>

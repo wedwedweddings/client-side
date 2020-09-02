@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Full Name -->
-    <a-form-model-item class="guest-landing-form__item" prop="companionFullName">
+    <a-form-model-item class="weddings_form-item" prop="companionFullName">
       <a-input type="text" v-model="companion.fullName" :change="onChange" autofocus>
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
     </a-form-model-item>
 
     <!-- Menu -->
-    <a-form-model-item class="guest-landing-form__item" prop="companionMenu">
+    <a-form-model-item class="weddings_form-item" prop="companionMenu">
       <a-select v-model="companion.menu" :change="onChange">
         <a-select-option
           v-for="(menu, key) in menus"
@@ -18,7 +18,7 @@
       </a-select>
     </a-form-model-item>
 
-    <a-form-model-item>
+    <a-form-model-item class="weddings_form-item">
       <a-button style="float: right;" size="small" @click="onRemove()">
         {{ deleteCompanion}}
         <a-icon type="user-delete" />

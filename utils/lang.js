@@ -84,7 +84,7 @@ export const lang = {
         {
           en: 'wedding planner',
           es: 'organizador de bodas',
-        }
+        },
       ],
       row1: [
         {
@@ -96,12 +96,16 @@ export const lang = {
           es: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
         },
         {
-          en: 'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings',
-          es: 'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.',
+          en:
+            'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings',
+          es:
+            'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.',
         },
         {
-          en: 'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
-          es: 'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
+          en:
+            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
+          es:
+            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
         },
         {
           en: '¿Quieres saber cómo vamos a ayudaros?',
@@ -110,21 +114,28 @@ export const lang = {
       ],
       row2: [
         {
-          en: 'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
-          es: 'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
-        },{
+          en:
+            'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
+          es:
+            'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
+        },
+        {
           en: '💰 Fijar vuestro presupuesto.',
           es: '💰 Fijar vuestro presupuesto.',
-        },{
+        },
+        {
           en: '🧮 Crear una lista de proveedores para el catering y sus precios.',
           es: '🧮 Crear una lista de proveedores para el catering y sus precios.',
-        },{
+        },
+        {
           en: '💃 Organizar vuestra lista de invitados.',
           es: '💃 Organizar vuestra lista de invitados.',
-        },{
+        },
+        {
           en: '🎁 Tener ideas para vuestra lista de regalos de boda.',
           es: '🎁 Tener ideas para vuestra lista de regalos de boda.',
-        },{
+        },
+        {
           en: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
           es: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
         },
@@ -635,8 +646,8 @@ export const lang = {
             'Wed Wed Weddings es un ‘’wedding planner’’ gratuito online en el que podréis planificar la organización de vuestra boda paso a paso con nosotros. En Wed Wed Weddings, podréis crear y organizar las invitaciones y mesas de los invitados de forma totalmente gratuita, además de la lista de regalos y planificar el presupuesto del catering.',
         },
       },
-       // #1 - Preguntas Frecuentes
-       {
+      // #1 - Preguntas Frecuentes
+      {
         title: {
           en: '',
           es: '¿Cómo planificar tu boda Wed Wed Weddings?',
@@ -1159,7 +1170,7 @@ export const lang = {
       },
     },
     title: {
-      en: 'Wedding party!',
+      en: '💍 Wedding party!',
       es: '💍 ¡Te vas de boda! 🥳',
     },
     subtitle: {
