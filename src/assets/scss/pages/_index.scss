@@ -35,25 +35,100 @@
   & .home_whyus-container {
     background-color: $color-secondary;
 
-    & .home_whyus {
+    & .whyus_title {
+      background-color: $color-white;
+
+      & .ant-col {
+        @include respond(phone) {
+          padding: 0 3rem;
+        }
+      }
+    }
+
+    & .whyus_image {
+      background-color: $color-white;
+
+      & [class^='col--'] {
+        min-height: 256px;
+
+        & img {
+          height: auto;
+          width: 100%;
+        }
+
+        @include respond(phone) {
+          width: 100%;
+        }
+      }
+
+      & .col--1l,
+      .col--2r {
+        padding: 4rem 6rem;
+
+        @include respond(phone) {
+          padding: 2rem 3rem;
+        }
+      }
+
+      & .col--1r {
+        & img {
+          border-radius: 200px 0 0 0 !important;
+        }
+      }
+
+      & .col--2l {
+        & img {
+          border-radius: 0 0 200px 0 !important;
+        }
+      }
+
+      & .col--2r {
+        & ul {
+          & li {
+            list-style: none;
+          }
+        }
+      }
+    }
+
+    & .whyus_list-container {
       background-color: $color-white;
       clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0% 88%);
       padding: 72px 0;
 
-      & .ant-col {
-        & .ant-col {
-          &:first-child {
-            text-align: right;
-
+      & > .ant-col {
+        & .whyus_list--intro {
+          & > .ant-col {
             @include respond(phone) {
-              text-align: center;
+              width: 100%;
             }
           }
 
           @include respond(phone) {
+            padding: 2rem 3rem;
+          }
+        }
+
+        & .whyus_list--free {
+          @include respond(phone) {
             width: 100%;
           }
         }
+
+        & .whyus_list {
+          @include respond(phone) {
+            padding: 0 10vw;
+            width: 100%;
+          }
+        }
+
+        @include respond(phone) {
+          width: 100%;
+        }
+      }
+
+      @include respond(phone) {
+        padding: 0 0 6rem 0;
       }
     }
   }

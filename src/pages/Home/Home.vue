@@ -17,20 +17,87 @@
       </a-col>
     </a-row>
 
+    <!-- Why Us -->
     <div class="home_whyus-container">
-      <!-- Why Us -->
-      <a-row class="home_whyus" type="flex" justify="center" align="middle">
+      <a-row class="whyus_title" type="flex" justify="center" align="middle">
         <a-col :span="16">
           <h2>{{ whyUsTitle }}</h2>
+        </a-col>
+      </a-row>
+
+      <a-row class="whyus_image">
+        <a-col class="col--1l" :span="12">
+          <p class="txt-welcome">Antes de nada… ¡Felicidades por vuestro compromiso!</p>
+
+          <p
+            class="txt-welcome"
+          >Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.</p>
+
+          <p
+            class="txt-welcome"
+          >Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.</p>
+
+          <p
+            class="txt-welcome"
+          >Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.</p>
+
+          <p class="txt-welcome">¿Quieres saber cómo vamos a ayudaros?</p>
+        </a-col>
+        <a-col class="col--1r" :span="12">
+          <img
+            src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598987101/wedwedweddings.com/images/home-01_jowckk.jpg"
+            alt="Weddings"
+          />
+        </a-col>
+      </a-row>
+
+      <a-row class="whyus_image">
+        <a-col class="col--2l" :span="12">
+          <img
+            src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598987096/wedwedweddings.com/images/home-02_b90qq6.jpg"
+            alt="Weddings"
+          />
+        </a-col>
+
+        <a-col class="col--2r" :span="12">
+          <p
+            class="txt-welcome"
+          >A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.</p>
+
+          <ul>
+            <li class="txt-welcome">💰 Fijar vuestro presupuesto.</li>
+            <li
+              class="txt-welcome"
+            >🧮 Crear una lista de proveedores para el catering y sus precios.</li>
+            <li class="txt-welcome">💃 Organizar vuestra lista de invitados.</li>
+            <li class="txt-welcome">🎁 Tener ideas para vuestra lista de regalos de boda.</li>
+            <li
+              class="txt-welcome"
+            >👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.</li>
+          </ul>
+
+          <p class="txt-welcome"></p>
+        </a-col>
+      </a-row>
+
+      <a-row class="whyus_list-container" type="flex" justify="center" align="middle">
+        <a-col :span="16">
+          <a-row class="whyus_list--intro" type="flex" justify="center">
+            <a-col :span="16">
+              <p
+                class="txt-welcome"
+              >Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:</p>
+            </a-col>
+          </a-row>
 
           <a-row type="flex" justify="space-between" align="middle">
             <!-- Free -->
-            <a-col :span="11">
+            <a-col class="whyus_list--free" :span="11">
               <h4 class="whyus_free">{{ whyUsFree }}</h4>
             </a-col>
 
             <!-- List -->
-            <a-col :span="11">
+            <a-col class="whyus_list" :span="11">
               <a-timeline>
                 <a-timeline-item
                   class="whyus_text"

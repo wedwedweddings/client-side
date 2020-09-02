@@ -42,6 +42,10 @@
             </a>
           </a-col>
         </a-row>
+
+        <h3>Creditos</h3>
+
+        <a href="https://www.freepik.es/fotos/boda">Foto de Boda creado por freepik - www.freepik.es</a>
       </a-col>
     </a-row>
   </div>
