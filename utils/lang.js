@@ -67,14 +67,69 @@ export const lang = {
         es: `Tu día especial empieza <span class="heading--detail">aquí</span> y <span class="heading--detail">ahora</span>`,
       },
       button: {
-        en: 'Start now',
-        es: 'Comenzar ahora',
+        en: 'Start',
+        es: 'Comenzar',
       },
     },
     whyUs: {
       title: {
         en: 'Manage your wedding with us',
         es: 'Organiza tu boda con nosotros',
+      },
+      whyUs: {
+        images: [
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          }
+        ],
+        row1: [
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          },
+          {
+            en: '',
+            es: '',
+          },
+        ],
+        row2: [
+          {
+            en: '',
+            es: '',
+          },{
+            en: '',
+            es: '',
+          },{
+            en: '',
+            es: '',
+          },{
+            en: '',
+            es: '',
+          },{
+            en: '',
+            es: '',
+          },{
+            en: '',
+            es: '',
+          },
+        ]
       },
       timeline: [
         {
