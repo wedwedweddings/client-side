@@ -46,6 +46,9 @@
         <h3>Creditos</h3>
 
         <a href="https://www.freepik.es/fotos/boda">Foto de Boda creado por freepik - www.freepik.es</a>
+        <a
+          href="https://www.freepik.es/fotos/tecnologia"
+        >Foto de Tecnología creado por pressahotkey - www.freepik.es</a>
       </a-col>
     </a-row>
   </div>

@@ -54,7 +54,7 @@
       <a-row class="whyus_image">
         <a-col class="col--2l" :span="12">
           <img
-            src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598987096/wedwedweddings.com/images/home-02_b90qq6.jpg"
+            src="https://res.cloudinary.com/wedwedweddings/image/upload/v1599030279/wedwedweddings.com/images/home-03_sjmi08.jpg"
             alt="Weddings"
           />
         </a-col>
