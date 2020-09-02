@@ -72,14 +72,15 @@ body {
 
 // Home
 .home_container {
-  & .home_whyus-container {
+  & .whyus-findus_container {
+    // Why Us
+
     & .whyus_title {
       & .ant-col {
         & h2 {
           color: $color-primary;
-          font-size: 3rem;
+          font-size: 4rem;
           font-weight: bold;
-          line-height: 2rem;
           padding: 4rem 0 6rem 0;
           text-align: center;
 

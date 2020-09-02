@@ -18,7 +18,7 @@
     </a-row>
 
     <!-- Why Us -->
-    <div class="home_whyus-container">
+    <div class="whyus-findus_container">
       <a-row class="whyus_title" type="flex" justify="center" align="middle">
         <a-col :span="16">
           <h2>{{ whyUsTitle }}</h2>
@@ -179,6 +179,23 @@ export default {
 
       return timeline;
     },
+    /*whyUsRow1() {
+      const timeline = [];
+
+      for (
+        let i = 0;
+        i < this.$root.$options.languages.lang.home.whyUs.timeline.length;
+        i++
+      ) {
+        timeline.push(
+          this.$root.$options.languages.lang.home.whyUs.timeline[i][
+            this.$root.$options.languages.current
+          ]
+        );
+      }
+
+      return timeline;
+    },*/
     whyUsFree() {
       return this.$root.$options.languages.lang.home.whyUs.free[
         this.$root.$options.languages.current
