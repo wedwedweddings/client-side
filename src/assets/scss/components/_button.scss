@@ -84,3 +84,29 @@
     animation-fill-mode: backwards;
   }
 }
+
+// Home
+.home_container {
+  // Main
+  & .home_main {
+    & .button-container {
+      margin: 32px 0;
+      text-align: center;
+
+      & .button {
+        background-color: transparent;
+        border: 1px solid $color-white;
+        color: $color-white;
+        height: 60px;
+        width: 200px;
+
+        &:hover {
+          background-color: $color-white !important;
+          color: $color-primary;
+          font-weight: bold;
+          box-shadow: 0 4px 1rem rgba($color-black, 0.25);
+        }
+      }
+    }
+  }
+}

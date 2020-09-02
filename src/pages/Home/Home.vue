@@ -27,7 +27,9 @@
 
       <a-row class="whyus_image">
         <a-col class="col--1l" :span="12">
-          <p class="txt-welcome">Antes de nada… ¡Felicidades por vuestro compromiso!</p>
+          <p class="txt-welcome" v-for="(p, i) in whyUsRow(1)" :key="`row-${i}`">{{ p }}</p>
+
+          <!-- <p class="txt-welcome">Antes de nada… ¡Felicidades por vuestro compromiso!</p>
 
           <p
             class="txt-welcome"
@@ -41,7 +43,7 @@
             class="txt-welcome"
           >Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.</p>
 
-          <p class="txt-welcome">¿Quieres saber cómo vamos a ayudaros?</p>
+          <p class="txt-welcome">¿Quieres saber cómo vamos a ayudaros?</p>-->
         </a-col>
         <a-col class="col--1r" :span="12">
           <img
@@ -60,7 +62,9 @@
         </a-col>
 
         <a-col class="col--2r" :span="12">
-          <p
+          <p class="txt-welcome" v-for="(p, i) in whyUsRow(2)" :key="`row-${i}`">{{ p }}</p>
+
+          <!-- <p
             class="txt-welcome"
           >A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.</p>
 
@@ -76,7 +80,7 @@
             >👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.</li>
           </ul>
 
-          <p class="txt-welcome"></p>
+          <p class="txt-welcome"></p>-->
         </a-col>
       </a-row>
 
@@ -163,39 +167,14 @@ export default {
       ];
     },
     whyUsTimeline() {
-      const timeline = [];
-
-      for (
-        let i = 0;
-        i < this.$root.$options.languages.lang.home.whyUs.timeline.length;
-        i++
-      ) {
-        timeline.push(
-          this.$root.$options.languages.lang.home.whyUs.timeline[i][
-            this.$root.$options.languages.current
-          ]
-        );
-      }
+      const timeline = this.$root.$options.languages.lang.home.whyUs.timeline.map(
+        (item) => {
+          return item[this.$root.$options.languages.current];
+        }
+      );
 
       return timeline;
     },
-    /*whyUsRow1() {
-      const timeline = [];
-
-      for (
-        let i = 0;
-        i < this.$root.$options.languages.lang.home.whyUs.timeline.length;
-        i++
-      ) {
-        timeline.push(
-          this.$root.$options.languages.lang.home.whyUs.timeline[i][
-            this.$root.$options.languages.current
-          ]
-        );
-      }
-
-      return timeline;
-    },*/
     whyUsFree() {
       return this.$root.$options.languages.lang.home.whyUs.free[
         this.$root.$options.languages.current
@@ -210,6 +189,19 @@ export default {
       return this.$root.$options.languages.lang.home.findUs.subtitle[
         this.$root.$options.languages.current
       ];
+    },
+  },
+  methods: {
+    whyUsRow(index) {
+      if (index !== 1 && index !== 2) return [];
+
+      const row = this.$root.$options.languages.lang.home.whyUs[
+        `row${index}`
+      ].map((item) => {
+        return item[this.$root.$options.languages.current];
+      });
+
+      return row;
     },
   },
   metaInfo() {

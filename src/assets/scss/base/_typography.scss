@@ -72,9 +72,20 @@ body {
 
 // Home
 .home_container {
+  // Main
+  & .home_main {
+    & .button-container {
+      margin: 32px 0;
+      text-align: center;
+
+      & .button {
+        font-size: 2rem;
+      }
+    }
+  }
+
   & .whyus-findus_container {
     // Why Us
-
     & .whyus_title {
       & .ant-col {
         & h2 {
@@ -101,9 +112,11 @@ body {
     }
 
     & .whyus_image {
-      & ul {
-        & li {
-          margin-bottom: 1rem;
+      & .col--2r {
+        & .txt-welcome {
+          &:not(:first-of-type) {
+            margin-bottom: 1rem;
+          }
         }
       }
     }
