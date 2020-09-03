@@ -18,6 +18,7 @@
       </a-select>
     </a-form-model-item>
 
+    <!-- Delete -->
     <a-form-model-item class="weddings_form-item">
       <a-button style="float: right;" size="small" @click="onRemove()">
         {{ deleteCompanion}}

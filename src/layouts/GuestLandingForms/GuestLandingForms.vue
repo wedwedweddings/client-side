@@ -44,6 +44,7 @@ import CompanionForm from "../../components/GuestLanding/CompanionForm";
 import MainGuestForm from "../../components/GuestLanding/MainGuestForm";
 
 // Models
+import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 import {
   guestGetsOwnDataById as ggodbi,
   guestUpdatesOwnDataById as guodbi,
@@ -209,6 +210,26 @@ export default {
     // Submit form
     async onUpdateInvitation() {
       // TODO: Validate form...
+
+      let token;
+      let confirm = false;
+
+      try {
+        token = await getCaptchaToken();
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!token) return;
+
+      try {
+        const response = await postTokenToVerify(token);
+        confirm = response.success;
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!confirm) return;
 
       await this.updateMainGuest();
 

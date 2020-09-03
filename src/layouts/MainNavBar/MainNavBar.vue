@@ -54,7 +54,7 @@ export default {
       return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
     },
     onLogOut() {
-      localStorage.removeItem("isLoggedIn");
+      localStorage.clear();
 
       this.isLoggedIn = this.getLoggedIn();
 
