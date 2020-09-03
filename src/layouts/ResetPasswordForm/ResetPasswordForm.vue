@@ -61,6 +61,7 @@
 <script>
 // Models
 import { resetPassword } from "../../models/auth";
+import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
   name: "ResetPasswordForm",
@@ -115,8 +116,36 @@ export default {
       const value = e.target.value;
       this.confirmDirty = this.confirmDirty || !!value;
     },
-    onSubmit(e) {
+    async onSubmit(e) {
       e.preventDefault();
+
+      let token;
+      let confirm = false;
+
+      try {
+        token = await getCaptchaToken();
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!token) return;
+
+      try {
+        const response = await postTokenToVerify(token);
+        confirm = response.success;
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!confirm) {
+        // Message
+        return this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
 
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {

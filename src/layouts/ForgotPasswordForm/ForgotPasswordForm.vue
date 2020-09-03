@@ -35,6 +35,7 @@
 <script>
 // Models
 import { forgotPassword } from "../../models/auth";
+import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
   name: "ForgotPasswordForm",
@@ -60,8 +61,28 @@ export default {
     },
   },
   methods: {
-    onSubmit(e) {
+    async onSubmit(e) {
       e.preventDefault();
+
+      let token;
+      let confirm = false;
+
+      try {
+        token = await getCaptchaToken();
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!token) return;
+
+      try {
+        const response = await postTokenToVerify(token);
+        confirm = response.success;
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!confirm) return;
 
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {
