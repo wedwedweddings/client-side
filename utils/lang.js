@@ -409,10 +409,6 @@ export const lang = {
           en: 'Guest email',
           es: 'Email del invitado',
         },
-        warning: {
-          en: "⭐ We'll send an email to this guest to get assistance confirmation ⭐",
-          es: '⭐ Enviaremos un email a este invitado para que confirme su asistencia ⭐',
-        },
       },
       validators: {
         fullName: {
@@ -431,6 +427,22 @@ export const lang = {
           en: 'The input is not valid email!',
           es: '¡El email no es correcto!',
         },
+      },
+      warning: {
+        en: "⭐ We'll send an email to this guest to get assistance confirmation ⭐",
+        es: '⭐ Enviaremos un email a este invitado para que confirme su asistencia ⭐',
+      },
+      invitationLinkMessage: {
+        en: 'Click icon to copy the invitation link for',
+        es: 'Haz click en el icono para copiar el enlace de la invitación de',
+      },
+      invitationLinkWarning: {
+        en: 'You should share this link only with',
+        es: 'Este enlace sólo puedes compartirlo con',
+      },
+      copiedLink: {
+        en: 'Link copied!',
+        es: '¡Enlace copiado!',
       },
       addButton: {
         en: 'Add guest',
@@ -455,6 +467,12 @@ export const lang = {
       continueButton: {
         en: 'Continue',
         es: 'Continuar',
+      },
+    },
+    companionsForm: {
+      title: {
+        en: '💃🕺 Companions',
+        es: '💃🕺 Acompañantes',
       },
     },
     guest: {

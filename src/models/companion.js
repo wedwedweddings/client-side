@@ -103,6 +103,7 @@ export const guestUpdatesCompanion = (guestId, prev, params, mainGuest) => {
     params.weddingId = mainGuest.weddingId
     params.accepted = false
     params.assistance = mainGuest.assistance
+    params.tags = mainGuest.tags
 
     let body = joinParamsAsString(params)
 

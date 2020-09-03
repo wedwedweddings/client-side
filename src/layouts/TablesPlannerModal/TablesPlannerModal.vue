@@ -29,23 +29,41 @@
 import GuestForm from "../GuestForm/GuestForm";
 import PresentForm from "../PresentForm/PresentForm";
 
-// Utils
-import { capitalize } from "../../../utils/utils";
-
 export default {
   name: "TablesPlannerModal",
   components: {
     GuestForm,
-    PresentForm
+    PresentForm,
   },
   props: ["formType", "guestToUpdate", "presentToUpdate"],
   data: () => ({
-    confirmLoading: false
+    confirmLoading: false,
   }),
   computed: {
+    // Lang
     title() {
-      return capitalize(this.formType);
-    }
+      const hasGuest =
+        this.guestToUpdate && Object.keys(this.guestToUpdate).length > 0;
+      let type = "";
+
+      if (this.formType) {
+        if (
+          this.formType === "guest" &&
+          hasGuest &&
+          this.guestToUpdate.accompanying !== "main-guest"
+        ) {
+          type = "companionsForm";
+        } else {
+          type = `${this.formType}sForm`;
+        }
+      }
+
+      return this.formType
+        ? this.$root.$options.languages.lang.gettingStarted[type].title[
+            this.$root.$options.languages.current
+          ]
+        : "";
+    },
   },
   methods: {
     handleCancel() {
@@ -58,7 +76,7 @@ export default {
     // Present
     onUpdatedPresent() {
       this.$emit("updatedPresent");
-    }
-  }
+    },
+  },
 };
 </script>

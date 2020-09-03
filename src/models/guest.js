@@ -144,3 +144,29 @@ export const deleteById = (guestId) => {
       })
   })
 }
+
+export const generateInvitation = (guestId) => {
+  // Request
+  return new Promise((resolve, reject) => {
+    // Check Wedding Id in local storage
+    if (!guestId) {
+      reject('Wedding ID in localStorage and guestId param are required!')
+    }
+
+    xhr({
+      method: 'GET',
+      url: `${process.env.VUE_APP_API}guest/generate-invitation/${guestId}`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((data) => {
+        resolve(JSON.parse(data).data.url)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}

@@ -56,7 +56,7 @@
     </a-form-item>
 
     <!-- Email -->
-    <a-form-item class="weddings_form-item">
+    <a-form-item class="weddings_form-item" v-if="guestToUpdate.accompanying === 'main-guest'">
       <a-input
         v-decorator="[
           'email',
@@ -76,7 +76,7 @@
     </a-form-item>
 
     <!-- Warning -->
-    <p class="message--warning" v-if="!hasGuest">{{ warningPlaceholder }}</p>
+    <p class="message--warning" v-if="!hasGuest">{{ warningMessage }}</p>
 
     <!-- Tags -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
@@ -89,6 +89,20 @@
         @change="onChangeTag"
       >{{ translateTag(t.id) }}</a-checkbox>
     </a-form-item>
+
+    <!-- Invitation link -->
+    <div v-if="hasGuest && guestToUpdate.accompanying === 'main-guest'">
+      <a-form-item class="weddings_form-item" style="text-align:center;">
+        <p class="message--warning">
+          {{ invitationLinkMessage }} {{ guestToUpdate.fullName }}.
+          <br />
+          ⚠️ {{ invitationLinkWarning }}
+          <span class="warning--detail">{{ guestToUpdate.fullName }}</span> ⚠️.
+          <br />
+          <a-icon class="invitation-link" type="copy" @click="copyInvitationLink" />
+        </p>
+      </a-form-item>
+    </div>
 
     <!-- Add Guest -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
@@ -105,12 +119,14 @@
       <p>{{ later }}</p>
       <a-button size="small" type="primary" ghost @click="onContinue">{{ continueButton }}</a-button>
     </a-form-item>
+
+    <input class="dummy-to-copy" style="opacity:0" />
   </a-form>
 </template>
 
 <script>
 // Models
-import { add, updateById } from "../../models/guest";
+import { add, updateById, generateInvitation } from "../../models/guest";
 import { getLast } from "../../models/wedding";
 
 // Utils
@@ -124,6 +140,7 @@ export default {
   props: ["guestToUpdate"],
   data: () => ({
     emojis,
+    invitationLink: "",
     menus,
     spouses: {
       one: {
@@ -167,10 +184,6 @@ export default {
       return this.$root.$options.languages.lang.gettingStarted.guestsForm
         .placeholders.email[this.$root.$options.languages.current];
     },
-    warningPlaceholder() {
-      return this.$root.$options.languages.lang.gettingStarted.guestsForm
-        .placeholders.warning[this.$root.$options.languages.current];
-    },
     fullNameValidator() {
       return this.$root.$options.languages.lang.gettingStarted.guestsForm
         .validators.fullName[this.$root.$options.languages.current];
@@ -189,6 +202,22 @@ export default {
     },
     bothSpouses() {
       return this.$root.$options.languages.current === "es" ? "Ambos" : "Both";
+    },
+    warningMessage() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .warning[this.$root.$options.languages.current];
+    },
+    invitationLinkMessage() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .invitationLinkMessage[this.$root.$options.languages.current];
+    },
+    invitationLinkWarning() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .invitationLinkWarning[this.$root.$options.languages.current];
+    },
+    copiedLink() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .copiedLink[this.$root.$options.languages.current];
     },
     guestButton() {
       if (this.hasGuest) {
@@ -218,6 +247,21 @@ export default {
     },
   },
   methods: {
+    copyInvitationLink() {
+      //
+      const dummy = document.querySelector("input.dummy-to-copy");
+      dummy.value = this.invitationLink;
+
+      // Select the text field
+      dummy.select();
+      dummy.setSelectionRange(0, 99999); // For mobile devices
+
+      // Copy the text inside the text field
+      document.execCommand("copy");
+
+      // Message
+      this.$message.success(this.copiedLink, 5);
+    },
     onGuest(e) {
       e.preventDefault();
 
@@ -299,8 +343,6 @@ export default {
           t.parentElement.classList.remove("ant-checkbox-checked");
         }
       });
-
-      console.log("tagsElems:", tagsElems);
     },
     checkSelectedTagsAtInit() {
       if (this.hasGuest) {
@@ -376,6 +418,9 @@ export default {
         relative: this.guestToUpdate.relative,
         email: this.guestToUpdate.email,
       });
+
+      // Invitation link
+      this.invitationLink = await generateInvitation(this.guestToUpdate._id);
     }
   },
 };

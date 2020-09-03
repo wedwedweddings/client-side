@@ -211,10 +211,15 @@ body {
 }
 
 // Tables Planner
-.tables-planner-menu_container {
-  & .divider {
-    & .ant-tag {
-      font-size: 1.2rem;
+section.tables-planner_container {
+  & .weddings_form {
+    & .weddings_form-item {
+      & .message--warning {
+        & .warning--detail {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }
@@ -270,9 +275,15 @@ body {
 // Tables Planner Menu
 section.tables-planner_container {
   & div.tables-planner-menu_container {
-    .ant-divider-inner-text {
+    & .divider {
+      & .ant-tag {
+        font-size: 1.2rem;
+      }
+    }
+
+    & .ant-divider-inner-text {
       color: $color-white;
-      font-size: 1.75rem;
+      font-size: 1.6rem;
     }
   }
 }
