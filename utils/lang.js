@@ -688,8 +688,8 @@ export const lang = {
           en:
             'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a móvil).',
           es:
-            'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a móvil).',
-        },
+            'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a un móvil).',
+        }, 
       },
       // #2 - Funciones del usuario
       {
@@ -738,7 +738,7 @@ export const lang = {
         },
         description: {
           en: 'Sí, aparecerán los datos modificados, pero no se notifica de ninguna manera los cambios que realices.',
-          es: 'Sí, aparecerán los datos modificados, pero no se notifica de ninguna manera los cambios que realices.',
+          es: 'Las modificaciones que se realicen, se hagan de forma individual o en pareja, quedarán reflejadas en los datos de vuestra boda de Wed Wed Weddings, como cambios en los asientos, asignación de regalos, menús, cambios de presupuesto... Cualquier tipo de modificación que hagáis, quedará registrada.',
         },
       },
       // #6 - Funciones del usuario
@@ -764,7 +764,7 @@ export const lang = {
           en:
             'Podéis organizar en el planificador de mesas a los invitados de la boda como queráis. En las mesas, podéis incluir hasta 12 comensales y no hay límite para añadir número de mesas. No olvidéis incluir una mesa para niños, si tenéis pensado añadir una. Os aconsejamos organizar a los invitados de tu boda en alas, es decir, los invitados correspondientes a uno de los cónyuges en el lado en el que esa persona se sienta y hacer lo mismo con los del otro/a esposo/a.',
           es:
-            'Podéis organizar en el planificador de mesas a los invitados de la boda como queráis. En las mesas, podéis incluir hasta 12 comensales y no hay límite para añadir número de mesas. No olvidéis incluir una mesa para niños, si tenéis pensado añadir una. Os aconsejamos organizar a los invitados de tu boda en alas, es decir, los invitados correspondientes a uno de los cónyuges en el lado en el que esa persona se sienta y hacer lo mismo con los del otro/a esposo/a.',
+            'Podéis organizar en el planificador de mesas a los invitados de la boda como queráis. En las mesas, podéis incluir hasta 12 comensales y no hay límite para añadir número de mesas. No olvidéis incluir una mesa para niños, si tenéis pensado añadir una. Os aconsejamos organizar a los invitados de vuestra boda en alas, es decir, los invitados correspondientes a uno de los cónyuges en el lado en el que esa persona se sienta y hacer lo propio con los del otro/a esposo/a, es decir, situar a los invitados, según esté la pareja sentada',
         },
       },
       // #8 - Planificador de mesas
@@ -823,7 +823,7 @@ export const lang = {
           en:
             'Tienes dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los invitados que quieras. NO se pueden modificar los datos de los invitados en este paso, pero sí podéis eliminarlos e introducir sus datos de nuevo. Debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos y no eliminar datos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de nombres. Primero, debéis seleccionar el nombre de la persona y clicar sobre él. Después, modificar los datos que queráis y pulsar en el botón de ‘’Actualizar invitado’’',
           es:
-            'Tienes dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los invitados que quieras. NO se pueden modificar los datos de los invitados en este paso, pero sí podéis eliminarlos e introducir sus datos de nuevo. Debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos y no eliminar datos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de nombres. Primero, debéis seleccionar el nombre de la persona y clicar sobre él. Después, modificar los datos que queráis y pulsar en el botón de ‘’Actualizar invitado’’.',
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los invitados que quieras. No se pueden modificar los datos de los invitados en este paso, pero sí podéis eliminarlos e introducir sus datos de nuevo. Debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos y no eliminar datos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de nombres. Primero, debéis seleccionar el nombre de la persona y clicar sobre él. Después, modificar los datos que queráis y pulsar en el botón de ‘’Actualizar invitado’’.',
         },
       },
       // #13 - Lista de invitados
@@ -849,7 +849,7 @@ export const lang = {
           en:
             'Si tenéis el correo electrónico de los invitados, se pueden enviar las invitaciones al principio, a la hora de crear la lista de invitados una vez estáis empezando a registrar la boda. Si no tenéis el correo electrónico de algún invitado, siempre podéis invitarlo más tarde dentro del planificador de mesas o al añadir a un nuevo invitado.',
           es:
-            'Si tenéis el correo electrónico de los invitados, se pueden enviar las invitaciones al principio, a la hora de crear la lista de invitados una vez estáis empezando a registrar la boda. Si no tenéis el correo electrónico de algún invitado, siempre podéis invitarlo más tarde dentro del planificador de mesas o al añadir a un nuevo invitado. ',
+            'Si tenéis el correo electrónico de los invitados, se pueden enviar las invitaciones al principio, a la hora de crear la lista de invitados una vez estáis empezando a registrar la boda. Si no tenéis el correo electrónico de algún invitado, siempre podéis invitarlo más tarde dentro del planificador de mesas o añadiendo a un nuevo invitado. ',
         },
       },
       // #15 - Lista de invitados
@@ -862,7 +862,7 @@ export const lang = {
           en:
             'Sí, se pueden filtrar. En el panel donde se encuentra la Lista de invitados de la boda, aparecen todos los filtros que se pueden seleccionar. Se pueden filtrar para ver si, por ejemplo, los invitados que pertenecen a la categoría ‘’Gimnasio’’ que vienen de parte de la novia, están sentados todos juntos en una mesa y también, por si falta alguien por sentar de esa categoría en concreto.',
           es:
-            'Sí, se pueden filtrar. En el panel donde se encuentra la Lista de invitados de la boda, aparecen todos los filtros que se pueden seleccionar. Se pueden filtrar para ver si, por ejemplo, los invitados que pertenecen a la categoría ‘’Gimnasio’’ que vienen de parte de la novia, están sentados todos juntos en una mesa y también, por si falta alguien por sentar de esa categoría en concreto.',
+            'Sí, se pueden filtrar. En el panel donde se encuentra la Lista de invitados de la boda, aparecen todos los filtros que se pueden seleccionar. Se pueden filtrar para comprobar si, por ejemplo, los invitados que pertenecen a la categoría ‘’Gimnasio’’ que vienen de parte de la novia, están sentados todos juntos en una mesa y también, por si falta alguien por sentar de esa categoría en concreto.',
         },
       },
       // #16 - Lista de regalos
@@ -875,10 +875,23 @@ export const lang = {
           en:
             'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
           es:
-            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que queráis y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
         },
       },
-      // #17 - Lista de regalos
+           // #17 - Lista de regalos
+           {
+            title: {
+              en: 'Can I assign gifts to wedding guests?',
+              es: '¿Puedo asignar regalos a los invitados?',
+            },
+            description: {
+              en:
+                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+              es:
+                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir regalos y asignarlos a los invitados que queráis (1 regalo por persona). No se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, asignarlo al invitado que queráis, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+            },
+          },
+      // #18 - Lista de regalos
       {
         title: {
           en: 'Can guests assign presents to theirselves?',
@@ -892,7 +905,7 @@ export const lang = {
         },
       },
 
-      // #18 - Presupuesto del catering
+      // #19 - Presupuesto del catering
       {
         title: {
           en: 'What is it the menu budget calculator for?',
@@ -915,7 +928,7 @@ export const lang = {
           en:
             'Debéis introducir vosotros mismos los precios y el número de menús de cada uno de ellos. Esta herramienta, según los datos que vayáis metiendo, calculará automáticamente el presupuesto de vuestro catering.',
           es:
-            'Debéis introducir vosotros mismos los precios y el número de menús de cada uno de ellos. Esta herramienta, según los datos que vayáis metiendo, calculará automáticamente el presupuesto de vuestro catering.',
+            'Debéis introducir vosotros mismos los precios y el número de menús de cada uno de ellos. Esta herramienta, según los datos que vayáis introduciendo, calculará automáticamente el presupuesto de vuestro catering.',
         },
       },
       // ⚠️ This has to be the last!
