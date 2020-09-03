@@ -37,7 +37,7 @@ export default {
   }),
   computed: {
     marked() {
-      return this.present.guestId !== "" && this.present.guestId != "undefined";
+      return this.present.guestId !== "" && this.present.guestId !== "";
     },
     // Lang
     deleteConfirm() {
@@ -108,7 +108,6 @@ export default {
     },
   },
   beforeMount() {
-    this.ref = this;
     this.checkGuest();
   },
 };

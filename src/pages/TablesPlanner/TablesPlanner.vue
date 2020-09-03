@@ -110,7 +110,7 @@ export default {
     presents: [],
     presentToUpdate: {},
     seatsPerTable: [],
-    siderWitdh: "25vw",
+    siderWidth: "25vw",
     tablesPerRow: 4,
     tablesPlannerId: "",
   }),
@@ -143,7 +143,7 @@ export default {
   },
   methods: {
     async init() {
-      this.siderWidth = this.calcSiderWidth();
+      this.onWindowResize();
 
       try {
         // Get last User Wedding created and set id in localStorage
@@ -179,16 +179,20 @@ export default {
         console.error("Error: Get seats per table in Wedding:", error);
       }
     },
-    calcSiderWidth() {
+    onWindowResize() {
       if (window.innerWidth <= 600) {
-        return "100vw";
+        this.tablesPerRow = 2;
+        this.siderWidth = "100vw";
+      } else if (window.innerWidth <= 900) {
+        this.tablesPerRow = 1;
+        this.siderWidth = "50vw";
+      } else if (window.innerWidth <= 1200) {
+        this.tablesPerRow = 3;
+        this.siderWidth = "40vw";
+      } else {
+        this.tablesPerRow = 4;
+        this.siderWidth = "25vw";
       }
-
-      if (window.innerWidth <= 1200) {
-        return "40vw";
-      }
-
-      return "25vw";
     },
     onCloseModal() {
       this.guestToUpdate = {};
@@ -274,9 +278,9 @@ export default {
     },
   },
   created() {
-    window.addEventListener("resize", () => {
-      this.siderWidth = this.calcSiderWidth();
-    });
+    this.onWindowResize();
+
+    window.addEventListener("resize", this.onWindowResize);
   },
   beforeMount() {
     this.init();

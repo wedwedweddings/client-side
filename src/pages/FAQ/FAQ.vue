@@ -5,23 +5,6 @@
         <!-- FAQ -->
         <h2>FAQ</h2>
 
-        <!--<h3><p>{{ description }}</p>
-
-        ¿Cómo planificar tu boda con Wed Wed Weddings?</h3>
-
-          <p
-            class="faq__description"
-          >Para organizar tu boda de manera sencilla con nosotros, los pasos a seguir son los siguientes:</p>
-
-          <a-timeline>
-            <a-timeline-item>Regístrate en nuestra web.</a-timeline-item>
-            <a-timeline-item>Añade la información de tu boda (fecha, nombre de l@s novi@s, temática…).</a-timeline-item>
-            <a-timeline-item>Crea la lista de invitados (puedes modificarla cuantas veces quieras).</a-timeline-item>
-            <a-timeline-item>Agrega regalos a tu lista de bodas.</a-timeline-item>
-            <a-timeline-item>Organiza las mesas de invitados de tu boda.</a-timeline-item>
-            <a-timeline-item>Planifica el presupuesto del catering de tu boda.</a-timeline-item>
-        </a-timeline>-->
-
         <!-- Dynamic -->
         <div :key="i" v-for="(f, i) in faqs">
           <h3>{{ f.title }}</h3>
@@ -43,9 +26,14 @@
           </a-col>
         </a-row>
 
-        <h3>Creditos</h3>
+        <a-divider></a-divider>
 
+        <!-- Credits -->
+        <h3>Créditos</h3>
         <a href="https://www.freepik.es/fotos/boda">Foto de Boda creado por freepik - www.freepik.es</a>
+
+        <br />
+
         <a
           href="https://www.freepik.es/fotos/tecnologia"
         >Foto de Tecnología creado por pressahotkey - www.freepik.es</a>

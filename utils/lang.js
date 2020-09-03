@@ -952,6 +952,10 @@ export const lang = {
         en: 'Add',
         es: 'Añadir',
       },
+      removePresentOwner: {
+        en: 'There are new unassigned presents',
+        es: 'Hay nuevos regalos disponibles',
+      },
     },
     planner: {
       title: {
@@ -1165,7 +1169,7 @@ export const lang = {
       },
     },
     title: {
-      en: 'Wedding party!',
+      en: '💍 Wedding party! 🥳',
       es: '💍 ¡Te vas de boda! 🥳',
     },
     subtitle: {
@@ -1211,4 +1215,4 @@ export const lang = {
       es: '¡Gracias por actualizar tus datos!',
     },
   },
-};
+}

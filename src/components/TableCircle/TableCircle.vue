@@ -178,7 +178,8 @@ export default {
     },
     init() {
       this.width = this.$el.parentElement.clientWidth;
-      this.tableWidth = this.width * 0.4;
+      this.tableWidth =
+        window.innerWidth <= 1200 ? this.width * 0.35 : this.width * 0.4;
       this.tableMargin = (this.width - this.tableWidth) * 0.5;
 
       this.totalSeats = this.seatsPerTable[this.tableIndex];

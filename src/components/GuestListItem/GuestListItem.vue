@@ -26,6 +26,7 @@ import { getDescription as ggd, getMenu as ggm } from "../../controllers/guest";
 
 // Models
 import { deleteById } from "../../models/guest";
+import { getAllByGuestIdInWedding, updateById } from "../../models/present";
 
 // Utils
 import emojis from "../../../utils/emojis";
@@ -50,6 +51,10 @@ export default {
     deleteSuccess() {
       return this.$root.$options.languages.lang.gettingStarted.guest
         .deleteSuccess[this.$root.$options.languages.current];
+    },
+    removePresentOwner() {
+      return this.$root.$options.languages.lang.tablesPlanner.menu
+        .removePresentOwner[this.$root.$options.languages.current];
     },
   },
   methods: {
@@ -80,6 +85,34 @@ export default {
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
+
+        // Check if guest has assigned present
+        const presents = await getAllByGuestIdInWedding(this.guest._id);
+
+        const promises = [];
+
+        presents.forEach((p) => {
+          promises.push(updateById(p._id, { guestId: "" }));
+        });
+
+        if (promises.length === 0) return;
+
+        Promise.all(promises)
+          .then(() => {
+            // Message
+            this.$message.success(this.removePresentOwner, 5);
+          })
+          .catch((reason) => {
+            console.error(reason);
+
+            // Message
+            this.$message.warning(
+              this.$root.$options.languages.lang.common.failMessage[
+                this.$root.$options.languages.current
+              ],
+              5
+            );
+          });
       } catch (error) {
         console.error(error);
 

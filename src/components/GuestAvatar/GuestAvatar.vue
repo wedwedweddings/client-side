@@ -41,7 +41,7 @@ export default {
   data: () => ({
     emojis,
     menus,
-    ref: this
+    ref: this,
   }),
   computed: {
     // Lang
@@ -56,13 +56,13 @@ export default {
     deleteSuccess() {
       return this.$root.$options.languages.lang.gettingStarted.guest
         .deleteSuccess[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     avatarLetters(name) {
       return name
         .split(" ")
-        .map(n => {
+        .map((n) => {
           return n.split("")[0];
         })
         .join("")
@@ -108,7 +108,7 @@ export default {
         cancelText: "No",
         onOk() {
           ref.delete();
-        }
+        },
       });
     },
     // Guest Controller
@@ -118,10 +118,10 @@ export default {
       }
 
       return "";
-    }
+    },
   },
   beforeMount() {
     this.ref = this;
-  }
+  },
 };
 </script>

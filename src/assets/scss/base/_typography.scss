@@ -196,10 +196,13 @@ body {
 .terms-and-conditions_container {
   & h2 {
     color: $color-primary;
+    font-size: 6rem;
+    text-align: center;
   }
 
   & h3 {
     color: $color-grey;
+    font-size: 1.6rem;
   }
 
   & p {
