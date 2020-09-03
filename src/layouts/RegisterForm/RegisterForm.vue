@@ -95,7 +95,14 @@
 
     <!-- Submit -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
-      <a-button type="primary" html-type="submit">{{ registerButton }}</a-button>
+      <a-button
+        type="primary"
+        html-type="submit"
+        class="g-recaptcha"
+        data-sitekey="6Le5JccZAAAAALLB1M8RS30T-eBuqlekD4IF9WfP"
+        data-callback="onRecaptcha"
+        data-action="submit"
+      >{{ registerButton }}</a-button>
     </a-form-item>
 
     <a-divider />
@@ -178,6 +185,9 @@ export default {
     handleConfirmBlur(e) {
       const value = e.target.value;
       this.confirmDirty = this.confirmDirty || !!value;
+    },
+    onRecaptcha(token) {
+      console.log("onRecaptcha:", token);
     },
     onSubmit(e) {
       e.preventDefault();
