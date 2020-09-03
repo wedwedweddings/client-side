@@ -40,6 +40,7 @@ module.exports = {
         prependData: `@import '@/assets/scss/components/card.scss';`,
         prependData: `@import '@/assets/scss/components/form.scss';`,
         prependData: `@import '@/assets/scss/components/guest-avatar.scss';`,
+        prependData: `@import '@/assets/scss/components/menu.scss';`,
         prependData: `@import '@/assets/scss/components/steps.scss';`,
         prependData: `@import '@/assets/scss/components/table-circle.scss';`,
 
