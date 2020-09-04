@@ -119,6 +119,7 @@ export default {
     seatsPerTable: [],
     siderWidth: "25vw",
     songs: [],
+    songToUpdate: {},
     tablesPerRow: 4,
     tablesPlannerId: "",
   }),
@@ -193,7 +194,7 @@ export default {
       try {
         this.songs = await gasiw();
       } catch (error) {
-        console.error("Error: Get all Presents in Wedding:", error);
+        console.error("Error: Get all Songs in Wedding:", error);
       }
 
       // #️⃣ Get seats per table in Wedding

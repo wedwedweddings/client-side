@@ -1,7 +1,7 @@
 <template>
   <a-form class="weddings_form" :form="form" @submit="onSong">
     <!-- Suggested by -->
-    <h3>{{ `🎵 ${suggestedBy} ${selectedGuestFullName}` }}</h3>
+    <h3 v-if="selectedGuestFullName.length > 0">{{ `${suggestedBy} ${selectedGuestFullName}` }}</h3>
 
     <!-- Artist -->
     <a-form-item class="weddings_form-item">
@@ -89,7 +89,7 @@ export default {
     },
     artistPlaceholder() {
       return this.$root.$options.languages.lang.tablesPlanner.songsForm
-        .placeholders.title[this.$root.$options.languages.current];
+        .placeholders.artist[this.$root.$options.languages.current];
     },
     titlePlaceholder() {
       return this.$root.$options.languages.lang.tablesPlanner.songsForm

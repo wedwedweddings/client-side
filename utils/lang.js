@@ -1028,6 +1028,16 @@ export const lang = {
       },
     },
     songsForm: {
+      meta: {
+        title: {
+          en: 'Add songs',
+          es: 'Añade canciones',
+        },
+      },
+      title: {
+        en: '🎵 Song',
+        es: '🎵 Canción',
+      },
       suggestedBy: {
         en: 'Suggested by',
         es: 'Sugerida por',

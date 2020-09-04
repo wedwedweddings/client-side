@@ -31,7 +31,7 @@
     <MenuSongList
       :content="songs"
       @deletedSong="onDeletedSong"
-      @presentModal="onSongModal"
+      @songModal="onSongModal"
       @updateSong="onUpdateSong"
     />
   </div>

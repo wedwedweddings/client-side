@@ -29,7 +29,7 @@ import { deleteById } from "../../models/song";
 import emojis from "../../../utils/emojis";
 
 export default {
-  name: "Present",
+  name: "Song",
   props: ["song"],
   data: () => ({
     emojis,
@@ -71,7 +71,7 @@ export default {
     async delete() {
       try {
         await deleteById(this.song._id);
-        this.$emit("deletedPresent", this.song._id);
+        this.$emit("deletedSong", this.song._id);
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
@@ -100,7 +100,7 @@ export default {
       });
     },
     onUpdate() {
-      this.$emit("updatePresent", this.song);
+      this.$emit("updateSong", this.song);
     },
   },
   watch: {

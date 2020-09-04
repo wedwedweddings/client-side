@@ -20,6 +20,13 @@
         :presentToUpdate="presentToUpdate"
         @updatedPresent="onUpdatedPresent"
       />
+
+      <!-- Song -->
+      <SongForm
+        v-if="formType === 'song'"
+        :songToUpdate="songToUpdate"
+        @updatedPresent="onUpdatedPresent"
+      />
     </a-modal>
   </div>
 </template>
@@ -28,14 +35,16 @@
 // Layouts
 import GuestForm from "../GuestForm/GuestForm";
 import PresentForm from "../PresentForm/PresentForm";
+import SongForm from "../SongForm/SongForm";
 
 export default {
   name: "TablesPlannerModal",
   components: {
     GuestForm,
     PresentForm,
+    SongForm,
   },
-  props: ["formType", "guestToUpdate", "presentToUpdate"],
+  props: ["formType", "guestToUpdate", "presentToUpdate", "songToUpdate"],
   data: () => ({
     confirmLoading: false,
   }),
@@ -44,25 +53,26 @@ export default {
     title() {
       const hasGuest =
         this.guestToUpdate && Object.keys(this.guestToUpdate).length > 0;
-      let type = "";
 
-      if (this.formType) {
-        if (
-          this.formType === "guest" &&
-          hasGuest &&
-          this.guestToUpdate.accompanying !== "main-guest"
-        ) {
-          type = "companionsForm";
-        } else {
-          type = `${this.formType}sForm`;
-        }
+      switch (this.formType) {
+        case "guest":
+          return hasGuest && this.guestToUpdate.accompanying !== "main-guest"
+            ? this.$root.$options.languages.lang.gettingStarted.companionsForm
+                .title[this.$root.$options.languages.current]
+            : this.$root.$options.languages.lang.gettingStarted.guestsForm
+                .title[this.$root.$options.languages.current];
+
+        case "present":
+          return this.$root.$options.languages.lang.gettingStarted.presentsForm
+            .title[this.$root.$options.languages.current];
+
+        case "song":
+          return this.$root.$options.languages.lang.tablesPlanner.songsForm
+            .title[this.$root.$options.languages.current];
+
+        default:
+          return "";
       }
-
-      return this.formType
-        ? this.$root.$options.languages.lang.gettingStarted[type].title[
-            this.$root.$options.languages.current
-          ]
-        : "";
     },
   },
   methods: {
@@ -77,6 +87,13 @@ export default {
     onUpdatedPresent() {
       this.$emit("updatedPresent");
     },
+    // Present
+    onUpdatedSong() {
+      this.$emit("updatedSong");
+    },
+  },
+  beforeUpdate() {
+    console.log("form type:", this.formType);
   },
 };
 </script>

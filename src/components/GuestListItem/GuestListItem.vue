@@ -25,7 +25,7 @@
 import { getDescription as ggd, getMenu as ggm } from "../../controllers/guest";
 
 // Models
-import { dgbi } from "../../models/guest";
+import { deleteById as dgbi } from "../../models/guest";
 import {
   getAllInWeddingByGuestId as gapiwbgi,
   updateById as upbi,

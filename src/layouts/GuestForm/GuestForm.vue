@@ -127,7 +127,7 @@
 <script>
 // Models
 import { add, updateById, generateInvitation } from "../../models/guest";
-import { getLast } from "../../models/wedding";
+import { getUserLastPlanner as gulp } from "../../models/wedding";
 
 // Utils
 import emojis from "../../../utils/emojis";
@@ -399,7 +399,7 @@ export default {
   },
   async beforeMount() {
     // Get Wedding ID
-    await getLast();
+    await gulp();
 
     // Getting spouses from local storage
     if (localStorage.spouses) {

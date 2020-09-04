@@ -69,6 +69,9 @@ export const add = (params) => {
     }
 
     params.weddingId = localStorage.weddingId
+
+    console.log('Adding song:', params)
+
     let body = joinParamsAsString(params)
 
     // Request
@@ -113,6 +116,32 @@ export const updateById = (songId, params) => {
     })
       .then((data) => {
         resolve(JSON.parse(data).data.song)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
+export const deleteById = (id) => {
+  // Request
+  return new Promise((resolve, reject) => {
+    // Check Wedding Id in local storage
+    if (!id) {
+      reject('Guest ID required!')
+    }
+
+    xhr({
+      method: 'DELETE',
+      url: `${process.env.VUE_APP_API}song/${id}`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((data) => {
+        resolve(JSON.parse(data))
       })
       .catch((error) => {
         reject(error)
