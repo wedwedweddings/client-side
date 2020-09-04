@@ -43,6 +43,10 @@ export const lang = {
       en: 'Something failed! Please try again.',
       es: '¡Algo falló! Inténtalo de nuevo.',
     },
+    loginAgain: {
+      en: 'Log in again, please!',
+      es: 'Vuelve a iniciar sesión, por favor.',
+    },
     none: {
       en: 'None',
       es: 'Ninguno',
@@ -689,7 +693,7 @@ export const lang = {
             'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a móvil).',
           es:
             'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a un móvil).',
-        }, 
+        },
       },
       // #2 - Funciones del usuario
       {
@@ -738,7 +742,8 @@ export const lang = {
         },
         description: {
           en: 'Sí, aparecerán los datos modificados, pero no se notifica de ninguna manera los cambios que realices.',
-          es: 'Las modificaciones que se realicen, se hagan de forma individual o en pareja, quedarán reflejadas en los datos de vuestra boda de Wed Wed Weddings, como cambios en los asientos, asignación de regalos, menús, cambios de presupuesto... Cualquier tipo de modificación que hagáis, quedará registrada.',
+          es:
+            'Las modificaciones que se realicen, se hagan de forma individual o en pareja, quedarán reflejadas en los datos de vuestra boda de Wed Wed Weddings, como cambios en los asientos, asignación de regalos, menús, cambios de presupuesto... Cualquier tipo de modificación que hagáis, quedará registrada.',
         },
       },
       // #6 - Funciones del usuario
@@ -878,19 +883,19 @@ export const lang = {
             'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que queráis y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
         },
       },
-           // #17 - Lista de regalos
-           {
-            title: {
-              en: 'Can I assign gifts to wedding guests?',
-              es: '¿Puedo asignar regalos a los invitados?',
-            },
-            description: {
-              en:
-                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
-              es:
-                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir regalos y asignarlos a los invitados que queráis (1 regalo por persona). No se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, asignarlo al invitado que queráis, luego pulsar en el botón de ‘’Actualizar regalo’’.',
-            },
-          },
+      // #17 - Lista de regalos
+      {
+        title: {
+          en: 'Can I assign gifts to wedding guests?',
+          es: '¿Puedo asignar regalos a los invitados?',
+        },
+        description: {
+          en:
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+          es:
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir regalos y asignarlos a los invitados que queráis (1 regalo por persona). No se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, asignarlo al invitado que queráis, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+        },
+      },
       // #18 - Lista de regalos
       {
         title: {
@@ -979,6 +984,10 @@ export const lang = {
         en: 'Presents',
         es: 'Regalos',
       },
+      songs: {
+        en: 'Songs',
+        es: 'Canciones',
+      },
       addButton: {
         en: 'Add',
         es: 'Añadir',
@@ -1016,6 +1025,56 @@ export const lang = {
       seatSelectGuest: {
         en: 'Select guest',
         es: 'Elige un invitado',
+      },
+    },
+    songsForm: {
+      suggestedBy: {
+        en: 'Suggested by',
+        es: 'Sugerida por',
+      },
+      placeholders: {
+        artist: {
+          en: 'Artist',
+          es: 'Artista',
+        },
+        title: {
+          en: 'Title',
+          es: 'Canción',
+        },
+        url: {
+          en: 'Paste here the song link',
+          es: 'Pega aquí el enlace de la canción',
+        },
+      },
+      addButton: {
+        en: 'Add song',
+        es: 'Añadir canción',
+      },
+      addSuccess: {
+        en: 'New song added!',
+        es: '¡Canción añadido!',
+      },
+      updateButton: {
+        en: 'Update song',
+        es: 'Actualizar canción',
+      },
+      updateSuccess: {
+        en: 'Present updated!',
+        es: '¡Canción actualizado!',
+      },
+    },
+    song: {
+      deleteConfirm: {
+        en: 'Delete this song?',
+        es: '¿Borrar canción?',
+      },
+      deleteConfirmYes: {
+        en: 'Yes',
+        es: 'Sí',
+      },
+      deleteSuccess: {
+        en: 'Song deleted!',
+        es: '¡Canción borrada!',
       },
     },
   },
@@ -1236,6 +1295,10 @@ export const lang = {
     deleteCompanion: {
       en: 'Delete',
       es: 'Quitar',
+    },
+    songHeading: {
+      en: 'Any song to suggest?',
+      es: '¿Qué canción no puede faltar?',
     },
     updateInfo: {
       en: 'Update info',

@@ -25,8 +25,15 @@
 import { getDescription as ggd, getMenu as ggm } from "../../controllers/guest";
 
 // Models
-import { deleteById } from "../../models/guest";
-import { getAllByGuestIdInWedding, updateById } from "../../models/present";
+import { dgbi } from "../../models/guest";
+import {
+  getAllInWeddingByGuestId as gapiwbgi,
+  updateById as upbi,
+} from "../../models/present";
+import {
+  getByGuestId as gsbgi,
+  deleteByGuestId as dsbgi,
+} from "../../models/song";
 
 // Utils
 import emojis from "../../../utils/emojis";
@@ -80,23 +87,29 @@ export default {
     },
     async delete() {
       try {
-        await deleteById(this.guest._id);
+        await dgbi(this.guest._id);
         this.$emit("deletedGuest", this.guest._id);
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
 
         // Check if guest has assigned present
-        const presents = await getAllByGuestIdInWedding(this.guest._id);
+        const presents = await gapiwbgi(this.guest._id);
 
         const promises = [];
 
         presents.forEach((p) => {
-          promises.push(updateById(p._id, { guestId: "" }));
+          promises.push(upbi(p._id, { guestId: "" }));
         });
+
+        // Check if guest has assigned song
+        const song = await gsbgi(this.guest._id);
+
+        if (song) promises.push(dsbgi(this.guest._id));
 
         if (promises.length === 0) return;
 
+        // Go promises!
         Promise.all(promises)
           .then(() => {
             // Message

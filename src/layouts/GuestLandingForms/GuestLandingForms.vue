@@ -23,6 +23,11 @@
       </a-button>
     </a-card>
 
+    <!-- Song -->
+    <a-card class="weddings_card" :title="songHeading">
+      <SongForm v-model="model.song" />
+    </a-card>
+
     <a-divider class="weddings_divider" />
 
     <!-- Update Guest -->
@@ -42,6 +47,7 @@ import jwt from "jsonwebtoken";
 // Components
 import CompanionForm from "../../components/GuestLanding/CompanionForm";
 import MainGuestForm from "../../components/GuestLanding/MainGuestForm";
+import SongForm from "../../components/GuestLanding/SongForm";
 
 // Models
 import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
@@ -58,14 +64,15 @@ export default {
   components: {
     CompanionForm,
     MainGuestForm,
+    SongForm,
   },
   data: () => ({
     model: {
       mainGuest: {},
       companions: [],
+      song: {},
     },
     previous: [],
-    song: {},
   }),
   computed: {
     companionsLength() {
@@ -97,6 +104,11 @@ export default {
     },
     updateSuccess() {
       return this.$root.$options.languages.lang.guestLanding.updateSuccess[
+        this.$root.$options.languages.current
+      ];
+    },
+    songHeading() {
+      return this.$root.$options.languages.lang.guestLanding.songHeading[
         this.$root.$options.languages.current
       ];
     },
@@ -165,6 +177,7 @@ export default {
 
       if (promises.length === 0) return;
 
+      // Go promises!
       Promise.all(promises)
         .then(() => {
           // Message
@@ -237,6 +250,9 @@ export default {
 
       this.init();
     },
+  },
+  beforeCreate() {
+    this.form = this.$form.createForm(this, { name: "guestLanding" });
   },
   created() {
     this.init();

@@ -30,7 +30,7 @@ export const getAllInWedding = () => {
   })
 }
 
-export const getAllByGuestIdInWedding = (guestId) => {
+export const getAllInWeddingByGuestId = (guestId) => {
   // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage

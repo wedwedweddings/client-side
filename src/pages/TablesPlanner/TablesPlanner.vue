@@ -5,9 +5,11 @@
       :formType="currentModal"
       :guestToUpdate="guestToUpdate"
       :presentToUpdate="presentToUpdate"
+      :songToUpdate="songToUpdate"
       @closeModal="onCloseModal"
       @updatedGuest="onUpdatedGuest"
       @updatedPresent="onUpdatedPresent"
+      @updatedSong="onUpdatedSong"
     />
 
     <!-- Menu -->
@@ -16,13 +18,17 @@
         :filters="filters"
         :guests="guests"
         :presents="presents"
+        :songs="songs"
         @deletedGuest="onUpdatedGuest"
         @deletedPresent="onUpdatedPresent"
+        @deletedSong="onUpdatedSong"
         @filterByTag="onFilterByTag"
         @guestModal="onGuestModal"
         @presentModal="onPresentModal"
+        @songModal="onSongModal"
         @updateGuest="onUpdateGuest"
         @updatePresent="onUpdatePresent"
+        @updateSong="onUpdateSong"
       />
     </a-layout-sider>
 
@@ -83,11 +89,12 @@ import TablesPlannerMenu from "../../layouts/TablesPlannerMenu/TablesPlannerMenu
 // Models
 import { getAllInWedding as gagiw } from "../../models/guest";
 import { getAllInWedding as gapiw } from "../../models/present";
+import { getAllInWedding as gasiw } from "../../models/song";
 import {
   getInWedding as gtpinw,
   updateById as utpbi,
 } from "../../models/tablesPlanner";
-import { getLast } from "../../models/wedding";
+import { getUserLastPlanner as gulp } from "../../models/wedding";
 
 export default {
   name: "TablesPlanner",
@@ -111,6 +118,7 @@ export default {
     presentToUpdate: {},
     seatsPerTable: [],
     siderWidth: "25vw",
+    songs: [],
     tablesPerRow: 4,
     tablesPlannerId: "",
   }),
@@ -145,32 +153,51 @@ export default {
     async init() {
       this.onWindowResize();
 
+      // #️⃣ Get User last Wedding created and set id in localStorage
       try {
-        // Get last User Wedding created and set id in localStorage
-        await getLast();
+        await gulp();
       } catch (error) {
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.loginAgain[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+
+        // Restore session
+        localStorage.clear();
+        this.$router.push("/");
+
         console.error(
-          "Error: Get last User Wedding created and set id in localStorage:",
+          "Error: Get User last Wedding created and set id in localStorage:",
           error
         );
       }
 
+      // #️⃣ Get all Guests in Wedding
       try {
-        // Get all Guests in Wedding
         this.guests = await gagiw();
       } catch (error) {
         console.error("Error: Get all Guests in Wedding:", error);
       }
 
+      // #️⃣ Get all Presents in Wedding
       try {
-        // Get all Presents in Wedding
         this.presents = await gapiw();
       } catch (error) {
         console.error("Error: Get all Presents in Wedding:", error);
       }
 
+      // #️⃣ Get all Songs in Wedding
       try {
-        // Get seats per table in Wedding
+        this.songs = await gasiw();
+      } catch (error) {
+        console.error("Error: Get all Presents in Wedding:", error);
+      }
+
+      // #️⃣ Get seats per table in Wedding
+      try {
         const tp = await gtpinw();
         this.tablesPlannerId = tp._id;
 
@@ -197,6 +224,7 @@ export default {
     onCloseModal() {
       this.guestToUpdate = {};
       this.presentToUpdate = {};
+      this.songToUpdate = {};
       this.currentModal = "";
     },
     // Guest
@@ -238,6 +266,17 @@ export default {
       this.presentToUpdate = present;
       this.currentModal = "present";
     },
+    // Song
+    onSongModal() {
+      this.currentModal = "song";
+    },
+    async onUpdatedSong() {
+      this.songs = await gasiw();
+    },
+    onUpdateSong(song) {
+      this.songToUpdate = song;
+      this.currentModal = "song";
+    },
     // Tables & Seats
     async onAddTable() {
       this.seatsPerTable.push(1);
@@ -278,9 +317,11 @@ export default {
     },
   },
   created() {
-    this.onWindowResize();
-
+    // Add event to resize layout
     window.addEventListener("resize", this.onWindowResize);
+
+    // Init layout
+    this.onWindowResize();
   },
   beforeMount() {
     this.init();
