@@ -284,6 +284,12 @@ export default {
       this.$emit("guestsAdded");
     },
     async requestAdd(body) {
+      Object.keys(body).forEach((key) => {
+        if (body[key] === undefined) {
+          body[key] = "";
+        }
+      });
+
       try {
         await add(body);
         this.$emit("updatedGuest");

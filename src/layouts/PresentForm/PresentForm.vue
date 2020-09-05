@@ -174,15 +174,11 @@ export default {
       });
     },
     async requestAdd(body) {
-      console.log("1 Values:", body);
-
       Object.keys(body).forEach((key) => {
         if (body[key] === undefined) {
           body[key] = "";
         }
       });
-
-      console.log("2 Values:", body);
 
       try {
         await add(body);
