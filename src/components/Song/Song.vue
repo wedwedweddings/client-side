@@ -38,7 +38,11 @@ export default {
   }),
   computed: {
     marked() {
-      return this.song.guestId !== "" && this.song.guestId !== "";
+      return (
+        this.song.guestId !== "couple" &&
+        this.song.guestId !== "undefined" &&
+        this.song.guestId !== ""
+      );
     },
     // Lang
     deleteConfirm() {

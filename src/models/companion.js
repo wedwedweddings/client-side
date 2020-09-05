@@ -80,7 +80,7 @@ export const guestGetsCompanionsById = (guestId) => {
       },
     })
       .then((data) => {
-        resolve(JSON.parse(data).data.guests)
+        resolve(JSON.parse(data).data.companions)
       })
       .catch((error) => {
         reject(error)
@@ -88,20 +88,15 @@ export const guestGetsCompanionsById = (guestId) => {
   })
 }
 
-export const guestUpdatesCompanion = (guestId, prev, params, mainGuest) => {
+export const guestUpdatesCompanion = (mainGuest, prev, params) => {
   return new Promise((resolve, reject) => {
     // Check params
-    if (!guestId || !prev || !params) {
-      reject('Guest ID and body are required!')
-    }
-
-    if (!prev.fullName || !prev.menu) {
-      reject('Previous companion fullName and menu required!')
+    if (!mainGuest || !prev || !params) {
+      reject('Main Guest, previous and new data are required!')
     }
 
     params.relative = mainGuest.relative
     params.weddingId = mainGuest.weddingId
-    params.accepted = false
     params.assistance = mainGuest.assistance
     params.tags = mainGuest.tags
 
@@ -110,7 +105,7 @@ export const guestUpdatesCompanion = (guestId, prev, params, mainGuest) => {
     // Request
     xhr({
       method: 'PATCH',
-      url: `${process.env.VUE_APP_API}companion/${guestId}/${prev.fullName}/${prev.menu}`,
+      url: `${process.env.VUE_APP_API}companion/${mainGuest._id}/${mainGuest.weddingId}/${prev.fullName}/${prev.menu}`,
       async: true,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',
@@ -126,10 +121,10 @@ export const guestUpdatesCompanion = (guestId, prev, params, mainGuest) => {
   })
 }
 
-export const guestDeletesCompanion = (guestId, prev) => {
+export const guestDeletesCompanion = (guestId, weddingId, prev) => {
   return new Promise((resolve, reject) => {
     // Check params
-    if (!guestId || !prev) {
+    if (!guestId || !weddingId || !prev) {
       reject('Guest ID and body are required!')
     }
 
@@ -140,7 +135,7 @@ export const guestDeletesCompanion = (guestId, prev) => {
     // Request
     xhr({
       method: 'DELETE',
-      url: `${process.env.VUE_APP_API}companion/${guestId}/${prev.fullName}/${prev.menu}`,
+      url: `${process.env.VUE_APP_API}companion/${guestId}/${weddingId}/${prev.fullName}/${prev.menu}`,
       async: true,
       headers: {
         'Content-type': 'application/x-www-form-urlencoded',

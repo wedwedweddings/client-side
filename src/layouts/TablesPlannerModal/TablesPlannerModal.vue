@@ -92,8 +92,5 @@ export default {
       this.$emit("updatedSong");
     },
   },
-  beforeUpdate() {
-    console.log("form type:", this.formType);
-  },
 };
 </script>

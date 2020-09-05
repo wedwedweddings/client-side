@@ -198,9 +198,9 @@ export default {
       this.selectedGuest = this.songToUpdate.guestId;
 
       this.form.setFieldsValue({
+        artist: this.songToUpdate.artist,
         title: this.songToUpdate.title,
         url: this.songToUpdate.url,
-        guestId: this.selectedGuest,
       });
     }
   },

@@ -176,6 +176,14 @@ export default {
         );
       }
 
+      // #️⃣ Get all data
+      try {
+        await this.getData();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getData() {
       // #️⃣ Get all Guests in Wedding
       try {
         this.guests = await gagiw();
@@ -250,7 +258,7 @@ export default {
         seatsPerTable: JSON.stringify(this.seatsPerTable),
       });
 
-      this.guests = await gagiw();
+      await this.getData();
     },
     onUpdateGuest(guest) {
       this.guestToUpdate = guest;
@@ -261,7 +269,7 @@ export default {
       this.currentModal = "present";
     },
     async onUpdatedPresent() {
-      this.presents = await gapiw();
+      await this.getData();
     },
     onUpdatePresent(present) {
       this.presentToUpdate = present;
@@ -272,7 +280,7 @@ export default {
       this.currentModal = "song";
     },
     async onUpdatedSong() {
-      this.songs = await gasiw();
+      await this.getData();
     },
     onUpdateSong(song) {
       this.songToUpdate = song;

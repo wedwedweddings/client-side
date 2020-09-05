@@ -9,7 +9,6 @@ import {
   DatePicker,
   Divider,
   Form,
-  FormModel,
   Icon,
   Input,
   InputNumber,
@@ -55,10 +54,6 @@ Vue.component(Divider.name, Divider)
 // Form
 Vue.component(Form.name, Form)
 Vue.component(Form.Item.name, Form.Item)
-
-// FormModel
-Vue.component(FormModel.name, FormModel)
-Vue.component(FormModel.Item.name, FormModel.Item)
 
 // Icon
 Vue.component(Icon.name, Icon)

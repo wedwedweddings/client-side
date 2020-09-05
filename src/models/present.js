@@ -141,3 +141,62 @@ export const deleteById = (presentId) => {
       })
   })
 }
+
+/**
+ * ⛔ Actions by NOT logged in users
+ */
+
+export const guestGetsAllInWedding = (weddingId) => {
+  return new Promise((resolve, reject) => {
+    // Check Wedding Id in local storage
+    if (!weddingId) {
+      reject('Wedding ID required!')
+    }
+
+    // Request
+    xhr({
+      method: 'GET',
+      url: `${process.env.VUE_APP_API}present/guest-gets-presents/${weddingId}`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+    })
+      .then((data) => {
+        resolve(JSON.parse(data).data.presents)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
+export const guestSelectsPresent = (presentId, params) => {
+  return new Promise((resolve, reject) => {
+    // Check params
+    if (!presentId || !params) {
+      reject('Present ID and params are required!')
+    }
+
+    let body = joinParamsAsString(params)
+
+    // Request
+    xhr({
+      method: 'PATCH',
+      url: `${process.env.VUE_APP_API}present/guest-selects-presents/${presentId}`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      body,
+    })
+      .then((data) => {
+        resolve(JSON.parse(data).data.present)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}

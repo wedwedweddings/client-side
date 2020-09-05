@@ -68,9 +68,8 @@ export const add = (params) => {
       reject('Wedding ID in localStorage and params are required!')
     }
 
+    params.guestId = 'couple'
     params.weddingId = localStorage.weddingId
-
-    console.log('Adding song:', params)
 
     let body = joinParamsAsString(params)
 
@@ -210,8 +209,6 @@ export const guestUpdatesSong = (guestId, params) => {
     if (!guestId || !params) {
       reject('Guest ID and body are required!')
     }
-
-    params.accepted = false
 
     let body = joinParamsAsString(params)
 

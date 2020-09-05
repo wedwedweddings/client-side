@@ -1285,6 +1285,10 @@ export const lang = {
       es: '¿Vienes con alguien?',
     },
     assistance: {
+      heading: {
+        en: 'Will you come?',
+        es: '¿Asistirás?',
+      },
       yes: {
         en: 'Yes!',
         es: '¡Sí!',

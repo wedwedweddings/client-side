@@ -56,7 +56,10 @@
     </a-form-item>
 
     <!-- Email -->
-    <a-form-item class="weddings_form-item" v-if="guestToUpdate.accompanying === 'main-guest'">
+    <a-form-item
+      class="weddings_form-item"
+      v-if="!hasGuest || guestToUpdate.accompanying === 'main-guest'"
+    >
       <a-input
         v-decorator="[
           'email',

@@ -93,19 +93,23 @@ export default {
         // Message
         this.$message.success(this.deleteSuccess, 5);
 
+        const promises = [];
+
         // Check if guest has assigned present
         const presents = await gapiwbgi(this.guest._id);
 
-        const promises = [];
-
-        presents.forEach((p) => {
-          promises.push(upbi(p._id, { guestId: "" }));
-        });
+        if (presents.length > 0) {
+          presents.forEach((p) => {
+            promises.push(upbi(p._id, { guestId: "" }));
+          });
+        }
 
         // Check if guest has assigned song
         const song = await gsbgi(this.guest._id);
 
-        if (song) promises.push(dsbgi(this.guest._id));
+        if (song.length > 0) {
+          promises.push(dsbgi(this.guest._id));
+        }
 
         if (promises.length === 0) return;
 

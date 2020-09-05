@@ -11,6 +11,14 @@
 
     // Forms
     & .weddings_forms {
+      &.main-guest_col {
+        margin-right: 1.5rem;
+      }
+
+      &.present_col {
+        margin-left: 1.5rem;
+      }
+
       & .weddings_divider {
         margin: 2rem auto;
         min-width: 0;

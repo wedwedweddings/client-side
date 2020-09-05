@@ -1,81 +1,111 @@
 <template>
   <div>
     <!-- Artist -->
-    <a-form-model-item class="weddings_form-item" prop="songArtist">
+    <a-form-item class="weddings_form-item" prop="songArtist">
       <a-input
+        name="songArtist"
         type="text"
-        v-model="song.artist"
-        :change="onChange"
-        :placeholder="songArtist"
+        :defaultValue="song && song.artist !== '' ? song.artist : undefined"
+        :placeholder="artistPlaceholder"
         autofocus
+        @change="onChange"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
-    </a-form-model-item>
+    </a-form-item>
 
     <!-- Title -->
-    <a-form-model-item class="weddings_form-item" prop="songTitle">
-      <a-input type="text" v-model="song.title" :change="onChange" :placeholder="songTitle">
+    <a-form-item class="weddings_form-item" prop="songTitle">
+      <a-input
+        name="songTitle"
+        type="text"
+        :defaultValue="song && song.title !== '' ? song.title : undefined"
+        :placeholder="titlePlaceholder"
+        @change="onChange"
+      >
         <a-icon slot="prefix" type="fire" style="color: rgba(0,0,0,.25)" />
       </a-input>
-    </a-form-model-item>
+    </a-form-item>
 
     <!-- URL -->
-    <a-form-model-item class="weddings_form-item" prop="songURL">
-      <a-input type="text" v-model="song.url" :change="onChange" :placeholder="songURL">
+    <a-form-item class="weddings_form-item" prop="songURL">
+      <a-input
+        name="songURL"
+        type="text"
+        :defaultValue="song && song.url !== '' ? song.url : undefined"
+        :placeholder="urlPlaceholder"
+        @change="onChange"
+      >
         <a-icon slot="prefix" type="global" style="color: rgba(0,0,0,.25)" />
       </a-input>
-    </a-form-model-item>
+    </a-form-item>
   </div>
 </template>
 
 <script>
 export default {
   name: "SongForm",
+  data: () => ({
+    inner: {},
+  }),
   props: {
     song: {
       type: Object,
-      required: true,
-      default() {
-        return { artist: "", title: "", url: "" };
-      },
     },
   },
   computed: {
     // Lang
-    songArtist() {
-      return this.$root.$options.languages.lang.guestLanding.songArtist[
-        this.$root.$options.languages.current
-      ];
+    artistPlaceholder() {
+      return this.$root.$options.languages.lang.tablesPlanner.songsForm
+        .placeholders.artist[this.$root.$options.languages.current];
     },
-    songTitle() {
-      return this.$root.$options.languages.lang.guestLanding.songTitle[
-        this.$root.$options.languages.current
-      ];
+    titlePlaceholder() {
+      return this.$root.$options.languages.lang.tablesPlanner.songsForm
+        .placeholders.title[this.$root.$options.languages.current];
     },
-    songURL() {
-      return this.$root.$options.languages.lang.guestLanding.songURL[
-        this.$root.$options.languages.current
-      ];
+    urlPlaceholder() {
+      return this.$root.$options.languages.lang.tablesPlanner.songsForm
+        .placeholders.url[this.$root.$options.languages.current];
     },
-  },
-  model: {
-    prop: "song",
-    event: "change",
   },
   methods: {
-    // Any change
-    onChange() {
-      this.$emit("change", {
-        companion: this.companion,
-        index: this.index,
-      });
-    },
+    onChange(e) {
+      let name;
 
+      switch (e.target.name) {
+        case "songArtist":
+          name = "artist";
+          break;
+
+        case "songTitle":
+          name = "title";
+          break;
+
+        case "songURL":
+          name = "url";
+          break;
+      }
+
+      if (!name) return;
+
+      this.inner[name] = e.target.value;
+
+      this.$emit("change", this.inner);
+    },
     // Remove song
     onRemove() {
       this.$emit("remove", this.index);
     },
+  },
+
+  created() {
+    this.inner = this.song
+      ? this.song
+      : {
+          artist: "",
+          title: "",
+          url: "",
+        };
   },
 };
 </script>

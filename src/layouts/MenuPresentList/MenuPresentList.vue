@@ -1,7 +1,7 @@
 <template>
   <div class="menu-present-list_container">
     <!-- Divider -->
-    <a-divider class="divider" orientation="left">
+    <a-divider v-if="showDivider" class="divider" orientation="left">
       {{ presentsTitle }}
       <a-tag :color="colors.lakeshore.hex">
         <strong>{{ presents.length }}</strong>
@@ -26,11 +26,17 @@
         >
           <a-list size="small" :dataSource="presents">
             <a-list-item
+              class="present_container"
               slot="renderItem"
               slot-scope="item"
               style="border-bottom: 1px solid #8CBDD2"
             >
-              <Present :present="item" @deletedPresent="onDeleted" @updatePresent="onUpdate" />
+              <Present
+                :present="item"
+                @deletedPresent="onDeleted"
+                @updatePresent="onUpdate"
+                @selectPresent="onSelect"
+              />
             </a-list-item>
           </a-list>
         </div>
@@ -61,6 +67,9 @@ export default {
     show: true,
   }),
   computed: {
+    showDivider() {
+      return !this.$route.params.token;
+    },
     // Lang
     presentsTitle() {
       return this.$root.$options.languages.lang.tablesPlanner.menu.presents[
@@ -82,6 +91,9 @@ export default {
     },
     onUpdate(present) {
       this.$emit("updatePresent", present);
+    },
+    onSelect(present) {
+      this.$emit("selectPresent", present);
     },
   },
   watch: {

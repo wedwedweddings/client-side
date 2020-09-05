@@ -1,0 +1,18 @@
+div.settings-presents__list-infinite-container {
+  & .present_container {
+    & .present_checkbox {
+      float: right;
+
+      &:hover {
+        & .ant-checkbox-inner {
+          border-color: $color-secondary;
+        }
+      }
+
+      & .ant-checkbox-inner {
+        border-color: $color-primary;
+        border-width: 2px;
+      }
+    }
+  }
+}

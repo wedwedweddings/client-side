@@ -6,16 +6,19 @@
 
     <span slot="title" style="cursor:pointer;" @click="onUpdate">{{ present ? present.title : '' }}</span>
 
-    <a-tooltip placement="right" slot="title" :title="guestFullName">
-      <span style="margin-left:8px;" v-if="marked">{{ emojis.checked }}</span>
+    <a-tooltip placement="right" slot="title" :title="guestFullName" v-if="marked && showRubbish">
+      <span style="margin-left:8px;">{{ emojis.checked }}</span>
     </a-tooltip>
 
     <a-icon
+      v-if="showRubbish"
       slot="title"
       type="delete"
       style="float:right; margin-top:4px;"
       @click="onDeleteConfirm(ref)"
     />
+
+    <a-checkbox v-else class="present_checkbox" slot="title" @click="onPresentClick" />
   </a-list-item-meta>
 </template>
 
@@ -37,7 +40,10 @@ export default {
   }),
   computed: {
     marked() {
-      return this.present.guestId !== "" && this.present.guestId !== "";
+      return this.present.guestId !== "";
+    },
+    showRubbish() {
+      return !this.$route.params.token;
     },
     // Lang
     deleteConfirm() {
@@ -100,6 +106,9 @@ export default {
     },
     onUpdate() {
       this.$emit("updatePresent", this.present);
+    },
+    onPresentClick() {
+      this.$emit("selectPresent", this.present);
     },
   },
   watch: {
