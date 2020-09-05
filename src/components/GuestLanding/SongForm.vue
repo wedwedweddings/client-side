@@ -72,19 +72,28 @@ export default {
   },
   methods: {
     onChangeArtist(e) {
-      this.inner = this.song;
+      if (this.song) {
+        this.inner = this.song;
+      }
+
       this.inner.artist = e.target.value;
 
       this.$emit("change", this.inner);
     },
     onChangeTitle(e) {
-      this.inner = this.song;
+      if (this.song) {
+        this.inner = this.song;
+      }
+
       this.inner.title = e.target.value;
 
       this.$emit("change", this.inner);
     },
     onChangeURL(e) {
-      this.inner = this.song;
+      if (this.song) {
+        this.inner = this.song;
+      }
+
       this.inner.url = e.target.value;
 
       this.$emit("change", this.inner);
@@ -95,7 +104,7 @@ export default {
     },
   },
   created() {
-    this.inner = this.song;
+    this.inner = this.song ? this.song : { artist: "", title: "", url: "" };
   },
 };
 </script>

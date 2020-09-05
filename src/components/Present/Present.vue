@@ -116,6 +116,9 @@ export default {
       this.checkGuest();
     },
   },
+  created() {
+    this.ref = this;
+  },
   beforeMount() {
     this.checkGuest();
   },

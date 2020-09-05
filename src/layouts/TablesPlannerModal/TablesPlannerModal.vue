@@ -25,7 +25,7 @@
       <SongForm
         v-if="formType === 'song'"
         :songToUpdate="songToUpdate"
-        @updatedPresent="onUpdatedPresent"
+        @updatedSong="onUpdatedSong"
       />
     </a-modal>
   </div>
@@ -87,7 +87,7 @@ export default {
     onUpdatedPresent() {
       this.$emit("updatedPresent");
     },
-    // Present
+    // Song
     onUpdatedSong() {
       this.$emit("updatedSong");
     },

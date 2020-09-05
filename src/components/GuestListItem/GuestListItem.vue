@@ -90,49 +90,12 @@ export default {
         await dgbi(this.guest._id);
         this.$emit("deletedGuest", this.guest._id);
 
+        // Delete related items
+        this.deleteRelatedItems();
+
         // Message
         this.$message.success(this.deleteSuccess, 5);
-
-        const promises = [];
-
-        // Check if guest has assigned present
-        const presents = await gapiwbgi(this.guest._id);
-
-        if (presents.length > 0) {
-          presents.forEach((p) => {
-            promises.push(upbi(p._id, { guestId: "" }));
-          });
-        }
-
-        // Check if guest has assigned song
-        const song = await gsbgi(this.guest._id);
-
-        if (song.length > 0) {
-          promises.push(dsbgi(this.guest._id));
-        }
-
-        if (promises.length === 0) return;
-
-        // Go promises!
-        Promise.all(promises)
-          .then(() => {
-            // Message
-            this.$message.success(this.removePresentOwner, 5);
-          })
-          .catch((reason) => {
-            console.error(reason);
-
-            // Message
-            this.$message.warning(
-              this.$root.$options.languages.lang.common.failMessage[
-                this.$root.$options.languages.current
-              ],
-              5
-            );
-          });
       } catch (error) {
-        console.error(error);
-
         // Message
         this.$message.warning(
           this.$root.$options.languages.lang.common.failMessage[
@@ -141,6 +104,56 @@ export default {
           5
         );
       }
+    },
+    async deleteRelatedItems() {
+      const promises = [];
+
+      let presents = [];
+      let song;
+
+      // Check if guest has assigned present
+      try {
+        presents = await gapiwbgi(this.guest._id);
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (presents.length > 0) {
+        presents.forEach((p) => {
+          promises.push(upbi(p._id, { guestId: "" }));
+        });
+      }
+
+      // Check if guest has assigned song
+      try {
+        song = await gsbgi(this.guest._id);
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (song) {
+        promises.push(dsbgi(this.guest._id));
+      }
+
+      if (promises.length === 0) return;
+
+      // Go promises!
+      Promise.all(promises)
+        .then(() => {
+          // Message
+          this.$message.success(this.removePresentOwner, 5);
+        })
+        .catch((reason) => {
+          console.error(reason);
+
+          // Message
+          this.$message.warning(
+            this.$root.$options.languages.lang.common.failMessage[
+              this.$root.$options.languages.current
+            ],
+            5
+          );
+        });
     },
     onDeleteConfirm(ref) {
       this.$confirm({

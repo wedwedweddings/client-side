@@ -80,7 +80,10 @@ export default {
   methods: {
     // Any change
     onChangeFullName(e) {
-      this.inner = this.companion;
+      if (this.companion) {
+        this.inner = this.companion;
+      }
+
       this.inner.fullName = e.target.value;
 
       this.$emit("change", {
@@ -89,7 +92,10 @@ export default {
       });
     },
     onChangeMenu(e) {
-      this.inner = this.companion;
+      if (this.companion) {
+        this.inner = this.companion;
+      }
+
       this.inner.menu = e;
 
       this.$emit("change", {
@@ -111,7 +117,9 @@ export default {
     },
   },
   created() {
-    this.inner = this.companion;
+    this.inner = this.companion
+      ? this.companion
+      : { fullName: "", menu: "standard" };
   },
 };
 </script>

@@ -11,7 +11,7 @@
     <a-card class="weddings_card" :title="companionsTitle">
       <CompanionForm
         v-for="(item, index) in companionBlocks"
-        :companions="updated.companions[index]"
+        :companions="original.companions[index]"
         :key="index"
         :index="index"
         @change="onChangeCompanion"
@@ -149,7 +149,9 @@ export default {
 
       // #️⃣ Setting up Guest data
       try {
-        this.original.mainGuest = await ggodbi(decoded.id);
+        this.original.mainGuest = this.updated.mainGuest = await ggodbi(
+          decoded.id
+        );
       } catch (erorr) {
         console.error();
       }
@@ -198,7 +200,6 @@ export default {
     // Main Guest
     onChangeMainGuest(mainGuest) {
       this.update.mainGuest = true;
-      this.update.companions = true;
 
       this.updated.mainGuest = { ...this.original.mainGuest, ...mainGuest };
     },
@@ -227,7 +228,7 @@ export default {
 
           promises.push(
             gucbgi(
-              this.original.mainGuest,
+              this.updated.mainGuest,
               companion,
               this.updated.companions[i]
             )
@@ -265,7 +266,12 @@ export default {
           this.original.companions[index]
         );
 
+        this.original.companions = [];
+
+        this.$message.success(this.updateSuccess, 5);
+
         await this.init();
+        await this.initForm();
       }
     },
     //  Song
@@ -311,7 +317,6 @@ export default {
       if (this.update.mainGuest) {
         try {
           await guodbi(this.original.mainGuest._id, this.updated.mainGuest);
-          console.log("Updating main Guest OK!");
         } catch (error) {
           console.error(error);
 
@@ -326,10 +331,9 @@ export default {
       }
 
       // Updating companions
-      if (this.update.companions) {
+      if (this.update.mainGuest || this.update.companions) {
         try {
           await this.updateCompanions();
-          console.log("Updating Companions OK!");
         } catch (error) {
           console.error(error);
 
@@ -346,8 +350,7 @@ export default {
       // Updating song
       if (this.update.song) {
         try {
-          await gusbgi(this.original.mainGuest, this.updated.song);
-          console.log("Updating Song OK!");
+          await gusbgi(this.updated.mainGuest, this.updated.song);
         } catch (error) {
           console.error(error);
 
@@ -364,7 +367,8 @@ export default {
       // Message
       if (this.update.mainGuest || this.update.companions || this.update.song) {
         this.$message.success(this.updateSuccess, 5);
-        this.init();
+        await this.init();
+        await this.initForm();
       }
     },
   },

@@ -26,8 +26,8 @@
     <!-- Bought by -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
       <a-select
-        :placeholder="boughtByPlaceholder"
         showSearch
+        :placeholder="boughtByPlaceholder"
         :filterOption="onFilterOption"
         :initialValue="selectedGuestFullName !== '' ? selectedGuestFullName : none"
         :notFoundContent="fetching ? undefined : null"
@@ -94,7 +94,7 @@ export default {
     },
     hasPresent() {
       return (
-        this.presentToUpdate && Object.keys(this.presentToUpdate).length > 0
+        this.presentToUpdate && Object.entries(this.presentToUpdate).length > 0
       );
     },
     visible() {
@@ -174,10 +174,22 @@ export default {
       });
     },
     async requestAdd(body) {
+      console.log("1 Values:", body);
+
+      Object.keys(body).forEach((key) => {
+        if (body[key] === undefined) {
+          body[key] = "";
+        }
+      });
+
+      console.log("2 Values:", body);
+
       try {
-        this.form.resetFields();
         await add(body);
         this.$emit("updatedPresent");
+
+        // Reset form
+        this.form.resetFields();
 
         // Message
         this.$message.success(this.addSuccess, 5);

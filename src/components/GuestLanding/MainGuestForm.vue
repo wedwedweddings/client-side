@@ -124,17 +124,17 @@ export default {
   },
   methods: {
     onChangeFullName(e) {
-      this.inner = this.mainGuest;
+      this.inner = this.mainGuest || {};
       this.inner.fullName = e.target.value;
       this.$emit("change", this.inner);
     },
     onChangeMenu(e) {
-      this.inner = this.mainGuest;
+      this.inner = this.mainGuest || {};
       this.inner.menu = e;
       this.$emit("change", this.inner);
     },
     onChangeAssistance(e) {
-      this.inner = this.mainGuest;
+      this.inner = this.mainGuest || {};
       this.inner.assistance = e.target.value;
       this.$emit("change", this.inner);
     },
