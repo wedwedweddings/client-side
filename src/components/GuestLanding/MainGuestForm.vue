@@ -69,7 +69,9 @@
     <a-form-item class="weddings_form-item assistance-item">
       <a-radio-group
         button-style="solid"
-        :defaultValue="mainGuest ? mainGuest.assistance: 'yes'"
+        v-decorator="[
+          'mainGuestAssistance',
+        ]"
         @change="onChangeAssistance"
       >
         <a-radio-button value="yes">{{ getAssistance("yes") }}</a-radio-button>
@@ -122,14 +124,17 @@ export default {
   },
   methods: {
     onChangeFullName(e) {
+      this.inner = this.mainGuest;
       this.inner.fullName = e.target.value;
       this.$emit("change", this.inner);
     },
     onChangeMenu(e) {
+      this.inner = this.mainGuest;
       this.inner.menu = e;
       this.$emit("change", this.inner);
     },
     onChangeAssistance(e) {
+      this.inner = this.mainGuest;
       this.inner.assistance = e.target.value;
       this.$emit("change", this.inner);
     },
@@ -145,15 +150,6 @@ export default {
         this.$root.$options.languages.current
       ];
     },
-  },
-  created() {
-    this.inner = this.mainGuest
-      ? this.mainGuest
-      : {
-          fullName: "",
-          menu: "standard",
-          assistance: "yes",
-        };
   },
 };
 </script>

@@ -1,7 +1,10 @@
 <template>
   <a-form class="weddings_form" :form="form" @submit="onSong">
     <!-- Suggested by -->
-    <h3 v-if="selectedGuestFullName.length > 0">{{ `${suggestedBy} ${selectedGuestFullName}` }}</h3>
+    <h4 v-if="selectedGuestFullName.length > 0">
+      {{ suggestedBy}}
+      <strong>{{selectedGuestFullName }}</strong>
+    </h4>
 
     <!-- Artist -->
     <a-form-item class="weddings_form-item">
@@ -53,7 +56,7 @@ import { add, updateById } from "../../models/song";
 import { diffFields } from "../../../utils/utils";
 
 export default {
-  name: "SongtForm",
+  name: "SongForm",
   props: ["songToUpdate"],
   data: () => ({
     fetching: false,
@@ -68,7 +71,7 @@ export default {
         });
 
         if (found) {
-          return found;
+          return found.fullName;
         }
 
         return "";

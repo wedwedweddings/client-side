@@ -3,12 +3,12 @@
     <!-- Artist -->
     <a-form-item class="weddings_form-item" prop="songArtist">
       <a-input
-        name="songArtist"
+        v-decorator="[
+          'songArtist',
+        ]"
         type="text"
-        :defaultValue="song && song.artist !== '' ? song.artist : undefined"
         :placeholder="artistPlaceholder"
-        autofocus
-        @change="onChange"
+        @change="onChangeArtist"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
@@ -17,11 +17,12 @@
     <!-- Title -->
     <a-form-item class="weddings_form-item" prop="songTitle">
       <a-input
-        name="songTitle"
+        v-decorator="[
+          'songTitle',
+        ]"
         type="text"
-        :defaultValue="song && song.title !== '' ? song.title : undefined"
         :placeholder="titlePlaceholder"
-        @change="onChange"
+        @change="onChangeTitle"
       >
         <a-icon slot="prefix" type="fire" style="color: rgba(0,0,0,.25)" />
       </a-input>
@@ -30,11 +31,12 @@
     <!-- URL -->
     <a-form-item class="weddings_form-item" prop="songURL">
       <a-input
-        name="songURL"
+        v-decorator="[
+          'songURL',
+        ]"
         type="text"
-        :defaultValue="song && song.url !== '' ? song.url : undefined"
         :placeholder="urlPlaceholder"
-        @change="onChange"
+        @change="onChangeURL"
       >
         <a-icon slot="prefix" type="global" style="color: rgba(0,0,0,.25)" />
       </a-input>
@@ -69,26 +71,21 @@ export default {
     },
   },
   methods: {
-    onChange(e) {
-      let name;
+    onChangeArtist(e) {
+      this.inner = this.song;
+      this.inner.artist = e.target.value;
 
-      switch (e.target.name) {
-        case "songArtist":
-          name = "artist";
-          break;
+      this.$emit("change", this.inner);
+    },
+    onChangeTitle(e) {
+      this.inner = this.song;
+      this.inner.title = e.target.value;
 
-        case "songTitle":
-          name = "title";
-          break;
-
-        case "songURL":
-          name = "url";
-          break;
-      }
-
-      if (!name) return;
-
-      this.inner[name] = e.target.value;
+      this.$emit("change", this.inner);
+    },
+    onChangeURL(e) {
+      this.inner = this.song;
+      this.inner.url = e.target.value;
 
       this.$emit("change", this.inner);
     },
@@ -97,15 +94,8 @@ export default {
       this.$emit("remove", this.index);
     },
   },
-
   created() {
-    this.inner = this.song
-      ? this.song
-      : {
-          artist: "",
-          title: "",
-          url: "",
-        };
+    this.inner = this.song;
   },
 };
 </script>

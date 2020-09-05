@@ -3,11 +3,11 @@
     <!-- Full Name -->
     <a-form-item class="weddings_form-item">
       <a-input
-        type="text"
-        :defaultValue="companion && companion.fullName !== '' ? companion.fullName : undefined"
-        :name="`companion${index}FullName`"
+        v-decorator="[
+          `companion${index}FullName`,
+        ]"
         :placeholder="fullNamePlaceholder"
-        autofocus
+        type="text"
         @change="onChangeFullName"
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
@@ -17,8 +17,9 @@
     <!-- Menu -->
     <a-form-item class="weddings_form-item">
       <a-select
-        :defaultValue="companion && companion.menu !== '' ? companion.menu : undefined"
-        :name="`companion${index}Menu`"
+        v-decorator="[
+          `companion${index}Menu`,
+        ]"
         :placeholder="menuPlaceholder"
         @change="onChangeMenu"
       >
@@ -79,6 +80,7 @@ export default {
   methods: {
     // Any change
     onChangeFullName(e) {
+      this.inner = this.companion;
       this.inner.fullName = e.target.value;
 
       this.$emit("change", {
@@ -87,6 +89,7 @@ export default {
       });
     },
     onChangeMenu(e) {
+      this.inner = this.companion;
       this.inner.menu = e;
 
       this.$emit("change", {
@@ -108,12 +111,7 @@ export default {
     },
   },
   created() {
-    this.inner = this.companion
-      ? this.companion
-      : {
-          fullName: "",
-          menu: "standard",
-        };
+    this.inner = this.companion;
   },
 };
 </script>

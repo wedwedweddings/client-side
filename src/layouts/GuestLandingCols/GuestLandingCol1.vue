@@ -173,10 +173,12 @@ export default {
         this.original.companions.length > 0
           ? this.original.companions.length
           : 1;
-
+    },
+    initForm() {
       const mainGuestAndSong = {
         mainGuestFullName: this.original.mainGuest.fullName,
         mainGuestMenu: this.original.mainGuest.menu,
+        mainGuestAssistance: this.original.mainGuest.assistance,
         songArtist: this.original.song.artist,
         songTitle: this.original.song.title,
         songURL: this.original.song.url,
@@ -192,13 +194,11 @@ export default {
       const values = { ...mainGuestAndSong, ...companions };
 
       this.form.setFieldsValue(values);
-
-      // Init
-      //this.updated = Object.create(this.original);
     },
     // Main Guest
     onChangeMainGuest(mainGuest) {
       this.update.mainGuest = true;
+      this.update.companions = true;
 
       this.updated.mainGuest = { ...this.original.mainGuest, ...mainGuest };
     },
@@ -210,26 +210,25 @@ export default {
     onChangeCompanion(obj) {
       this.update.companions = true;
 
-      this.updated.companions[obj.index] = {
-        ...this.original.companions[obj.index],
-        ...obj.companion,
-      };
+      const companion = this.original.companions[obj.index]
+        ? { ...this.original.companions[obj.index], ...obj.companion }
+        : obj.companion;
+
+      this.updated.companions[obj.index] = companion;
     },
     updateCompanions() {
       const promises = [];
 
-      console.log(
-        "COMPANIONS:",
-        this.original.companions,
-        this.updated.companions
-      );
-
       this.updated.companions.forEach((c, i) => {
         if (c !== undefined) {
+          const companion = this.original.companions[i]
+            ? this.original.companions[i]
+            : this.updated.companions[i];
+
           promises.push(
             gucbgi(
               this.original.mainGuest,
-              this.original.companions[i],
+              companion,
               this.updated.companions[i]
             )
           );
@@ -273,7 +272,9 @@ export default {
     onChangeSong(song) {
       this.update.song = true;
 
-      this.updated.song = { ...this.original.song, ...song };
+      const s = this.original.song ? { ...this.original.song, ...song } : song;
+
+      this.updated.song = s;
     },
     // Submit form
     onSubmit(e) {
@@ -344,21 +345,19 @@ export default {
 
       // Updating song
       if (this.update.song) {
-        if (Object.entries(this.updated.song).length > 0) {
-          try {
-            await gusbgi(this.original.mainGuest._id, this.updated.song);
-            console.log("Updating Song OK!");
-          } catch (error) {
-            console.error(error);
+        try {
+          await gusbgi(this.original.mainGuest, this.updated.song);
+          console.log("Updating Song OK!");
+        } catch (error) {
+          console.error(error);
 
-            // Message
-            this.$message.warning(
-              this.$root.$options.languages.lang.common.failMessage[
-                this.$root.$options.languages.current
-              ],
-              5
-            );
-          }
+          // Message
+          this.$message.warning(
+            this.$root.$options.languages.lang.common.failMessage[
+              this.$root.$options.languages.current
+            ],
+            5
+          );
         }
       }
 
@@ -369,11 +368,12 @@ export default {
       }
     },
   },
-  beforeCreate() {
+  created() {
     this.form = this.$form.createForm(this, { name: "guestLanding" });
   },
-  beforeMount() {
-    this.init();
+  async beforeMount() {
+    await this.init();
+    await this.initForm();
   },
 };
 </script>

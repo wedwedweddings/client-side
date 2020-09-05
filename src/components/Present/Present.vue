@@ -62,7 +62,7 @@ export default {
   methods: {
     async checkGuest() {
       try {
-        if (this.marked) {
+        if (this.marked && this.showRubbish) {
           const guest = await gogiw(this.present.guestId);
 
           if (guest) {
