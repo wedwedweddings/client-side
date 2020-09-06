@@ -62,11 +62,12 @@ export const lang = {
   home: {
     meta: {
       title: {
-        en: 'Welcome',
+        en: 'Join us to plan your Wedding in the easiest way! | Wed Wed Weddings 💍',
         es: 'Organiza tu boda paso a paso - Online | Wed Wed Weddings 💍',
       },
       description: {
-        en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
+        en:
+          'Plan a wedding never was so simple! Use our tables planner and organize your guest invitations and much more in our website. It is free ✔️',
         es:
           '¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.          ',
       },
@@ -84,7 +85,7 @@ export const lang = {
     whyUs: {
       title: {
         en: 'Manage your wedding with us',
-        es: 'Organizad vuestra boda con nosotros',
+        es: '¡Organiza tu boda con nosotros!',
       },
       free: {
         en: 'FREE',
@@ -93,23 +94,23 @@ export const lang = {
       timeline: [
         {
           en: 'Create an account',
-          es: 'Registro en un sólo paso',
+          es: 'Regístrate en un sólo paso',
         },
         {
           en: 'Add your guests list',
-          es: 'Envío y gestión de invitaciones',
+          es: 'Envía y gestiona las invitaciones',
         },
         {
           en: 'Add your presents list',
-          es: 'Preparación de la lista de boda',
+          es: 'Prepara la lista de regalos de boda',
         },
         {
           en: 'Organize guests per table',
-          es: 'Distribución de invitados por mesa',
+          es: 'Organiza a tus invitados por mesa',
         },
         {
           en: 'Plan the catering',
-          es: 'Estimación del coste del catering',
+          es: 'Calcula el coste del catering',
         },
       ],
       images: [
@@ -128,48 +129,48 @@ export const lang = {
           es: '¡Felicidades por vuestro compromiso!',
         },
         {
-          en: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
-          es: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
+          en: 'Si has llegado hasta aquí, es porque estás muy cerca de dar el ‘’sí, quiero’’.',
+          es: 'Si has llegado hasta aquí, es porque estás muy cerca de dar el ‘’sí, quiero’’.',
         },
         {
           en:
-            'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings',
+            'Somos conscientes de que necesitas organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Wedding. 💍',
           es:
-            'Somos conscientes de que necesitáis organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings.',
+            'Somos conscientes de que necesitas organizar muchas cosas antes de la boda y nuestra razón de ser, precisamente es la de aliviar algunos de esos dolores de cabeza a través de Wed Wed Weddings. 💍',
         },
         {
           en:
-            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
+            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que tu celebración salga a pedir de boca.',
           es:
-            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que vuestra celebración salga a pedir de boca.',
+            'Esta web está diseñada para conseguir hacer más llevaderas ciertas preparaciones que son fundamentales para que tu celebración salga a pedir de boca.',
         },
         {
-          en: '¿Quieres saber cómo vamos a ayudaros?',
-          es: '¿Quieres saber cómo vamos a ayudaros?',
+          en: '¿Quieres saber cómo vamos a ayudarte?',
+          es: '¿Quieres saber cómo vamos a ayudarte?',
         },
       ],
       row2: [
         {
           en:
-            'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
+            'A continuación, vamos a enumerar qué factores debes tener en cuenta justo antes de comenzar a preparar una boda en nuestra web:',
           es:
-            'A continuación, vamos a enumerar qué factores debéis tener en cuenta justo antes de comenzar a preparar una boda en Wed Wed Weddings.',
+            'A continuación, vamos a enumerar qué factores debes tener en cuenta justo antes de comenzar a preparar una boda en nuestra web:',
         },
         {
-          en: '💰 Fijar vuestro presupuesto.',
-          es: '💰 Fijar vuestro presupuesto.',
+          en: '💰 Fijar el presupuesto de tu boda.',
+          es: '💰 Fijar el presupuesto de tu boda.',
         },
         {
           en: '🧮 Crear una lista de proveedores para el catering y sus precios.',
           es: '🧮 Crear una lista de proveedores para el catering y sus precios.',
         },
         {
-          en: '💃 Organizar vuestra lista de invitados.',
-          es: '💃 Organizar vuestra lista de invitados.',
+          en: '💃 Organizar la lista de invitados.',
+          es: '💃 Organizar la lista de invitados.',
         },
         {
-          en: '🎁 Tener ideas para vuestra lista de regalos de boda.',
-          es: '🎁 Tener ideas para vuestra lista de regalos de boda.',
+          en: '🎁 Tener ideas para la lista de regalos de boda.',
+          es: '🎁 Tener ideas para la lista de regalos de boda.',
         },
         {
           en: '👩‍💻 Disponer de tiempo para organizarlo todo adecuadamente.',
@@ -178,9 +179,9 @@ export const lang = {
       ],
       intro: {
         en:
-          'Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:',
+          'Una vez que tengas claro algunos, o todos los elementos que hemos enumerado, te mostramos las funciones o herramientas que ponemos a tu disposición en Wed Wed Weddings 💍:',
         es:
-          'Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:',
+          'Una vez que tengas claro algunos, o todos los elementos que hemos enumerado, te mostramos las funciones o herramientas que ponemos a tu disposición en Wed Wed Weddings 💍:',
       },
       highlights: [
         {
@@ -188,12 +189,12 @@ export const lang = {
           es: 'Envía y gestiona las invitaciones desde cualquier sitio.',
         },
         {
-          en: 'Prepara la lista de regalos de boda y deja que tus invitados decidan qué comprar',
-          es: 'Prepara la lista de regalos de boda y deja que tus invitados decidan qué comprar.',
+          en: 'Prepara la lista de regalos de boda y deja que tus invitados decidan su regalo',
+          es: 'Prepara la lista de regalos de boda y deja que tus invitados decidan su regalo.',
         },
         {
-          en: 'Elige con tus invitados las canciones que no pueden faltar en vuestra boda.',
-          es: 'Elige con tus invitados las canciones que no pueden faltar en vuestra boda.',
+          en: 'Elige con tus invitados las canciones que no pueden faltar en tu boda.',
+          es: 'Elige con tus invitados las canciones que no pueden faltar en tu boda.',
         },
         {
           en: 'Organiza a los invitados en sus mesas para planificar el banquete',
@@ -668,11 +669,12 @@ export const lang = {
   faq: {
     meta: {
       title: {
-        en: 'FAQ',
+        en: 'FAQ - How to organize and manage a Wedding | Wed Wed Weddings 💍',
         es: 'FAQ - Cómo organizar y planificar una Boda | Wed Wed Weddings 💍',
       },
       description: {
-        en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
+        en:
+          'Do you have any doubt about how Wed Wed Weddings works? Here you have all FAQs to solve how to manage your wedding in our website!',
         es:
           '¿Dudas sobre cómo organizar y planificar tu boda con Wed Wed Weddings 💍? Este es el apartado de FAQ donde puedes resolver todas tus preguntas.',
       },
@@ -1132,18 +1134,20 @@ export const lang = {
       es: 'Política de Privacidad',
     },
     description: {
-      en: '',
+      en:
+        'Wed Wed Weddings es el RESPONSABLE del tratamiento de los datos personales del USUARIO y le informa de que estos datos serán tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD).',
       es: `Wed Wed Weddings es el RESPONSABLE del tratamiento de los datos personales del USUARIO y le informa de que estos datos serán tratados de conformidad con lo dispuesto en el Reglamento (UE) 2016/679, de 27 de abril (GDPR), y la Ley Orgánica 3/2018, de 5 de diciembre (LOPDGDD).`,
     },
     simple: [
       // #1
       {
         title: {
-          en: '',
+          en: '¿Para qué tratamos tus datos personales?',
           es: '¿Para qué tratamos tus datos personales?',
         },
         description: {
-          en: '',
+          en:
+            '`Para mantener una relación comercial con el usuario. Las operaciones previstas para realizar el tratamiento son: 1.- Remisión de comunicaciones comerciales publicitarias por e-mail, redes sociales o cualquier otro medio electrónico o físico, presente o futuro, que posibilite realizar comunicaciones comerciales. Estas comunicaciones serán realizadas por el RESPONSABLE y estarán relacionadas con sus productos y servicios, o de sus colaboradores o proveedores, con los que este haya alcanzado algún acuerdo de promoción. En este caso, los terceros nunca tendrán acceso a los datos personales. 2.- Realizar estudios de mercado y análisis estadísticos. 3.- Tramitar encargos, solicitudes, dar respuesta a las consultas o cualquier tipo de petición que sea realizada por el usuario a través de cualquiera de las formas de contacto que se ponen a su disposición en la página web de el RESPONSABLE.',
           es: `Para mantener una relación comercial con el usuario. Las operaciones previstas para realizar el tratamiento son: 1.- Remisión de comunicaciones comerciales publicitarias por e-mail, redes sociales o cualquier otro medio electrónico o físico, presente o futuro, que posibilite realizar comunicaciones comerciales. Estas comunicaciones serán realizadas por el RESPONSABLE y estarán relacionadas con sus productos y servicios, o de sus colaboradores o proveedores, con los que este haya alcanzado algún acuerdo de promoción. En este caso, los terceros nunca tendrán acceso a los datos personales. 2.- Realizar estudios de mercado y análisis estadísticos. 3.- Tramitar encargos, solicitudes, dar respuesta a las consultas o cualquier tipo de petición que sea realizada por el usuario a través de cualquiera de las formas de contacto que se ponen a su disposición en la página web de el RESPONSABLE.`,
         },
       },
@@ -1154,29 +1158,30 @@ export const lang = {
           es: '¿Por qué motivo podemos tratar tus datos personales?',
         },
         description: {
-          en: '',
+          en:
+            '`Para mantener una relación comercial con el usuario. Las operaciones previstas para realizar el tratamiento son: 1.- Remisión de comunicaciones comerciales publicitarias por e-mail, redes sociales o cualquier otro medio electrónico o físico, presente o futuro, que posibilite realizar comunicaciones comerciales. Estas comunicaciones serán realizadas por el RESPONSABLE y estarán relacionadas con sus productos y servicios, o de sus colaboradores o proveedores, con los que este haya alcanzado algún acuerdo de promoción. En este caso, los terceros nunca tendrán acceso a los datos personales. 2.- Realizar estudios de mercado y análisis estadísticos. 3.- Tramitar encargos, solicitudes, dar respuesta a las consultas o cualquier tipo de petición que sea realizada por el usuario a través de cualquiera de las formas de contacto que se ponen a su disposición en la página web de el RESPONSABLE.',
           es: `Porque el tratamiento está legitimado por el artículo 6 del GDPR de la siguiente forma: 1.- Con el consentimiento del usuario: remisión de comunicaciones comerciales y del boletín informativo. 2.- Por interés legítimo de el RESPONSABLE: realizar estudios de mercado, análisis estadísticos, etc. y tramitar encargos, solicitudes, etc. a petición del usuario.`,
         },
       },
       // #3
       {
         title: {
-          en: '',
+          en: '¿Durante cuánto tiempo guardaremos tus datos personales?',
           es: '¿Durante cuánto tiempo guardaremos tus datos personales?',
         },
         description: {
-          en: '',
+          en: `Se conservarán durante no más tiempo del necesario para mantener el fin del tratamiento o existan prescripciones legales que dictaminen su custodia y cuando ya no sea necesario para ello, se suprimirán con medidas de seguridad adecuadas para garantizar la anonimización de los datos o la destrucción total de los mismos.`,
           es: `Se conservarán durante no más tiempo del necesario para mantener el fin del tratamiento o existan prescripciones legales que dictaminen su custodia y cuando ya no sea necesario para ello, se suprimirán con medidas de seguridad adecuadas para garantizar la anonimización de los datos o la destrucción total de los mismos.`,
         },
       },
       // #4
       {
         title: {
-          en: '',
+          en: '¿Cuáles son tus derechos?',
           es: '¿Cuáles son tus derechos?',
         },
         description: {
-          en: '',
+          en: `Los derechos que asisten al usuario son: 1.- Derecho a retirar el consentimiento en cualquier momento. 2.- Derecho de acceso, rectificación, portabilidad y supresión de sus datos, y de limitación u oposición a su tratamiento.`,
           es: `Los derechos que asisten al usuario son: 1.- Derecho a retirar el consentimiento en cualquier momento. 2.- Derecho de acceso, rectificación, portabilidad y supresión de sus datos, y de limitación u oposición a su tratamiento.`,
         },
       },
@@ -1200,7 +1205,12 @@ export const lang = {
       es: 'Términos y Condiciones',
     },
     description: {
-      en: '',
+      en: `El presente aviso legal regula el uso y utilización del sitio wedwedweddings.com, del que es titular Wed Wed Weddings (en adelante, EL PROPIETARIO DE LA WEB).
+      La navegación por el sitio web de EL PROPIETARIO DE LA WEB le atribuye la condición de USUARIO del mismo y conlleva su aceptación plena y sin reservas de todas y cada una de las condiciones publicadas en este aviso legal, advirtiendo de que dichas condiciones podrán ser modificadas sin notificación previa por parte de EL PROPIETARIO DE LA WEB, en cuyo caso se procederá a su publicación y aviso con la máxima antelación posible.
+      Por ello es recomendable leer atentamente su contenido en caso de desear acceder y hacer uso de la información y de los servicios ofrecidos desde este sitio web.
+      El usuario, además, se obliga a hacer un uso correcto del sitio web de conformidad con las leyes, la buena fe, el orden público, los usos del tráfico y el presente Aviso Legal, y responderá frente a EL PROPIETARIO DE LA WEB o frente a terceros, de cualesquiera daños y perjuicios que pudieran causarse como consecuencia del incumplimiento de dicha obligación.
+      Cualquier utilización distinta a la autorizada está expresamente prohibida, pudiendo EL PROPIETARIO DE LA WEB denegar o retirar el acceso y su uso en cualquier momento.
+      `,
       es: `El presente aviso legal regula el uso y utilización del sitio wedwedweddings.com, del que es titular Wed Wed Weddings (en adelante, EL PROPIETARIO DE LA WEB).
       La navegación por el sitio web de EL PROPIETARIO DE LA WEB le atribuye la condición de USUARIO del mismo y conlleva su aceptación plena y sin reservas de todas y cada una de las condiciones publicadas en este aviso legal, advirtiendo de que dichas condiciones podrán ser modificadas sin notificación previa por parte de EL PROPIETARIO DE LA WEB, en cuyo caso se procederá a su publicación y aviso con la máxima antelación posible.
       Por ello es recomendable leer atentamente su contenido en caso de desear acceder y hacer uso de la información y de los servicios ofrecidos desde este sitio web.
@@ -1211,72 +1221,81 @@ export const lang = {
     list: [
       // #1
       {
-        en: '',
+        en: `1.- Los derechos de propiedad intelectual de la página wedwedweddings.com, su código fuente, diseño, estructura de navegación, bases de datos y los distintos elementos en él contenidos son titularidad de EL PROPIETARIO, a quien corresponde el ejercicio exclusivo de los derechos de explotación de los mismos en cualquier forma y, en especial, los derechos de reproducción, distribución, comunicación pública y transformación.`,
         es: `1.- Los derechos de propiedad intelectual de la página wedwedweddings.com, su código fuente, diseño, estructura de navegación, bases de datos y los distintos elementos en él contenidos son titularidad de EL PROPIETARIO, a quien corresponde el ejercicio exclusivo de los derechos de explotación de los mismos en cualquier forma y, en especial, los derechos de reproducción, distribución, comunicación pública y transformación.`,
       },
       // #2
       {
-        en: '',
+        en:
+          '2.- Estas condiciones generales regulan el acceso y utilización del sitio web wedwedweddings.com que EL PROPIETARIO pone gratuitamente a disposición de los usuarios de Internet. El acceso al mismo implica su aceptación, sin reservas. La utilización de determinados servicios ofrecidos en este sitio se regirá además por las condiciones particulares previstas en cada caso, las cuales se entenderán aceptadas por el mero uso de tales servicios.',
         es: `2.- Estas condiciones generales regulan el acceso y utilización del sitio web wedwedweddings.com que EL PROPIETARIO pone gratuitamente a disposición de los usuarios de Internet. El acceso al mismo implica su aceptación, sin reservas. La utilización de determinados servicios ofrecidos en este sitio se regirá además por las condiciones particulares previstas en cada caso, las cuales se entenderán aceptadas por el mero uso de tales servicios.`,
       },
       // #3
       {
-        en: '',
+        en: `3.- Se autoriza la visualización, impresión y descarga parcial del contenido de la web sólo y exclusivamente si concurren las siguientes condiciones:`,
         es: `3.- Se autoriza la visualización, impresión y descarga parcial del contenido de la web sólo y exclusivamente si concurren las siguientes condiciones:`,
       },
       // #3.1
       {
-        en: '',
+        en: '- Que sea compatible con los fines de este sitio web.',
         es: `- Que sea compatible con los fines de este sitio web.`,
       },
       // #3.2
       {
-        en: '',
+        en:
+          '- Que se realice con el exclusivo ánimo de obtener la información contenida para uso personal y privado. Se prohíbe expresamente su utilización con fines comerciales o para su distribución, comunicación pública, transformación o descompilación.',
         es: `- Que se realice con el exclusivo ánimo de obtener la información contenida para uso personal y privado. Se prohíbe expresamente su utilización con fines comerciales o para su distribución, comunicación pública, transformación o descompilación.`,
       },
       // #3.3
       {
-        en: '',
+        en: '- Que ninguno de los contenidos relacionados en esta web sea modificado de manera alguna.',
         es: `- Que ninguno de los contenidos relacionados en esta web sea modificado de manera alguna.`,
       },
       // #3.4
       {
-        en: '',
+        en:
+          '- Que ningún gráfico, icono o imagen disponible en esta web sea utilizado, copiado o distribuido separadamente del texto o resto de imágenes que lo acompañan.',
         es: `- Que ningún gráfico, icono o imagen disponible en esta web sea utilizado, copiado o distribuido separadamente del texto o resto de imágenes que lo acompañan.`,
       },
       // #4
       {
-        en: '',
+        en:
+          '4.- EL PROPIETARIO se reserva la facultad de efectuar, en cualquier momento y sin necesidad de previo aviso, modificaciones y actualizaciones de la información contenida en su web, de la configuración y presentación de éste y de las condiciones de acceso.',
         es: `4.- EL PROPIETARIO se reserva la facultad de efectuar, en cualquier momento y sin necesidad de previo aviso, modificaciones y actualizaciones de la información contenida en su web, de la configuración y presentación de éste y de las condiciones de acceso.`,
       },
       // #5
       {
-        en: '',
+        en:
+          'EL PROPIETARIO no garantiza la inexistencia de interrupciones o errores en el acceso al web, en su contenido, ni que éste se encuentre actualizado, aunque desarrollará sus mejores esfuerzos para, en su caso, evitarlos, subsanarlos o actualizarlos.',
         es: `EL PROPIETARIO no garantiza la inexistencia de interrupciones o errores en el acceso al web, en su contenido, ni que éste se encuentre actualizado, aunque desarrollará sus mejores esfuerzos para, en su caso, evitarlos, subsanarlos o actualizarlos.`,
       },
       // #6
       {
-        en: '',
+        en:
+          'Tanto el acceso a este sitio web, como el uso que pueda hacerse de la información contenida en el mismo es de la exclusiva responsabilidad de quien lo realiza. EL PROPIETARIO no responderá de ninguna consecuencia, daño o perjuicio que pudieran derivarse de dicho acceso o uso de la información. EL PROPIETARIO no se hace responsable de los posibles errores de seguridad que se puedan producir ni de los posibles daños que puedan causarse al sistema informático del usuario (hardware y software), los ficheros o documentos almacenados en el mismo, como consecuencia de la presencia de virus en el ordenador del usuario utilizado para la conexión a los servicios y contenidos de la web, de un mal funcionamiento del navegador o del uso de versiones no actualizadas del mismo.',
         es: `Tanto el acceso a este sitio web, como el uso que pueda hacerse de la información contenida en el mismo es de la exclusiva responsabilidad de quien lo realiza. EL PROPIETARIO no responderá de ninguna consecuencia, daño o perjuicio que pudieran derivarse de dicho acceso o uso de la información. EL PROPIETARIO no se hace responsable de los posibles errores de seguridad que se puedan producir ni de los posibles daños que puedan causarse al sistema informático del usuario (hardware y software), los ficheros o documentos almacenados en el mismo, como consecuencia de la presencia de virus en el ordenador del usuario utilizado para la conexión a los servicios y contenidos de la web, de un mal funcionamiento del navegador o del uso de versiones no actualizadas del mismo.`,
       },
       // #7
       {
-        en: '',
+        en:
+          'EL PROPIETARIO no asume responsabilidad alguna derivada de la concesión o contenidos de los enlaces de terceros a los que se hace referencia en la web, ni garantiza la ausencia de virus u otros elementos en los mismos que puedan producir alteraciones en el sistema informático (hardware y software), los documentos o los ficheros del usuario, excluyendo cualquier responsabilidad por los daños de cualquier clase causados al usuario por este motivo.',
         es: `EL PROPIETARIO no asume responsabilidad alguna derivada de la concesión o contenidos de los enlaces de terceros a los que se hace referencia en la web, ni garantiza la ausencia de virus u otros elementos en los mismos que puedan producir alteraciones en el sistema informático (hardware y software), los documentos o los ficheros del usuario, excluyendo cualquier responsabilidad por los daños de cualquier clase causados al usuario por este motivo.`,
       },
       // #8
       {
-        en: '',
+        en:
+          'La utilización no autorizada de la información contenida en esta web, su reventa, así como la lesión de los derechos de Propiedad Intelectual de EL PROPIETARIO, dará lugar a las responsabilidades legalmente establecidas.',
         es: `La utilización no autorizada de la información contenida en esta web, su reventa, así como la lesión de los derechos de Propiedad Intelectual de EL PROPIETARIO, dará lugar a las responsabilidades legalmente establecidas.`,
       },
       // #9
       {
-        en: '',
+        en: 'Todo enlace de terceros a esta web debe serlo a su página principal o de entrada.',
         es: `Todo enlace de terceros a esta web debe serlo a su página principal o de entrada.`,
       },
       // #10
       {
-        en: '',
+        en:
+          'EL PROPIETARIO y el usuario, con renuncia expresa a cualquier otro fuero, se someten a los juzgados y tribunales de SEVILLA (España) para cualquier controversia que pudiera derivarse del acceso a esta web. En el caso de que el usuario tenga su domicilio fuera de España, EL PROPIETARIO y el usuario se someten, con renuncia expresa a cualquier otro fuero, a los juzgados y tribunales de SEVILLA (España).',
         es: `EL PROPIETARIO y el usuario, con renuncia expresa a cualquier otro fuero, se someten a los juzgados y tribunales de SEVILLA (España) para cualquier controversia que pudiera derivarse del acceso a esta web. En el caso de que el usuario tenga su domicilio fuera de España, EL PROPIETARIO y el usuario se someten, con renuncia expresa a cualquier otro fuero, a los juzgados y tribunales de SEVILLA (España).`,
       },
     ],
@@ -1320,7 +1339,7 @@ export const lang = {
         es: '¡Sí!',
       },
       no: {
-        en: 'I can not assit',
+        en: 'I can`t go',
         es: 'No puedo ir',
       },
       pending: {
@@ -1349,4 +1368,4 @@ export const lang = {
       es: '¡Gracias por actualizar tus datos!',
     },
   },
-}
+};
