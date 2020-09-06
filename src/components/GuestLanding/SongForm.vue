@@ -1,19 +1,5 @@
 <template>
   <div>
-    <!-- Artist -->
-    <a-form-item class="weddings_form-item" prop="songArtist">
-      <a-input
-        v-decorator="[
-          'songArtist',
-        ]"
-        type="text"
-        :placeholder="artistPlaceholder"
-        @change="onChangeArtist"
-      >
-        <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
-      </a-input>
-    </a-form-item>
-
     <!-- Title -->
     <a-form-item class="weddings_form-item" prop="songTitle">
       <a-input
@@ -25,6 +11,20 @@
         @change="onChangeTitle"
       >
         <a-icon slot="prefix" type="fire" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+
+    <!-- Artist -->
+    <a-form-item class="weddings_form-item" prop="songArtist">
+      <a-input
+        v-decorator="[
+          'songArtist',
+        ]"
+        type="text"
+        :placeholder="artistPlaceholder"
+        @change="onChangeArtist"
+      >
+        <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
     </a-form-item>
 

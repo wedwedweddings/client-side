@@ -1,10 +1,5 @@
 <template>
   <div class="tables-planner-menu_container">
-    <!-- CateringCalculator -->
-    <CateringCalculator :content="guests" />
-
-    <br />
-
     <!-- Guests List -->
     <MenuGuestList
       :content="guests"
@@ -34,6 +29,11 @@
       @songModal="onSongModal"
       @updateSong="onUpdateSong"
     />
+
+    <br />
+
+    <!-- CateringCalculator -->
+    <CateringCalculator :content="guests" />
   </div>
 </template>
 

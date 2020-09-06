@@ -86,12 +86,10 @@ export default {
       return accepted ? "success" : "warning";
     },
     async delete() {
+      // Remove Guest
       try {
         await dgbi(this.guest._id);
         this.$emit("deletedGuest", this.guest._id);
-
-        // Delete related items
-        this.deleteRelatedItems();
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
@@ -104,8 +102,21 @@ export default {
           5
         );
       }
+
+      // Modify related items
+      try {
+        this.modifyRelatedItems();
+      } catch (error) {
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
     },
-    async deleteRelatedItems() {
+    async modifyRelatedItems() {
       const promises = [];
 
       let presents = [];
@@ -141,7 +152,9 @@ export default {
       Promise.all(promises)
         .then(() => {
           // Message
-          this.$message.success(this.removePresentOwner, 5);
+          if (presents.length > 0) {
+            this.$message.success(this.removePresentOwner, 5);
+          }
         })
         .catch((reason) => {
           console.error(reason);

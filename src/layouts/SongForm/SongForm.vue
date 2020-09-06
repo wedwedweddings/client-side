@@ -6,6 +6,15 @@
       <strong>{{selectedGuestFullName }}</strong>
     </h4>
 
+    <!-- Title -->
+    <a-form-item class="weddings_form-item">
+      <a-input v-decorator="[
+          'title',
+        ]" :placeholder="titlePlaceholder">
+        <a-icon slot="prefix" type="fire" style="color: rgba(0,0,0,.25)" />
+      </a-input>
+    </a-form-item>
+
     <!-- Artist -->
     <a-form-item class="weddings_form-item">
       <a-input
@@ -16,15 +25,6 @@
         autofocus
       >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
-      </a-input>
-    </a-form-item>
-
-    <!-- Title -->
-    <a-form-item class="weddings_form-item">
-      <a-input v-decorator="[
-          'title',
-        ]" :placeholder="titlePlaceholder">
-        <a-icon slot="prefix" type="fire" style="color: rgba(0,0,0,.25)" />
       </a-input>
     </a-form-item>
 
