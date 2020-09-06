@@ -36,6 +36,7 @@ module.exports = {
         prependData: `@import '@/assets/scss/base/base.scss';`,
         prependData: `@import '@/assets/scss/base/typography.scss';`,
 
+        prependData: `@import '@/assets/scss/components/alert.scss';`,
         prependData: `@import '@/assets/scss/components/button.scss';`,
         prependData: `@import '@/assets/scss/components/card.scss';`,
         prependData: `@import '@/assets/scss/components/form.scss';`,

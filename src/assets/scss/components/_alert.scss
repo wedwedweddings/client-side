@@ -1,0 +1,10 @@
+div#app {
+  & .home_alert {
+    height: 40px;
+    text-align: center;
+
+    @include respond(tab-port) {
+      display: none;
+    }
+  }
+}

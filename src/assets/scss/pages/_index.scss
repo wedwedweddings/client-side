@@ -1,14 +1,4 @@
 .home_container {
-  // Alert
-  & .home_alert {
-    height: 40px;
-    text-align: center;
-
-    @include respond(tab-land) {
-      display: none;
-    }
-  }
-
   // Main
   & .home_main {
     background-image: linear-gradient(to left top, rgba($color-primary, 0.95), rgba($color-secondary, 0.95)),

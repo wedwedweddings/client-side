@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <!-- Banner -->
+    <a-alert class="home_alert" type="success" :message="banner" />
+
+    <!-- App -->
     <a-layout id="main-layout">
       <a-layout-header id="main-header">
         <MainNavBar />
@@ -26,6 +30,13 @@ export default {
   components: {
     MainFooter,
     MainNavBar,
+  },
+  computed: {
+    banner() {
+      return this.$root.$options.languages.lang.common.banner[
+        this.$root.$options.languages.current
+      ];
+    },
   },
 };
 </script>

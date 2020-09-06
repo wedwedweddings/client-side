@@ -1,7 +1,5 @@
 <template>
   <div class="home_container">
-    <a-alert class="home_alert" type="success" :message="banner" />
-
     <!-- Main -->
     <a-row class="home_main" type="flex" justify="center" align="middle">
       <a-col span="16">
@@ -133,11 +131,6 @@ export default {
     // Lang
     metaTitle() {
       return this.$root.$options.languages.lang.home.meta.title[
-        this.$root.$options.languages.current
-      ];
-    },
-    banner() {
-      return this.$root.$options.languages.lang.common.banner[
         this.$root.$options.languages.current
       ];
     },
