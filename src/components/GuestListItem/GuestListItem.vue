@@ -25,8 +25,15 @@
 import { getDescription as ggd, getMenu as ggm } from "../../controllers/guest";
 
 // Models
-import { deleteById } from "../../models/guest";
-import { getAllByGuestIdInWedding, updateById } from "../../models/present";
+import { deleteById as dgbi } from "../../models/guest";
+import {
+  getAllInWeddingByGuestId as gapiwbgi,
+  updateById as upbi,
+} from "../../models/present";
+import {
+  getByGuestId as gsbgi,
+  deleteByGuestId as dsbgi,
+} from "../../models/song";
 
 // Utils
 import emojis from "../../../utils/emojis";
@@ -79,43 +86,14 @@ export default {
       return accepted ? "success" : "warning";
     },
     async delete() {
+      // Remove Guest
       try {
-        await deleteById(this.guest._id);
+        await dgbi(this.guest._id);
         this.$emit("deletedGuest", this.guest._id);
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
-
-        // Check if guest has assigned present
-        const presents = await getAllByGuestIdInWedding(this.guest._id);
-
-        const promises = [];
-
-        presents.forEach((p) => {
-          promises.push(updateById(p._id, { guestId: "" }));
-        });
-
-        if (promises.length === 0) return;
-
-        Promise.all(promises)
-          .then(() => {
-            // Message
-            this.$message.success(this.removePresentOwner, 5);
-          })
-          .catch((reason) => {
-            console.error(reason);
-
-            // Message
-            this.$message.warning(
-              this.$root.$options.languages.lang.common.failMessage[
-                this.$root.$options.languages.current
-              ],
-              5
-            );
-          });
       } catch (error) {
-        console.error(error);
-
         // Message
         this.$message.warning(
           this.$root.$options.languages.lang.common.failMessage[
@@ -124,6 +102,71 @@ export default {
           5
         );
       }
+
+      // Modify related items
+      try {
+        this.modifyRelatedItems();
+      } catch (error) {
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
+    },
+    async modifyRelatedItems() {
+      const promises = [];
+
+      let presents = [];
+      let song;
+
+      // Check if Guest has assigned present
+      try {
+        presents = await gapiwbgi(this.guest._id);
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (presents.length > 0) {
+        presents.forEach((p) => {
+          promises.push(upbi(p._id, { guestId: "" }));
+        });
+      }
+
+      // Check if Guest has assigned song
+      try {
+        song = await gsbgi(this.guest._id);
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (song) {
+        promises.push(dsbgi(this.guest._id));
+      }
+
+      if (promises.length === 0) return;
+
+      // Go promises!
+      Promise.all(promises)
+        .then(() => {
+          // Message
+          if (presents.length > 0) {
+            this.$message.success(this.removePresentOwner, 5);
+          }
+        })
+        .catch((reason) => {
+          console.error(reason);
+
+          // Message
+          this.$message.warning(
+            this.$root.$options.languages.lang.common.failMessage[
+              this.$root.$options.languages.current
+            ],
+            5
+          );
+        });
     },
     onDeleteConfirm(ref) {
       this.$confirm({

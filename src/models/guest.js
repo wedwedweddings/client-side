@@ -7,14 +7,15 @@ import { xmlhttprequest as xhr } from '../../utils/xmlhttprequest'
 /**
  * ✔️ Actions by logged in users
  */
+
 export const getAllInWedding = () => {
-  // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
     if (!localStorage.weddingId) {
       reject('Wedding ID in localStorage not found!')
     }
 
+    // Request
     xhr({
       method: 'GET',
       url: `${process.env.VUE_APP_API}guest/all-in-wedding/${localStorage.weddingId}`,
@@ -34,13 +35,13 @@ export const getAllInWedding = () => {
 }
 
 export const getOneInWedding = (guestId) => {
-  // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
     if (!localStorage.weddingId || !guestId) {
       reject('Wedding ID in localStorage and guestId param are required!')
     }
 
+    // Request
     xhr({
       method: 'GET',
       url: `${process.env.VUE_APP_API}guest/one-in-wedding/${localStorage.weddingId}/${guestId}`,
@@ -60,7 +61,6 @@ export const getOneInWedding = (guestId) => {
 }
 
 export const add = (params) => {
-  // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
     if (!params || !localStorage.weddingId) {
@@ -146,7 +146,6 @@ export const deleteById = (guestId) => {
 }
 
 export const generateInvitation = (guestId) => {
-  // Request
   return new Promise((resolve, reject) => {
     // Check Wedding Id in local storage
     if (!guestId) {

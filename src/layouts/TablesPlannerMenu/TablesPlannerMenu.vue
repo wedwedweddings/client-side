@@ -1,10 +1,5 @@
 <template>
   <div class="tables-planner-menu_container">
-    <!-- CateringCalculator -->
-    <CateringCalculator :content="guests" />
-
-    <br />
-
     <!-- Guests List -->
     <MenuGuestList
       :content="guests"
@@ -24,6 +19,21 @@
       @presentModal="onPresentModal"
       @updatePresent="onUpdatePresent"
     />
+
+    <br />
+
+    <!-- Songs List -->
+    <MenuSongList
+      :content="songs"
+      @deletedSong="onDeletedSong"
+      @songModal="onSongModal"
+      @updateSong="onUpdateSong"
+    />
+
+    <br />
+
+    <!-- CateringCalculator -->
+    <CateringCalculator :content="guests" />
   </div>
 </template>
 
@@ -32,6 +42,7 @@
 import CateringCalculator from "../../layouts/CateringCalculator/CateringCalculator";
 import MenuGuestList from "../../layouts/MenuGuestList/MenuGuestList";
 import MenuPresentList from "../../layouts/MenuPresentList/MenuPresentList";
+import MenuSongList from "../../layouts/MenuSongList/MenuSongList";
 
 // Utils
 import colors from "../../../utils/colors";
@@ -43,8 +54,9 @@ export default {
     CateringCalculator,
     MenuGuestList,
     MenuPresentList,
+    MenuSongList,
   },
-  props: ["filters", "guests", "presents"],
+  props: ["filters", "guests", "presents", "songs"],
   data: () => ({
     colors,
     emojis,
@@ -72,6 +84,16 @@ export default {
     },
     onUpdatePresent(present) {
       this.$emit("updatePresent", present);
+    },
+    // Song
+    onDeletedSong(songId) {
+      this.$emit("deletedSong", songId);
+    },
+    onSongModal() {
+      this.$emit("songModal");
+    },
+    onUpdateSong(song) {
+      this.$emit("updateSong", song);
     },
   },
 };

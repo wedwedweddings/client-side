@@ -4,7 +4,7 @@
 import { joinParamsAsString, setLocalStorageWedding } from '../../utils/utils'
 import { xmlhttprequest as xhr } from '../../utils/xmlhttprequest'
 
-export const getLast = () => {
+export const getUserLastPlanner = () => {
   return new Promise((resolve, reject) => {
     // Request
     xhr({

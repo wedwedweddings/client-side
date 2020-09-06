@@ -18,7 +18,7 @@
         <a-menu-item key="faq">
           <router-link :to="{ name: 'faq' }">
             {{ mainNavBarMenuFaq }}
-            <a-icon type="question" />
+            <a-icon type="question-circle" />
           </router-link>
         </a-menu-item>
 
@@ -54,7 +54,7 @@ export default {
       return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
     },
     onLogOut() {
-      localStorage.removeItem("isLoggedIn");
+      localStorage.clear();
 
       this.isLoggedIn = this.getLoggedIn();
 

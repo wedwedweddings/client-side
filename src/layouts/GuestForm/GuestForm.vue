@@ -56,7 +56,10 @@
     </a-form-item>
 
     <!-- Email -->
-    <a-form-item class="weddings_form-item" v-if="guestToUpdate.accompanying === 'main-guest'">
+    <a-form-item
+      class="weddings_form-item"
+      v-if="!hasGuest || guestToUpdate.accompanying === 'main-guest'"
+    >
       <a-input
         v-decorator="[
           'email',
@@ -127,7 +130,7 @@
 <script>
 // Models
 import { add, updateById, generateInvitation } from "../../models/guest";
-import { getLast } from "../../models/wedding";
+import { getUserLastPlanner as gulp } from "../../models/wedding";
 
 // Utils
 import emojis from "../../../utils/emojis";
@@ -281,6 +284,12 @@ export default {
       this.$emit("guestsAdded");
     },
     async requestAdd(body) {
+      Object.keys(body).forEach((key) => {
+        if (body[key] === undefined) {
+          body[key] = "";
+        }
+      });
+
       try {
         await add(body);
         this.$emit("updatedGuest");
@@ -399,7 +408,7 @@ export default {
   },
   async beforeMount() {
     // Get Wedding ID
-    await getLast();
+    await gulp();
 
     // Getting spouses from local storage
     if (localStorage.spouses) {

@@ -89,20 +89,13 @@
         }
         ]"
       >
-        <router-link :to="{ name: 'terms-and-conditions' }">{{ termsAndCondition }}</router-link>
+        <router-link :to="{ name: 'terms-and-conditions' }" target="_blank">{{ termsAndCondition }}</router-link>
       </a-checkbox>
     </a-form-item>
 
     <!-- Submit -->
     <a-form-item class="weddings_form-item" style="text-align:center;">
-      <a-button
-        type="primary"
-        html-type="submit"
-        class="g-recaptcha"
-        data-sitekey="6Le5JccZAAAAALLB1M8RS30T-eBuqlekD4IF9WfP"
-        data-callback="onRecaptcha"
-        data-action="submit"
-      >{{ registerButton }}</a-button>
+      <a-button type="primary" html-type="submit">{{ registerButton }}</a-button>
     </a-form-item>
 
     <a-divider />
@@ -119,6 +112,7 @@
 <script>
 // Models
 import { register } from "../../models/auth";
+import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
   name: "RegisterForm",
@@ -186,11 +180,28 @@ export default {
       const value = e.target.value;
       this.confirmDirty = this.confirmDirty || !!value;
     },
-    onRecaptcha(token) {
-      console.log("onRecaptcha:", token);
-    },
-    onSubmit(e) {
+    async onSubmit(e) {
       e.preventDefault();
+
+      let token;
+      let confirm = false;
+
+      try {
+        token = await getCaptchaToken();
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!token) return;
+
+      try {
+        const response = await postTokenToVerify(token);
+        confirm = response.success;
+      } catch (error) {
+        console.error(error);
+      }
+
+      if (!confirm) return;
 
       this.form.validateFieldsAndScroll((err, values) => {
         if (!err) {

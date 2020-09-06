@@ -1,38 +1,36 @@
 <template>
   <a-list-item-meta>
-    <a :href="present ? present.url : '#'" slot="title" target="_blank">
-      <a-icon class="present-item__shop" type="shop" style="margin-right:8px;" />
+    <a :href="song && song.url ? song.url : '#'" slot="title" target="_blank">
+      <a-icon class="song-item__global" type="global" style="margin-right:8px;" />
     </a>
 
-    <span slot="title" style="cursor:pointer;" @click="onUpdate">{{ present ? present.title : '' }}</span>
+    <span slot="title" style="cursor:pointer;" @click="onUpdate">{{ song ? song.title : '' }}</span>
+    <span slot="description">{{ song ? song.artist : '' }}</span>
 
-    <a-tooltip placement="right" slot="title" :title="guestFullName" v-if="marked && showRubbish">
-      <span style="margin-left:8px;">{{ emojis.checked }}</span>
+    <a-tooltip placement="right" slot="title" :title="guestFullName">
+      <span style="margin-left:8px;" v-if="marked">{{ emojis.checked }}</span>
     </a-tooltip>
 
     <a-icon
-      v-if="showRubbish"
       slot="title"
       type="delete"
       style="float:right; margin-top:4px;"
       @click="onDeleteConfirm(ref)"
     />
-
-    <a-checkbox v-else class="present_checkbox" slot="title" @click="onPresentClick" />
   </a-list-item-meta>
 </template>
 
 <script>
 // Models
 import { getOneInWedding as gogiw } from "../../models/guest";
-import { deleteById } from "../../models/present";
+import { deleteById } from "../../models/song";
 
 // Utils
 import emojis from "../../../utils/emojis";
 
 export default {
-  name: "Present",
-  props: ["present"],
+  name: "Song",
+  props: ["song"],
   data: () => ({
     emojis,
     guestFullName: "",
@@ -40,30 +38,31 @@ export default {
   }),
   computed: {
     marked() {
-      return this.present.guestId !== "";
-    },
-    showRubbish() {
-      return !this.$route.params.token;
+      return (
+        this.song.guestId !== "couple" &&
+        this.song.guestId !== "undefined" &&
+        this.song.guestId !== ""
+      );
     },
     // Lang
     deleteConfirm() {
-      return this.$root.$options.languages.lang.gettingStarted.present
+      return this.$root.$options.languages.lang.tablesPlanner.song
         .deleteConfirm[this.$root.$options.languages.current];
     },
     deleteConfirmYes() {
-      return this.$root.$options.languages.lang.gettingStarted.present
+      return this.$root.$options.languages.lang.tablesPlanner.song
         .deleteConfirmYes[this.$root.$options.languages.current];
     },
     deleteSuccess() {
-      return this.$root.$options.languages.lang.gettingStarted.present
+      return this.$root.$options.languages.lang.tablesPlanner.song
         .deleteSuccess[this.$root.$options.languages.current];
     },
   },
   methods: {
     async checkGuest() {
       try {
-        if (this.marked && this.showRubbish) {
-          const guest = await gogiw(this.present.guestId);
+        if (this.marked) {
+          const guest = await gogiw(this.song.guestId);
 
           if (guest) {
             this.guestFullName = guest.fullName;
@@ -75,8 +74,8 @@ export default {
     },
     async delete() {
       try {
-        await deleteById(this.present._id);
-        this.$emit("deletedPresent", this.present._id);
+        await deleteById(this.song._id);
+        this.$emit("deletedSong", this.song._id);
 
         // Message
         this.$message.success(this.deleteSuccess, 5);
@@ -95,7 +94,7 @@ export default {
     onDeleteConfirm(ref) {
       this.$confirm({
         title: this.deleteConfirm,
-        content: ref.present.title,
+        content: ref.song.title,
         okText: this.deleteConfirmYes,
         okType: "danger",
         cancelText: "No",
@@ -105,14 +104,11 @@ export default {
       });
     },
     onUpdate() {
-      this.$emit("updatePresent", this.present);
-    },
-    onPresentClick() {
-      this.$emit("selectPresent", this.present);
+      this.$emit("updateSong", this.song);
     },
   },
   watch: {
-    present() {
+    song() {
       this.checkGuest();
     },
   },
@@ -126,7 +122,7 @@ export default {
 </script>
 
 <style scoped>
-.present-item__shop:not(:hover) {
+.song-item__global:not(:hover) {
   color: #db8979;
 }
 </style>

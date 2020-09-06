@@ -1,4 +1,14 @@
 .home_container {
+  // Alert
+  & .home_alert {
+    height: 40px;
+    text-align: center;
+
+    @include respond(tab-land) {
+      display: none;
+    }
+  }
+
   // Main
   & .home_main {
     background-image: linear-gradient(to left top, rgba($color-primary, 0.95), rgba($color-secondary, 0.95)),
@@ -13,10 +23,10 @@
     }
   }
 
+  // Why Us
   & .whyus_container {
     background-color: $color-white;
 
-    // Why Us
     & .whyus_title {
       @include respond(phone) {
         padding: 0 3rem;
@@ -46,19 +56,19 @@
 
       & .col--1r {
         & img {
-          border-radius: 200px 0 0 0 !important;
+          border-radius: 100px 0 0 100px !important;
         }
       }
 
       & .col--2l {
         & img {
-          border-radius: 0 0 200px 0 !important;
+          border-radius: 0 100px 100px 0 !important;
         }
       }
     }
 
     & .whyus_intro {
-      padding: 4rem 25vw;
+      padding: 6rem 22.5vw 2rem 22.5vw;
 
       @include respond(tab-land) {
         padding: 4rem 15vw;
@@ -69,30 +79,45 @@
       }
     }
 
+    & .whyus_timeline {
+      padding: 2rem 0;
+
+      & .ant-col {
+        &.whyus_free-block {
+          padding-right: 2rem;
+        }
+
+        &.whyus_list {
+          padding-left: 2rem;
+
+          @include respond(phone) {
+            padding: 0 8rem;
+          }
+        }
+
+        @include respond(phone) {
+          padding: 2rem 3rem;
+          width: 100%;
+        }
+      }
+    }
+
     & .whyus_wrapper--colored {
       background-color: $color-secondary;
 
-      & .whyus_container {
+      & .whyus_highlights {
         background-color: $color-white;
-        clip-path: polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0% 88%);
-        padding: 2rem 0;
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0% 85%);
+        margin-top: -1px;
+        padding: 0rem 0 6rem 0;
 
         & .ant-col {
-          &.whyus_free-block {
-            padding-right: 2rem;
-          }
-
-          &.whyus_list {
-            padding-left: 2rem;
+          &.whyus_highlight {
+            padding: 2rem;
 
             @include respond(phone) {
-              padding: 0 8rem;
+              width: 100%;
             }
-          }
-
-          @include respond(phone) {
-            padding: 2rem 3rem;
-            width: 100%;
           }
         }
 
@@ -100,16 +125,13 @@
           padding: 0 0 6rem 0;
         }
       }
-
-      @include respond(phone) {
-        margin-top: -1px;
-      }
     }
   }
 
   & .findus_container {
     background-color: $color-secondary;
     padding: 72px 0;
+    margin-top: -1px;
 
     & > .ant-col {
       @include respond(phone) {

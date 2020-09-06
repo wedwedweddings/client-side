@@ -1,5 +1,7 @@
 <template>
   <div class="home_container">
+    <a-alert class="home_alert" type="success" :message="banner" />
+
     <!-- Main -->
     <a-row class="home_main" type="flex" justify="center" align="middle">
       <a-col span="16">
@@ -23,6 +25,25 @@
       <div class="whyus_title">
         <h2>{{ whyUsTitle }}</h2>
       </div>
+
+      <!-- Timeline -->
+      <a-row class="whyus_timeline" type="flex" justify="center" align="middle">
+        <!-- Free -->
+        <a-col class="whyus_free-block" :span="11">
+          <p class="whyus_free">{{ whyUsFree }}</p>
+        </a-col>
+
+        <!-- List -->
+        <a-col class="whyus_list" :span="11">
+          <a-timeline>
+            <a-timeline-item
+              class="whyus_text"
+              :key="index"
+              v-for="(item, index) in whyUsTimeline"
+            >{{ item }}</a-timeline-item>
+          </a-timeline>
+        </a-col>
+      </a-row>
 
       <!-- Row 1 -->
       <a-row class="whyus_image">
@@ -58,27 +79,17 @@
 
       <!-- Intro -->
       <div class="whyus_intro">
-        <p
-          class="home_txt"
-        >Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:</p>
+        <p class="home_txt">{{ intro }}</p>
       </div>
 
       <div class="whyus_wrapper--colored">
-        <a-row class="whyus_container" type="flex" justify="center" align="middle">
-          <!-- Free -->
-          <a-col class="whyus_free-block" :span="11">
-            <p class="whyus_free">{{ whyUsFree }}</p>
-          </a-col>
-
-          <!-- List -->
-          <a-col class="whyus_list" :span="11">
-            <a-timeline>
-              <a-timeline-item
-                class="whyus_text"
-                :key="index"
-                v-for="(item, index) in whyUsTimeline"
-              >{{ item }}</a-timeline-item>
-            </a-timeline>
+        <!-- Highlights -->
+        <a-row class="whyus_highlights" type="flex" justify="center">
+          <a-col v-for="(h, i) in whyUsHighlights" class="whyus_highlight" :key="i" :span="5">
+            <h4>
+              <a-icon :type="highlights.icons[i]" />
+            </h4>
+            <p class="home_txt">{{ h }}</p>
           </a-col>
         </a-row>
       </div>
@@ -113,10 +124,20 @@
 // Components
 export default {
   name: "Home",
+  data: () => ({
+    highlights: {
+      icons: ["mail", "gift", "play-circle", "read"],
+    },
+  }),
   computed: {
     // Lang
     metaTitle() {
       return this.$root.$options.languages.lang.home.meta.title[
+        this.$root.$options.languages.current
+      ];
+    },
+    banner() {
+      return this.$root.$options.languages.lang.common.banner[
         this.$root.$options.languages.current
       ];
     },
@@ -135,6 +156,11 @@ export default {
         this.$root.$options.languages.current
       ];
     },
+    intro() {
+      return this.$root.$options.languages.lang.home.whyUs.intro[
+        this.$root.$options.languages.current
+      ];
+    },
     whyUsTimeline() {
       const timeline = this.$root.$options.languages.lang.home.whyUs.timeline.map(
         (item) => {
@@ -148,6 +174,15 @@ export default {
       return this.$root.$options.languages.lang.home.whyUs.free[
         this.$root.$options.languages.current
       ];
+    },
+    whyUsHighlights() {
+      const highlights = this.$root.$options.languages.lang.home.whyUs.highlights.map(
+        (item) => {
+          return item[this.$root.$options.languages.current];
+        }
+      );
+
+      return highlights;
     },
     findUsTitle() {
       return this.$root.$options.languages.lang.home.findUs.title[

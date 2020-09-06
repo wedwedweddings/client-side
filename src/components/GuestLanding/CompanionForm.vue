@@ -1,29 +1,43 @@
 <template>
   <div>
     <!-- Full Name -->
-    <a-form-model-item class="weddings_form-item" prop="companionFullName">
-      <a-input type="text" v-model="companion.fullName" :change="onChange" autofocus>
+    <a-form-item class="weddings_form-item">
+      <a-input
+        v-decorator="[
+          `companion${index}FullName`,
+        ]"
+        :placeholder="fullNamePlaceholder"
+        type="text"
+        @change="onChangeFullName"
+      >
         <a-icon slot="prefix" type="user" style="color: rgba(0,0,0,.25)" />
       </a-input>
-    </a-form-model-item>
+    </a-form-item>
 
     <!-- Menu -->
-    <a-form-model-item class="weddings_form-item" prop="companionMenu">
-      <a-select v-model="companion.menu" :change="onChange">
+    <a-form-item class="weddings_form-item">
+      <a-select
+        v-decorator="[
+          `companion${index}Menu`,
+        ]"
+        :placeholder="menuPlaceholder"
+        @change="onChangeMenu"
+      >
         <a-select-option
           v-for="(menu, key) in menus"
           :key="key"
           :value="key"
         >{{ menu.emoji + " " + getMenuName(key) }}</a-select-option>
       </a-select>
-    </a-form-model-item>
+    </a-form-item>
 
-    <a-form-model-item class="weddings_form-item">
+    <!-- Delete -->
+    <a-form-item class="weddings_form-item">
       <a-button style="float: right;" size="small" @click="onRemove()">
         {{ deleteCompanion}}
         <a-icon type="user-delete" />
       </a-button>
-    </a-form-model-item>
+    </a-form-item>
   </div>
 </template>
 
@@ -34,14 +48,13 @@ import { capitalize } from "../../../utils/utils";
 
 export default {
   name: "CompanionForm",
-  data: () => ({ menus }),
+  data: () => ({
+    inner: {},
+    menus,
+  }),
   props: {
     companion: {
       type: Object,
-      required: true,
-      default() {
-        return { fullName: "", menu: "" };
-      },
     },
     index: {
       type: Number,
@@ -50,26 +63,48 @@ export default {
   },
   computed: {
     // Lang
+    fullNamePlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .placeholders.fullName[this.$root.$options.languages.current];
+    },
+    menuPlaceholder() {
+      return this.$root.$options.languages.lang.gettingStarted.guestsForm
+        .placeholders.menu[this.$root.$options.languages.current];
+    },
     deleteCompanion() {
       return this.$root.$options.languages.lang.guestLanding.deleteCompanion[
         this.$root.$options.languages.current
       ];
     },
   },
-  model: {
-    prop: "companion",
-    event: "change",
-  },
   methods: {
     // Any change
-    onChange() {
+    onChangeFullName(e) {
+      if (this.companion) {
+        this.inner = this.companion;
+      }
+
+      this.inner.fullName = e.target.value;
+
       this.$emit("change", {
-        companion: this.companion,
+        companion: this.inner,
+        index: this.index,
+      });
+    },
+    onChangeMenu(e) {
+      if (this.companion) {
+        this.inner = this.companion;
+      }
+
+      this.inner.menu = e;
+
+      this.$emit("change", {
+        companion: this.inner,
         index: this.index,
       });
     },
 
-    // Remove companion
+    // Remove Companion
     onRemove() {
       this.$emit("remove", this.index);
     },
@@ -80,6 +115,11 @@ export default {
         this.menus[menu].name[this.$root.$options.languages.current]
       );
     },
+  },
+  created() {
+    this.inner = this.companion
+      ? this.companion
+      : { fullName: "", menu: "standard" };
   },
 };
 </script>

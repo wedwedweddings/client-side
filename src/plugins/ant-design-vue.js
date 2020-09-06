@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {
+  Alert,
   Avatar,
   Badge,
   Button,
@@ -9,7 +10,6 @@ import {
   DatePicker,
   Divider,
   Form,
-  FormModel,
   Icon,
   Input,
   InputNumber,
@@ -26,6 +26,9 @@ import {
   Timeline,
   Tooltip,
 } from 'ant-design-vue'
+
+// Alert
+Vue.component(Alert.name, Alert)
 
 // Avatar
 Vue.component(Avatar.name, Avatar)
@@ -55,10 +58,6 @@ Vue.component(Divider.name, Divider)
 // Form
 Vue.component(Form.name, Form)
 Vue.component(Form.Item.name, Form.Item)
-
-// FormModel
-Vue.component(FormModel.name, FormModel)
-Vue.component(FormModel.Item.name, FormModel.Item)
 
 // Icon
 Vue.component(Icon.name, Icon)

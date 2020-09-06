@@ -1,0 +1,26 @@
+section#main-layout {
+  & header#main-header {
+    & div.header_menu-container {
+      & ul.header_menu {
+        & li.ant-menu-submenu {
+          & div[aria-haspopup='true'] {
+            & span {
+              @include respond(phone) {
+                background-color: $color-white;
+                border-radius: 50%;
+                color: $color-primary;
+                padding: 1rem 1.3rem;
+              }
+            }
+
+            @include respond(phone) {
+              height: auto;
+              padding: 0;
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

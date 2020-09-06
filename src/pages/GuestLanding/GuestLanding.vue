@@ -4,24 +4,30 @@
     <h1>{{ title }}</h1>
     <h2>{{ subtitle }}</h2>
 
-    <!-- Guest & Companion(s) forms -->
-    <a-row type="flex" justify="center" align="middle">
-      <a-col class="weddings_forms" span="8">
-        <GuestLandingForms />
+    <a-row type="flex" justify="center">
+      <!-- Guest, Companion(s) and Song forms -->
+      <a-col class="weddings_forms main-guest_col" :span="8">
+        <GuestLandingCol1 />
       </a-col>
+
+      <!-- MenuPresentList
+      <a-col class="weddings_forms present_col" :span="6">
+        <GuestLandingCol2 />
+      </a-col>-->
     </a-row>
   </div>
 </template>
 
 <script>
-import GuestLandingForms from "../../layouts/GuestLandingForms/GuestLandingForms";
-// import PresentForm from "../../layouts/PresentForm/PresentForm";
+// Layouts
+import GuestLandingCol1 from "../../layouts/GuestLandingCols/GuestLandingCol1";
+// import GuestLandingCol2 from "../../layouts/GuestLandingCols/GuestLandingCol2";
 
 export default {
   name: "GuestLanding",
   components: {
-    GuestLandingForms,
-    // PresentForm,
+    GuestLandingCol1,
+    // GuestLandingCol2,
   },
   computed: {
     // Lang

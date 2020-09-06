@@ -5,9 +5,11 @@
       :formType="currentModal"
       :guestToUpdate="guestToUpdate"
       :presentToUpdate="presentToUpdate"
+      :songToUpdate="songToUpdate"
       @closeModal="onCloseModal"
       @updatedGuest="onUpdatedGuest"
       @updatedPresent="onUpdatedPresent"
+      @updatedSong="onUpdatedSong"
     />
 
     <!-- Menu -->
@@ -16,13 +18,17 @@
         :filters="filters"
         :guests="guests"
         :presents="presents"
+        :songs="songs"
         @deletedGuest="onUpdatedGuest"
         @deletedPresent="onUpdatedPresent"
+        @deletedSong="onUpdatedSong"
         @filterByTag="onFilterByTag"
         @guestModal="onGuestModal"
         @presentModal="onPresentModal"
+        @songModal="onSongModal"
         @updateGuest="onUpdateGuest"
         @updatePresent="onUpdatePresent"
+        @updateSong="onUpdateSong"
       />
     </a-layout-sider>
 
@@ -83,11 +89,12 @@ import TablesPlannerMenu from "../../layouts/TablesPlannerMenu/TablesPlannerMenu
 // Models
 import { getAllInWedding as gagiw } from "../../models/guest";
 import { getAllInWedding as gapiw } from "../../models/present";
+import { getAllInWedding as gasiw } from "../../models/song";
 import {
   getInWedding as gtpinw,
   updateById as utpbi,
 } from "../../models/tablesPlanner";
-import { getLast } from "../../models/wedding";
+import { getUserLastPlanner as gulp } from "../../models/wedding";
 
 export default {
   name: "TablesPlanner",
@@ -111,6 +118,8 @@ export default {
     presentToUpdate: {},
     seatsPerTable: [],
     siderWidth: "25vw",
+    songs: [],
+    songToUpdate: {},
     tablesPerRow: 4,
     tablesPlannerId: "",
   }),
@@ -145,32 +154,59 @@ export default {
     async init() {
       this.onWindowResize();
 
+      // #️⃣ Get User last Wedding created and set id in localStorage
       try {
-        // Get last User Wedding created and set id in localStorage
-        await getLast();
+        await gulp();
       } catch (error) {
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.loginAgain[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+
+        // Restore session
+        localStorage.clear();
+        this.$router.push("/");
+
         console.error(
-          "Error: Get last User Wedding created and set id in localStorage:",
+          "Error: Get User last Wedding created and set id in localStorage:",
           error
         );
       }
 
+      // #️⃣ Get all data
       try {
-        // Get all Guests in Wedding
+        await this.getData();
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getData() {
+      // #️⃣ Get all Guests in Wedding
+      try {
         this.guests = await gagiw();
       } catch (error) {
         console.error("Error: Get all Guests in Wedding:", error);
       }
 
+      // #️⃣ Get all Presents in Wedding
       try {
-        // Get all Presents in Wedding
         this.presents = await gapiw();
       } catch (error) {
         console.error("Error: Get all Presents in Wedding:", error);
       }
 
+      // #️⃣ Get all Songs in Wedding
       try {
-        // Get seats per table in Wedding
+        this.songs = await gasiw();
+      } catch (error) {
+        console.error("Error: Get all Songs in Wedding:", error);
+      }
+
+      // #️⃣ Get seats per table in Wedding
+      try {
         const tp = await gtpinw();
         this.tablesPlannerId = tp._id;
 
@@ -197,6 +233,7 @@ export default {
     onCloseModal() {
       this.guestToUpdate = {};
       this.presentToUpdate = {};
+      this.songToUpdate = {};
       this.currentModal = "";
     },
     // Guest
@@ -221,7 +258,7 @@ export default {
         seatsPerTable: JSON.stringify(this.seatsPerTable),
       });
 
-      this.guests = await gagiw();
+      await this.getData();
     },
     onUpdateGuest(guest) {
       this.guestToUpdate = guest;
@@ -232,11 +269,22 @@ export default {
       this.currentModal = "present";
     },
     async onUpdatedPresent() {
-      this.presents = await gapiw();
+      await this.getData();
     },
     onUpdatePresent(present) {
       this.presentToUpdate = present;
       this.currentModal = "present";
+    },
+    // Song
+    onSongModal() {
+      this.currentModal = "song";
+    },
+    async onUpdatedSong() {
+      await this.getData();
+    },
+    onUpdateSong(song) {
+      this.songToUpdate = song;
+      this.currentModal = "song";
     },
     // Tables & Seats
     async onAddTable() {
@@ -278,9 +326,11 @@ export default {
     },
   },
   created() {
-    this.onWindowResize();
-
+    // Add event to resize layout
     window.addEventListener("resize", this.onWindowResize);
+
+    // Init layout
+    this.onWindowResize();
   },
   beforeMount() {
     this.init();
