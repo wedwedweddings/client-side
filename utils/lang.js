@@ -52,11 +52,12 @@ export const lang = {
   home: {
     meta: {
       title: {
-        en: 'Welcome',
+        en: 'Join us to plan your Wedding in the easiest way! | Wed Wed Weddings 💍',
         es: 'Organiza tu boda paso a paso - Online | Wed Wed Weddings 💍',
       },
       description: {
-        en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
+        en:
+          'Plan a wedding never was so simple! Use our tables planner and organize your guest invitations and much more in our website. It is free ✔️',
         es:
           '¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.          ',
       },
@@ -638,11 +639,12 @@ export const lang = {
   faq: {
     meta: {
       title: {
-        en: 'FAQ',
+        en: 'FAQ - How to organize and manage a Wedding | Wed Wed Weddings 💍',
         es: 'FAQ - Cómo organizar y planificar una Boda | Wed Wed Weddings 💍',
       },
       description: {
-        en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
+        en:
+          'Do you have any doubt about how Wed Wed Weddings works? Here you have all FAQs to solve how to manage your wedding in our website!',
         es:
           '¿Dudas sobre cómo organizar y planificar tu boda con Wed Wed Weddings 💍? Este es el apartado de FAQ donde puedes resolver todas tus preguntas.',
       },
@@ -689,7 +691,7 @@ export const lang = {
             'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a móvil).',
           es:
             'Podéis organizar vuestra boda a través de cualquier dispositivo, ya sea móvil, tablet o pc. En móviles, hay ciertas gestiones que no se pueden realizar (organizar las mesas de los invitados, debéis realizar la gestión en cualquier otro dispositivo distinto a un móvil).',
-        }, 
+        },
       },
       // #2 - Funciones del usuario
       {
@@ -738,7 +740,8 @@ export const lang = {
         },
         description: {
           en: 'Sí, aparecerán los datos modificados, pero no se notifica de ninguna manera los cambios que realices.',
-          es: 'Las modificaciones que se realicen, se hagan de forma individual o en pareja, quedarán reflejadas en los datos de vuestra boda de Wed Wed Weddings, como cambios en los asientos, asignación de regalos, menús, cambios de presupuesto... Cualquier tipo de modificación que hagáis, quedará registrada.',
+          es:
+            'Las modificaciones que se realicen, se hagan de forma individual o en pareja, quedarán reflejadas en los datos de vuestra boda de Wed Wed Weddings, como cambios en los asientos, asignación de regalos, menús, cambios de presupuesto... Cualquier tipo de modificación que hagáis, quedará registrada.',
         },
       },
       // #6 - Funciones del usuario
@@ -878,19 +881,19 @@ export const lang = {
             'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que queráis y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
         },
       },
-           // #17 - Lista de regalos
-           {
-            title: {
-              en: 'Can I assign gifts to wedding guests?',
-              es: '¿Puedo asignar regalos a los invitados?',
-            },
-            description: {
-              en:
-                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
-              es:
-                'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir regalos y asignarlos a los invitados que queráis (1 regalo por persona). No se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, asignarlo al invitado que queráis, luego pulsar en el botón de ‘’Actualizar regalo’’.',
-            },
-          },
+      // #17 - Lista de regalos
+      {
+        title: {
+          en: 'Can I assign gifts to wedding guests?',
+          es: '¿Puedo asignar regalos a los invitados?',
+        },
+        description: {
+          en:
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir todos los regalos que queráis. NO se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, modificad los datos que quieras y, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+          es:
+            'Tenéis dos opciones: Al crear la cuenta de usuario de Wed Wed Weddings, podéis añadir regalos y asignarlos a los invitados que queráis (1 regalo por persona). No se pueden modificar los datos de los regalos en este paso, debéis llegar al ‘’Planificador de mesas’’ para poder modificarlos. Una vez creada la cuenta, dentro del planificador de mesas, en la lista de los regalos. Primero, debéis seleccionar el regalo y clicar sobre él. Después, asignarlo al invitado que queráis, luego pulsar en el botón de ‘’Actualizar regalo’’.',
+        },
+      },
       // #18 - Lista de regalos
       {
         title: {
@@ -1246,4 +1249,4 @@ export const lang = {
       es: '¡Gracias por actualizar tus datos!',
     },
   },
-}
+};
