@@ -1,6 +1,12 @@
 export const lang = {
   // Common
   common: {
+    banner: {
+      en:
+        '🦠 Do not let COVID-19 to ruin your plans. You can prepare your weddings whenever you are with Wed Wed Weddings. 🦠',
+      es:
+        '🦠 No dejes que la COVID-19 arruine tus planes. Con Wed Wed Weddings podrás organizar tu boda desde donde quieras. 🦠',
+    },
     mainNavBar: {
       menu: {
         faq: {
@@ -78,8 +84,34 @@ export const lang = {
     whyUs: {
       title: {
         en: 'Manage your wedding with us',
-        es: 'Organiza tu boda con nosotros',
+        es: 'Organizad vuestra boda con nosotros',
       },
+      free: {
+        en: 'FREE',
+        es: 'GRATIS',
+      },
+      timeline: [
+        {
+          en: 'Create an account',
+          es: 'Registro en un sólo paso',
+        },
+        {
+          en: 'Add your guests list',
+          es: 'Envío y gestión de invitaciones',
+        },
+        {
+          en: 'Add your presents list',
+          es: 'Preparación de la lista de boda',
+        },
+        {
+          en: 'Organize guests per table',
+          es: 'Distribución de invitados por mesa',
+        },
+        {
+          en: 'Plan the catering',
+          es: 'Estimación del coste del catering',
+        },
+      ],
       images: [
         {
           en: 'manage wedding invitations',
@@ -92,8 +124,8 @@ export const lang = {
       ],
       row1: [
         {
-          en: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
-          es: 'Antes de nada… ¡Felicidades por vuestro compromiso!',
+          en: '¡Felicidades por vuestro compromiso!',
+          es: '¡Felicidades por vuestro compromiso!',
         },
         {
           en: 'Si habéis llegado hasta aquí, es porque estáis muy cerca de dar el ‘’sí, quiero’’.',
@@ -140,40 +172,34 @@ export const lang = {
           es: '🎁 Tener ideas para vuestra lista de regalos de boda.',
         },
         {
-          en: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
-          es: '👩‍💻 Disponer de tiempo de sobra para organizarlo todo adecuadamente.',
+          en: '👩‍💻 Disponer de tiempo para organizarlo todo adecuadamente.',
+          es: '👩‍💻 Disponer de tiempo para organizarlo todo adecuadamente.',
         },
       ],
-      timeline: [
-        {
-          en: 'Create an account',
-          es: 'Crea una cuenta',
-        },
-        {
-          en: 'Add your wedding information',
-          es: 'Añade la información de tu boda',
-        },
-        {
-          en: 'Add your guests list',
-          es: 'Genera la lista de invitados',
-        },
-        {
-          en: 'Add your presents list',
-          es: 'Agrega regalos a tu lista de boda',
-        },
-        {
-          en: 'Organize guests per table',
-          es: 'Organiza a los invitados en las mesas',
-        },
-        {
-          en: 'Plan the catering',
-          es: 'Planifica el catering',
-        },
-      ],
-      free: {
-        en: 'FREE',
-        es: 'GRATIS',
+      intro: {
+        en:
+          'Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:',
+        es:
+          'Una vez que tengáis claro algunos, o todos los elementos que hemos enumerado, os mostramos las funciones o herramientas que ponemos a vuestra disposición:',
       },
+      highlights: [
+        {
+          en: 'Envía y gestiona las invitaciones desde cualquier sitio.',
+          es: 'Envía y gestiona las invitaciones desde cualquier sitio.',
+        },
+        {
+          en: 'Prepara la lista de regalos de boda y deja que tus invitados decidan qué comprar',
+          es: 'Prepara la lista de regalos de boda y deja que tus invitados decidan qué comprar.',
+        },
+        {
+          en: 'Elige con tus invitados las canciones que no pueden faltar en vuestra boda.',
+          es: 'Elige con tus invitados las canciones que no pueden faltar en vuestra boda.',
+        },
+        {
+          en: 'Organiza a los invitados en sus mesas para planificar el banquete',
+          es: 'Organiza a los invitados en sus mesas para planificar el banquete.',
+        },
+      ],
     },
     findUs: {
       title: {

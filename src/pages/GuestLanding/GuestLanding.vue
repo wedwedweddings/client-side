@@ -10,10 +10,10 @@
         <GuestLandingCol1 />
       </a-col>
 
-      <!-- MenuPresentList -->
+      <!-- MenuPresentList
       <a-col class="weddings_forms present_col" :span="6">
         <GuestLandingCol2 />
-      </a-col>
+      </a-col>-->
     </a-row>
   </div>
 </template>
@@ -21,17 +21,14 @@
 <script>
 // Layouts
 import GuestLandingCol1 from "../../layouts/GuestLandingCols/GuestLandingCol1";
-import GuestLandingCol2 from "../../layouts/GuestLandingCols/GuestLandingCol2";
+// import GuestLandingCol2 from "../../layouts/GuestLandingCols/GuestLandingCol2";
 
 export default {
   name: "GuestLanding",
   components: {
     GuestLandingCol1,
-    GuestLandingCol2,
+    // GuestLandingCol2,
   },
-  data: () => ({
-    presents: [],
-  }),
   computed: {
     // Lang
     metaTitle() {

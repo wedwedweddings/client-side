@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import {
+  Alert,
   Avatar,
   Badge,
   Button,
@@ -25,6 +26,9 @@ import {
   Timeline,
   Tooltip,
 } from 'ant-design-vue'
+
+// Alert
+Vue.component(Alert.name, Alert)
 
 // Avatar
 Vue.component(Avatar.name, Avatar)

@@ -127,34 +127,48 @@ body {
       }
     }
 
-    & .whyus_wrapper--colored {
-      & .whyus_container {
-        & .whyus_free-block {
-          text-align: right;
+    & .whyus_timeline {
+      & .whyus_free-block {
+        text-align: right;
 
-          & .whyus_free {
-            color: $color-primary;
-            font-size: 8rem;
-            font-weight: bold;
-
-            @include respond(phone) {
-              margin-bottom: 1rem;
-            }
-          }
+        & .whyus_free {
+          color: $color-primary;
+          font-size: 8rem;
+          font-weight: bold;
 
           @include respond(phone) {
-            text-align: center;
+            margin-bottom: 1rem;
           }
         }
 
-        & .whyus_list {
-          & .ant-timeline {
-            text-align: left;
+        @include respond(phone) {
+          text-align: center;
+        }
+      }
 
-            & .whyus_text {
-              color: $color-grey;
-              font-size: 1.5rem;
-            }
+      & .whyus_list {
+        & .ant-timeline {
+          text-align: left;
+
+          & .whyus_text {
+            color: $color-grey;
+            font-size: 1.5rem;
+          }
+        }
+      }
+    }
+
+    & .whyus_wrapper--colored {
+      & .whyus_highlights {
+        & .whyus_highlight {
+          & h4 {
+            color: $color-primary;
+            font-size: 3rem;
+            margin-bottom: 0;
+          }
+
+          & p.home_txt {
+            color: $color-grey;
           }
         }
       }

@@ -18,7 +18,7 @@
         <a-menu-item key="faq">
           <router-link :to="{ name: 'faq' }">
             {{ mainNavBarMenuFaq }}
-            <a-icon type="question" />
+            <a-icon type="question-circle" />
           </router-link>
         </a-menu-item>
 
