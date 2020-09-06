@@ -58,11 +58,11 @@ export default {
     guestId: "",
     pos: {
       x: 0,
-      y: 0
+      y: 0,
     },
     rad: 0,
     seatAngle: 0,
-    width: 0
+    width: 0,
   }),
   props: ["alias", "filters", "guests", "index", "tableType", "total"],
   computed: {
@@ -80,7 +80,7 @@ export default {
           }
         }
 
-        const matches = tags.filter(t => {
+        const matches = tags.filter((t) => {
           return this.filters.tags.includes(t);
         });
 
@@ -90,7 +90,7 @@ export default {
       return false;
     },
     filterGuests() {
-      return this.guests.filter(g => g.seat === "");
+      return this.guests.filter((g) => g.seat === "");
     },
     seatColor() {
       if (
@@ -109,7 +109,7 @@ export default {
       return "seat__body__empty";
     },
     withContent() {
-      return this.guests.filter(g => g.seat === this.alias).length > 0;
+      return this.guests.filter((g) => g.seat === this.alias).length > 0;
     },
     // Lang
     none() {
@@ -120,20 +120,20 @@ export default {
     seatSelectGuest() {
       return this.$root.$options.languages.lang.tablesPlanner.planner
         .seatSelectGuest[this.$root.$options.languages.current];
-    }
+    },
   },
   methods: {
     getGuestDescription() {
       return getDescription(this.getCurrentGuest(), [
-        this.$root.$options.languages.current
+        this.$root.$options.languages.current,
       ]);
     },
     getCurrentGuest() {
       if (this.withContent) {
-        this.guestId = this.guests.filter(g => g.seat === this.alias)[0]._id;
+        this.guestId = this.guests.filter((g) => g.seat === this.alias)[0]._id;
       }
 
-      const filtered = this.guests.filter(g => {
+      const filtered = this.guests.filter((g) => {
         return g._id === this.guestId;
       });
 
@@ -181,7 +181,7 @@ export default {
       );
     },
     async onSelectGuest(guestId) {
-      // If selected guest is the same...
+      // If selected Guest is the same...
       if (guestId === this.guestId) {
         return;
       }
@@ -194,19 +194,19 @@ export default {
       } catch (error) {
         console.error(error);
       }
-    }
+    },
   },
   watch: {
-    total: function() {
+    total: function () {
       this.init();
-    }
+    },
   },
   mounted() {
     this.init();
   },
   updated() {
     this.init();
-  }
+  },
 };
 </script>
 

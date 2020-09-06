@@ -104,7 +104,7 @@ export default {
       });
     },
 
-    // Remove companion
+    // Remove Companion
     onRemove() {
       this.$emit("remove", this.index);
     },

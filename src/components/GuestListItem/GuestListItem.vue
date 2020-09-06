@@ -111,7 +111,7 @@ export default {
       let presents = [];
       let song;
 
-      // Check if guest has assigned present
+      // Check if Guest has assigned present
       try {
         presents = await gapiwbgi(this.guest._id);
       } catch (error) {
@@ -124,7 +124,7 @@ export default {
         });
       }
 
-      // Check if guest has assigned song
+      // Check if Guest has assigned song
       try {
         song = await gsbgi(this.guest._id);
       } catch (error) {

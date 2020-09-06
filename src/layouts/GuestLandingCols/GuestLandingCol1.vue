@@ -330,7 +330,7 @@ export default {
         }
       }
 
-      // Updating companions
+      // Updating Companions
       if (this.update.mainGuest || this.update.companions) {
         try {
           await this.updateCompanions();
