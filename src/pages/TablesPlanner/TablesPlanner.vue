@@ -177,11 +177,7 @@ export default {
       }
 
       // #️⃣ Get all data
-      try {
-        await this.getData();
-      } catch (error) {
-        console.error(error);
-      }
+      this.getData();
     },
     async getData() {
       // #️⃣ Get all Guests in Wedding
