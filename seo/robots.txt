@@ -1,0 +1,6 @@
+User-agent: googlebot
+Allow: /
+Disallow: /terms-and-conditions/
+Disallow: /privacy-policy/
+
+Sitemap: https://wedwedweddings.com/sitemap.xml
