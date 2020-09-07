@@ -146,24 +146,9 @@ export default {
     },
     // Lang
     metaTitle() {
-      switch (this.currentStep) {
-        case 0:
-          return this.$root.$options.languages.lang.gettingStarted.registerForm
-            .meta.title[this.$root.$options.languages.current];
-        case 1:
-          return this.$root.$options.languages.lang.gettingStarted.weddingForm
-            .meta.title[this.$root.$options.languages.current];
-        case 2:
-          return this.$root.$options.languages.lang.gettingStarted.guestsForm
-            .meta.title[this.$root.$options.languages.current];
-        case 3:
-          return this.$root.$options.languages.lang.gettingStarted.presentsForm
-            .meta.title[this.$root.$options.languages.current];
-        default:
-          return this.$root.$options.languages.current === "es"
-            ? "Primeros pasos"
-            : "Getting started";
-      }
+      return this.$root.$options.languages.lang.gettingStarted.meta.title[
+        this.$root.$options.languages.current
+      ];
     },
     currentTitle() {
       switch (this.currentStep) {

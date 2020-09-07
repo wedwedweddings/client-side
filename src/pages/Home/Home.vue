@@ -134,6 +134,11 @@ export default {
         this.$root.$options.languages.current
       ];
     },
+    metaDescription() {
+      return this.$root.$options.languages.lang.home.meta.description[
+        this.$root.$options.languages.current
+      ];
+    },
     mainSubtitle() {
       return this.$root.$options.languages.lang.home.main.subtitle[
         this.$root.$options.languages.current
@@ -207,6 +212,8 @@ export default {
       title: this.metaTitle,
       // all titles will be injected into this template
       titleTemplate: "%s | Wed Wed Weddings",
+      // Description
+      description: this.metaDescription,
     };
   },
 };

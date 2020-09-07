@@ -69,7 +69,7 @@ export const lang = {
         en:
           'Plan a wedding never was so simple! Use our tables planner and organize your guest invitations and much more in our website. It is free ✔️',
         es:
-          '¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.          ',
+          '¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.',
       },
     },
     main: {
@@ -103,6 +103,10 @@ export const lang = {
         {
           en: 'Add your presents list',
           es: 'Prepara la lista de regalos de boda',
+        },
+        {
+          en: 'Create and manage a music list.',
+          es: 'Crea y gestiona una lista de canciones.',
         },
         {
           en: 'Organize guests per table',
@@ -173,6 +177,10 @@ export const lang = {
           es: '🎁 Tener ideas para la lista de regalos de boda.',
         },
         {
+          en: '🎶 Preparar la lista de canciones que no pueden faltar.',
+          es: '🎶 Preparar la lista de canciones que no pueden faltar.',
+        },
+        {
           en: '👩‍💻 Disponer de tiempo para organizarlo todo adecuadamente.',
           es: '👩‍💻 Disponer de tiempo para organizarlo todo adecuadamente.',
         },
@@ -218,6 +226,12 @@ export const lang = {
   // Getting Started
   gettingStarted: {
     meta: {
+      title: {
+        en:
+          'Plan a wedding never was so simple! Use our tables planner and organize your guest invitations and much more in our website. It is free ✔️',
+        es:
+          '¡Organizar una boda nunca ha sido tan fácil! Con nuestro Planificador de mesas de boda online podrás organizar tu lista de invitados y mucho más.',
+      },
       description: {
         en: 'Application to manage weddings tasks like guests invitations, tables planning or menus.',
         es:
@@ -277,12 +291,6 @@ export const lang = {
       },
     ],
     registerForm: {
-      meta: {
-        title: {
-          en: 'Register',
-          es: 'Regístrate',
-        },
-      },
       title: {
         en: '🗝️ Register',
         es: '🗝️ Registro',
@@ -337,12 +345,6 @@ export const lang = {
       },
     },
     weddingForm: {
-      meta: {
-        title: {
-          en: 'About your wedding',
-          es: 'Sobre tu boda',
-        },
-      },
       title: {
         en: '📝 Wedding',
         es: '📝 Boda',
@@ -413,12 +415,6 @@ export const lang = {
       },
     },
     guestsForm: {
-      meta: {
-        title: {
-          en: 'Add guests',
-          es: 'Añade invitados',
-        },
-      },
       title: {
         en: '💃🕺 Guests',
         es: '💃🕺 Invitados',
@@ -521,12 +517,6 @@ export const lang = {
       },
     },
     presentsForm: {
-      meta: {
-        title: {
-          en: 'Add presents',
-          es: 'Añade regalos',
-        },
-      },
       title: {
         en: '🎁 Presents',
         es: '🎁 Lista de bodas',
