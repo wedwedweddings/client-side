@@ -211,9 +211,11 @@ export default {
       // if no subcomponents specify a metaInfo.title, this title will be used
       title: this.metaTitle,
       // all titles will be injected into this template
-      titleTemplate: "%s | Wed Wed Weddings",
-      // Description
-      description: this.metaDescription,
+      titleTemplate: "%s | Wed Wed Weddings 💍",
+      // description
+      meta: [
+        { name: "description", content: this.metaDescription, vmid: "test" },
+      ],
     };
   },
 };

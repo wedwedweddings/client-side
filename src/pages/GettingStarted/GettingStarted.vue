@@ -150,6 +150,11 @@ export default {
         this.$root.$options.languages.current
       ];
     },
+    metaDescription() {
+      return this.$root.$options.languages.lang.gettingStarted.meta.description[
+        this.$root.$options.languages.current
+      ];
+    },
     currentTitle() {
       switch (this.currentStep) {
         case 0:
@@ -269,6 +274,10 @@ export default {
       title: this.metaTitle,
       // all titles will be injected into this template
       titleTemplate: "%s | Wed Wed Weddings",
+      // description
+      meta: [
+        { name: "description", content: this.metaDescription, vmid: "test" },
+      ],
     };
   },
 };

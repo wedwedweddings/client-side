@@ -26,6 +26,10 @@ export default {
         this.$root.$options.languages.current
       ];
     },
+    metaDescription() {
+      return this.$root.$options.languages.lang.termsAndConditions.meta
+        .description[this.$root.$options.languages.current];
+    },
     title() {
       return this.$root.$options.languages.lang.termsAndConditions.title[
         this.$root.$options.languages.current
@@ -60,6 +64,10 @@ export default {
       title: this.metaTitle,
       // all titles will be injected into this template
       titleTemplate: "%s | Wed Wed Weddings",
+      // description
+      meta: [
+        { name: "description", content: this.metaDescription, vmid: "test" },
+      ],
     };
   },
 };

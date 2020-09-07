@@ -62,8 +62,8 @@ export const lang = {
   home: {
     meta: {
       title: {
-        en: 'Join us to plan your Wedding in the easiest way! | Wed Wed Weddings 💍',
-        es: 'Organiza tu boda paso a paso - Online | Wed Wed Weddings 💍',
+        en: 'Join us to plan your wedding online and free',
+        es: 'Organiza tu boda gratis y online paso a paso',
       },
       description: {
         en:
@@ -659,8 +659,8 @@ export const lang = {
   faq: {
     meta: {
       title: {
-        en: 'FAQ - How to organize and manage a Wedding | Wed Wed Weddings 💍',
-        es: 'FAQ - Cómo organizar y planificar una Boda | Wed Wed Weddings 💍',
+        en: 'FAQ - How to organize and manage a Wedding',
+        es: 'FAQ - Cómo organizar y planificar una Boda',
       },
       description: {
         en:
