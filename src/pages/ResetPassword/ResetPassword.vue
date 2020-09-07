@@ -55,7 +55,11 @@ export default {
       titleTemplate: "%s | Wed Wed Weddings",
       // description
       meta: [
-        { name: "description", content: this.metaDescription, vmid: "test" },
+        {
+          name: "description",
+          content: this.metaDescription,
+          vmid: "description",
+        },
       ],
     };
   },
