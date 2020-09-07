@@ -6,7 +6,7 @@
     background-position: top center;
     background-size: cover;
     box-shadow: inset 0 -1rem 2rem rgba($color-black, 0.2);
-    height: 90vh;
+    height: 85vh;
 
     @include respond(phone) {
       padding-top: $header-height-mobile;

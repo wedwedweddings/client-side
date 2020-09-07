@@ -1002,7 +1002,7 @@ export const lang = {
     menu: {
       budget: {
         en: 'Catering Budget',
-        es: 'Presupuesto del catering',
+        es: 'Coste del catering',
       },
       guests: {
         en: 'Guests',
@@ -1368,4 +1368,4 @@ export const lang = {
       es: '¡Gracias por actualizar tus datos!',
     },
   },
-};
+}
