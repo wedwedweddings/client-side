@@ -10,26 +10,40 @@
 
     <title><%= htmlWebpackPlugin.options.title %></title>
 
+    <meta property="og:title" content="Wed Wed Weddings" />
+    <meta
+      property="”og:description”"
+      content="Organiza tu boda gratis y online paso a paso"
+    />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/wedwedweddings/image/upload/v1599510928/wedwedweddings.com/images/Header_gwlw7l.jpg"
+    />
+
     <!-- Google reCAPTCHA v3 -->
     <script src="https://www.google.com/recaptcha/api.js?render=6Le5JccZAAAAALLB1M8RS30T-eBuqlekD4IF9WfP"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171540328-1"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-171540328-1"
+    ></script>
     <script>
-      window.dataLayer = window.dataLayer || []
+      window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments)
+        dataLayer.push(arguments);
       }
-      gtag('js', new Date())
+      gtag("js", new Date());
 
-      gtag('config', 'UA-171540328-1')
+      gtag("config", "UA-171540328-1");
     </script>
   </head>
   <body>
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please
-        enable it to continue.</strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to
+        continue.</strong
       >
     </noscript>
     <div id="app"></div>
