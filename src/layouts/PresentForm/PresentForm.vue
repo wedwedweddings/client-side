@@ -228,7 +228,11 @@ export default {
   },
   async beforeMount() {
     // Get all Guests in Wedding
-    this.guests = await gagiw();
+    try {
+      this.guests = await gagiw();
+    } catch (error) {
+      console.error(error);
+    }
 
     // Set init values in form
     if (this.hasPresent) {

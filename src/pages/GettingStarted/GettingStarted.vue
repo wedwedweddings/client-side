@@ -193,9 +193,9 @@ export default {
         this.spouses = JSON.parse(localStorage.spouses);
       }
 
-      try {
-        // Load Guests
-        if (this.currentStep === 2) {
+      // Load Guests
+      if (this.currentStep === 2) {
+        try {
           const guests = await gagiw();
 
           this.guests.one = guests.filter((g) => {
@@ -205,18 +205,18 @@ export default {
           this.guests.two = guests.filter((g) => {
             return g.relative === 2 || g.relative === 0;
           });
+        } catch (error) {
+          console.error("Error: Load Guests", error);
         }
-      } catch (error) {
-        console.error("Error: Load Guests", error);
       }
 
-      try {
-        // Load Presents
-        if (this.currentStep === 3) {
+      // Load Presents
+      if (this.currentStep === 3) {
+        try {
           this.presents = await gapiw();
+        } catch (error) {
+          console.error("Error: Load Presents", error);
         }
-      } catch (error) {
-        console.error("Error: Load Presents", error);
       }
     },
     // Step > Register
@@ -237,6 +237,7 @@ export default {
         this.spouses = JSON.parse(localStorage.spouses);
       }
 
+      // Load Guests
       try {
         const guests = await gagiw();
 
