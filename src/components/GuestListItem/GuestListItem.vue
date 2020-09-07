@@ -1,10 +1,7 @@
 <template>
   <a-list-item-meta :description="getGuestDescription(guest)">
-    <a-badge style="margin-right:8px;" :status="badgeColor(guest.accepted)" slot="title">
-      <a-avatar
-        :style="avatarStyle(guest.assistance)"
-        size="small"
-      >{{ guest.relative === 1 ? "1" : guest.relative === 2 ? "2" : "1·2" }}</a-avatar>
+    <a-badge style="margin-right:8px;" :status="badgeColor(guest.assistance)" slot="title">
+      <a-avatar size="small">{{ guest.relative === 1 ? "1" : guest.relative === 2 ? "2" : "1·2" }}</a-avatar>
     </a-badge>
 
     <span slot="title" style="cursor:pointer;" @click="onUpdate">{{ guest.fullName }}</span>
@@ -65,25 +62,22 @@ export default {
     },
   },
   methods: {
-    avatarStyle(assistance) {
-      let color = "#52c41a";
+    badgeColor(assistance) {
+      let color = "success";
 
       switch (assistance) {
         case "yes":
-          color = "#52c41a";
+          color = "success";
           break;
         case "no":
-          color = "#f5222d";
+          color = "error";
           break;
         case "pending":
-          color = "#faad14";
+          color = "warning";
           break;
       }
 
-      return `background:${color}; color:white; fontSize:10px; fontWeight:bold;`;
-    },
-    badgeColor(accepted) {
-      return accepted ? "success" : "warning";
+      return color;
     },
     async delete() {
       // Remove Guest

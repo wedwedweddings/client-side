@@ -180,6 +180,11 @@ export default {
       this.getData();
     },
     async getData() {
+      // Reset values
+      this.guests = [];
+      this.presents = [];
+      this.songs = [];
+
       // #️⃣ Get all Guests in Wedding
       try {
         this.guests = await gagiw();
