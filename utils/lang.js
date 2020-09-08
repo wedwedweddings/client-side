@@ -119,12 +119,12 @@ export const lang = {
       ],
       images: [
         {
-          en: 'manage wedding invitations',
-          es: 'gestionar invitaciones de boda',
+          en: 'Manage wedding invitations',
+          es: 'Gestionar invitaciones de boda',
         },
         {
-          en: 'wedding planner',
-          es: 'organizador de bodas',
+          en: 'Wedding planner',
+          es: 'Organizador de bodas',
         },
       ],
       row1: [

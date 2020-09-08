@@ -54,7 +54,7 @@
         <a-col class="col--1r" :span="12">
           <img
             src="https://res.cloudinary.com/wedwedweddings/image/upload/v1598987101/wedwedweddings.com/images/home-01_jowckk.jpg"
-            alt="Weddings"
+            :alt="whyUsImageAlt1"
           />
         </a-col>
       </a-row>
@@ -65,7 +65,7 @@
         <a-col class="col--2l" :span="12">
           <img
             src="https://res.cloudinary.com/wedwedweddings/image/upload/v1599030279/wedwedweddings.com/images/home-03_sjmi08.jpg"
-            alt="Weddings"
+            :alt="whyUsImageAlt2"
           />
         </a-col>
 
@@ -156,6 +156,16 @@ export default {
     },
     intro() {
       return this.$root.$options.languages.lang.home.whyUs.intro[
+        this.$root.$options.languages.current
+      ];
+    },
+    whyUsImageAlt1() {
+      return this.$root.$options.languages.lang.home.whyUs.images[0][
+        this.$root.$options.languages.current
+      ];
+    },
+    whyUsImageAlt2() {
+      return this.$root.$options.languages.lang.home.whyUs.images[1][
         this.$root.$options.languages.current
       ];
     },
