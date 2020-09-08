@@ -38,6 +38,7 @@ module.exports = {
 
         prependData: `@import '@/assets/scss/components/alert.scss';`,
         prependData: `@import '@/assets/scss/components/button.scss';`,
+        prependData: `@import '@/assets/scss/components/button-facebook.scss';`,
         prependData: `@import '@/assets/scss/components/card.scss';`,
         prependData: `@import '@/assets/scss/components/form.scss';`,
         prependData: `@import '@/assets/scss/components/guest-avatar.scss';`,

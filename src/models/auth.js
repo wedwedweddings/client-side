@@ -53,10 +53,7 @@ export const login = (params) => {
       },
       body,
     })
-      .then((data) => {
-        localStorage.isLoggedIn = true
-        resolve(data)
-      })
+      .then((data) => resolve(data))
       .catch((error) => {
         reject(error)
       })

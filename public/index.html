@@ -7,10 +7,7 @@
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="💍 Wed Wed Weddings 💍" />
-    <meta
-      property="og:description"
-      content="Organiza tu boda gratis y online paso a paso"
-    />
+    <meta property="og:description" content="Organiza tu boda gratis y online paso a paso" />
     <meta
       property="og:image"
       content="https://res.cloudinary.com/wedwedweddings/image/upload/v1599510928/wedwedweddings.com/images/Header_gwlw7l.jpg"
@@ -25,26 +22,46 @@
     <script src="https://www.google.com/recaptcha/api.js?render=6Le5JccZAAAAALLB1M8RS30T-eBuqlekD4IF9WfP"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=UA-171540328-1"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-171540328-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer = window.dataLayer || []
       function gtag() {
-        dataLayer.push(arguments);
+        dataLayer.push(arguments)
       }
-      gtag("js", new Date());
+      gtag('js', new Date())
 
-      gtag("config", "UA-171540328-1");
+      gtag('config', 'UA-171540328-1')
     </script>
   </head>
   <body>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: '3630944636938154',
+          cookie: true,
+          xfbml: true,
+          version: 'v8.0',
+        })
+
+        FB.AppEvents.logPageView()
+      }
+      ;(function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0]
+        if (d.getElementById(id)) {
+          return
+        }
+        js = d.createElement(s)
+        js.id = id
+        js.src = 'https://connect.facebook.net/en_US/sdk.js'
+        fjs.parentNode.insertBefore(js, fjs)
+      })(document, 'script', 'facebook-jssdk')
+    </script>
+
     <noscript>
       <strong
-        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
-        properly without JavaScript enabled. Please enable it to
-        continue.</strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please
+        enable it to continue.</strong
       >
     </noscript>
     <div id="app"></div>

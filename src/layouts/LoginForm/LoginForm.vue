@@ -60,6 +60,14 @@
       <span>&nbsp;|&nbsp;</span>
       <router-link :to="{ name: 'forgot-password' }">{{ forgotPassword }}</router-link>
     </p>
+
+    <!-- Facebook Login -->
+    <a-form-item class="weddings_form-item" style="text-align:center;">
+      <a-button class="btn_facebook--login" @click="getFacebookLoginState">
+        {{ buttonFacebook }}
+        <a-icon class="icon_facebook" type="facebook" />
+      </a-button>
+    </a-form-item>
   </a-form>
 </template>
 
@@ -93,6 +101,11 @@ export default {
         this.$root.$options.languages.current
       ];
     },
+    buttonFacebook() {
+      return this.$root.$options.languages.lang.login.buttonFacebook[
+        this.$root.$options.languages.current
+      ];
+    },
     noAccount() {
       return this.$root.$options.languages.lang.login.noAccount[
         this.$root.$options.languages.current
@@ -104,6 +117,19 @@ export default {
     },
   },
   methods: {
+    getFacebookLoginState() {
+      window.FB.getLoginStatus(this.checkFacebookStatus);
+    },
+    checkFacebookStatus(response) {
+      console.log("checkFacebookStatus:", response);
+
+      if (response.status !== "connected") {
+        return window.FB.login();
+      }
+
+      localStorage.isLoggedIn = true;
+      return this.$router.push("/tables-planner");
+    },
     async onSubmit(e) {
       e.preventDefault();
 
@@ -136,6 +162,9 @@ export default {
     async requestLogin(body) {
       try {
         await login(body);
+
+        localStorage.isLoggedIn = true;
+
         this.$router.push("/tables-planner");
       } catch (error) {
         console.error(error);
