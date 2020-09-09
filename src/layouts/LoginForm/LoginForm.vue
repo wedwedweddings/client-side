@@ -54,6 +54,24 @@
 
     <a-divider />
 
+    <!-- Facebook -->
+    <a-form-item class="weddings_form-item" style="text-align:center;">
+      <a-button
+        class="btn_facebook--login"
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        @click="getFacebookState"
+      >
+        {{ buttonFacebook }}
+        <a-icon class="icon_facebook" type="facebook" />
+      </a-button>
+    </a-form-item>
+
+    <a-divider />
+
     <!-- Login or Forgot password -->
     <p style="text-align:center;">
       <router-link :to="{ name: 'getting-started' }">{{ noAccount }}</router-link>
@@ -65,7 +83,7 @@
 
 <script>
 // Models
-import { login } from "../../models/auth";
+import { login, loginWithFacebook } from "../../models/auth";
 import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
@@ -90,6 +108,11 @@ export default {
     },
     button() {
       return this.$root.$options.languages.lang.login.button[
+        this.$root.$options.languages.current
+      ];
+    },
+    buttonFacebook() {
+      return this.$root.$options.languages.lang.login.buttonFacebook[
         this.$root.$options.languages.current
       ];
     },
@@ -136,9 +159,67 @@ export default {
     async requestLogin(body) {
       try {
         await login(body);
+
+        localStorage.isLoggedIn = true;
+
         this.$router.push("/tables-planner");
       } catch (error) {
         console.error(error);
+
+        localStorage.clear();
+
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
+    },
+    // Facebook
+    getFacebookState() {
+      window.FB.getLoginStatus(this.checkFacebookStatus);
+    },
+    checkFacebookStatus(response) {
+      if (response.status !== "connected") {
+        window.FB.login(this.onFacebookResponseAfterLogin, {
+          scope: "public_profile,email",
+        });
+      } else {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookLogin(response)
+        );
+      }
+    },
+    onFacebookResponseAfterLogin(response) {
+      if (
+        response.status === "connected" &&
+        response.authResponse &&
+        response.authResponse.userID !== ""
+      ) {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookLogin(response)
+        );
+      }
+    },
+    async onFacebookLogin(response) {
+      try {
+        await loginWithFacebook({ email: response.email, id: response.id });
+
+        localStorage.isLoggedIn = true;
+
+        this.$router.push("/tables-planner");
+      } catch (error) {
+        console.error(error);
+
+        localStorage.clear();
+
+        this.$router.push("/getting-started");
 
         // Message
         this.$message.warning(

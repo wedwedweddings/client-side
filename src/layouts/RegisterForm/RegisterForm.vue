@@ -100,6 +100,24 @@
 
     <a-divider />
 
+    <!-- Facebook -->
+    <a-form-item class="weddings_form-item" style="text-align:center;">
+      <a-button
+        class="btn_facebook--login"
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        @click="getFacebookState"
+      >
+        {{ facebookButton }}
+        <a-icon class="icon_facebook" type="facebook" />
+      </a-button>
+    </a-form-item>
+
+    <a-divider />
+
     <!-- Have account or Forgot password -->
     <p style="text-align:center;">
       <router-link :to="{ name: 'login' }">{{ haveAccount }}</router-link>
@@ -111,7 +129,7 @@
 
 <script>
 // Models
-import { register } from "../../models/auth";
+import { register, registerWithFacebook } from "../../models/auth";
 import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
@@ -156,6 +174,10 @@ export default {
     registerButton() {
       return this.$root.$options.languages.lang.gettingStarted.registerForm
         .registerButton[this.$root.$options.languages.current];
+    },
+    facebookButton() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .facebookButton[this.$root.$options.languages.current];
     },
     haveAccount() {
       return this.$root.$options.languages.lang.gettingStarted.registerForm
@@ -214,6 +236,9 @@ export default {
     async requestRegister(body) {
       try {
         await register(body);
+
+        localStorage.isLoggedIn = true;
+
         this.$emit("registered");
       } catch (error) {
         console.error(error);
@@ -235,6 +260,59 @@ export default {
       }
 
       callback();
+    },
+    // Facebook
+    getFacebookState() {
+      window.FB.getLoginStatus(this.checkFacebookStatus);
+    },
+    checkFacebookStatus(response) {
+      if (response.status !== "connected") {
+        window.FB.login(this.onFacebookResponseAfterLogin, {
+          scope: "public_profile,email",
+        });
+      } else {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
+      }
+    },
+    onFacebookResponseAfterLogin(response) {
+      if (
+        response.status === "connected" &&
+        response.authResponse &&
+        response.authResponse.userID !== ""
+      ) {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
+      }
+    },
+    async onFacebookRegister(response) {
+      try {
+        await registerWithFacebook({ email: response.email, id: response.id });
+
+        localStorage.isLoggedIn = true;
+
+        this.$emit("registered");
+      } catch (error) {
+        console.error(error);
+
+        localStorage.clear();
+
+        this.$router.push("/login");
+
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.loginAgain[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
     },
   },
   beforeCreate() {

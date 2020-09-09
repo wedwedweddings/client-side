@@ -6,7 +6,8 @@
   "author": "Álvaro Saavedra @alvarooncode",
   "scripts": {
     "serve": "cp ./env/.env.local ./.env && vue-cli-service serve",
-    "build": "cp ./env/.env.production ./.env && vue-cli-service build",
+    "build:prod": "cp ./env/.env.production ./.env && vue-cli-service build",
+    "build:stage": "cp ./env/.env.stage ./.env && vue-cli-service build",
     "lint": "vue-cli-service lint"
   },
   "main": "index.js",
