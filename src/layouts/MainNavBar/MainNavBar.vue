@@ -50,17 +50,15 @@ export default {
     isLoggedIn: false,
   }),
   methods: {
-    getLoggedIn() {
-      return localStorage.isLoggedIn ? localStorage.isLoggedIn : false;
+    getUserStatus() {
+      this.isLoggedIn = localStorage.isLoggedIn
+        ? JSON.parse(localStorage.isLoggedIn)
+        : false;
     },
     onLogOut() {
       localStorage.clear();
 
-      this.isLoggedIn = this.getLoggedIn();
-
-      this.$route.path === "/"
-        ? this.$router.push("/home")
-        : this.$router.push("/");
+      this.$router.push("/");
     },
   },
   computed: {
@@ -98,15 +96,13 @@ export default {
       ];
     },
   },
+  watch: {
+    $route() {
+      this.getUserStatus();
+    },
+  },
   beforeMount() {
-    this.isLoggedIn = this.getLoggedIn();
-
-    // I don't know how to do it better 🤷
-    document.body.addEventListener("mousemove", () => {
-      if (this.isLoggedIn !== this.getLoggedIn()) {
-        this.isLoggedIn = this.getLoggedIn();
-      }
-    });
+    this.getUserStatus();
   },
 };
 </script>

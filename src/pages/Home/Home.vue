@@ -9,7 +9,7 @@
           <h3 class="heading-secondary" v-html="mainSubtitle"></h3>
         </div>
 
-        <div class="button-container">
+        <div class="button-container" v-if="isLoggedIn">
           <router-link :to="{ name: 'getting-started' }">
             <a-button class="button" size="large" ghost>{{ mainButton }}</a-button>
           </router-link>
@@ -204,6 +204,11 @@ export default {
     },
   },
   methods: {
+    isLoggedIn() {
+      return localStorage.isLoggedIn
+        ? JSON.parse(localStorage.isLoggedIn)
+        : false;
+    },
     whyUsRow(index) {
       if (index !== 1 && index !== 2) return [];
 

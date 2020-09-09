@@ -273,7 +273,11 @@ export default {
           scope: "public_profile,email",
         });
       } else {
-        this.onFacebookResponse(response);
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
       }
     },
     onFacebookResponse(response) {

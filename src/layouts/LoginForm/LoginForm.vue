@@ -83,7 +83,7 @@
 
 <script>
 // Models
-import { login } from "../../models/auth";
+import { login, loginWithFacebook } from "../../models/auth";
 import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
@@ -183,21 +183,54 @@ export default {
       console.log("checkFacebookStatus:", response);
 
       if (response.status !== "connected") {
-        return window.FB.login(this.onFacebookResponse);
+        window.FB.login(this.onFacebookResponse, {
+          scope: "public_profile,email",
+        });
+      } else {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
       }
-
-      localStorage.isLoggedIn = true;
-      return this.$router.push("/tables-planner");
     },
     onFacebookResponse(response) {
       console.log("onFacebookResponse:", response);
 
-      if (response.status === "connected") {
-        localStorage.isLoggedIn = true;
-        return this.$router.push("/tables-planner");
+      if (
+        response.status === "connected" &&
+        response.authResponse &&
+        response.authResponse.userID !== ""
+      ) {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
       }
+    },
+    async onFacebookRegister(response) {
+      console.log("onFacebookRegister:", response);
 
-      return (localStorage.isLoggedIn = false);
+      try {
+        await loginWithFacebook({ email: response.email, id: response.id });
+
+        localStorage.isLoggedIn = true;
+
+        this.$emit("registered");
+      } catch (error) {
+        console.error(error);
+
+        localStorage.clear();
+
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
     },
   },
   beforeCreate() {
