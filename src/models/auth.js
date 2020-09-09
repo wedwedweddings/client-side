@@ -62,6 +62,35 @@ export const login = (params) => {
   })
 }
 
+export const loginWithFacebook = (params) => {
+  return new Promise((resolve, reject) => {
+    // Check params
+    if (!params || !params.email || !params.id) {
+      reject('Email and User Facebook ID required!')
+    }
+
+    let body = joinParamsAsString(params)
+
+    // Request
+    xhr({
+      method: 'POST',
+      url: `${process.env.VUE_APP_API}auth/login-with-facebook`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      body,
+    })
+      .then((data) => {
+        resolve(data)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
 export const register = (params) => {
   return new Promise((resolve, reject) => {
     // Check params
@@ -94,8 +123,8 @@ export const register = (params) => {
 export const registerWithFacebook = (params) => {
   return new Promise((resolve, reject) => {
     // Check params
-    if (!params || !params.email || !params.facebookId) {
-      reject('Email and facebookId required!')
+    if (!params || !params.email || !params.id) {
+      reject('Email and User Facebook ID required!')
     }
 
     let body = joinParamsAsString(params)

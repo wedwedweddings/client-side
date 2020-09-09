@@ -129,7 +129,7 @@
 
 <script>
 // Models
-import { register } from "../../models/auth";
+import { register, registerWithFacebook } from "../../models/auth";
 import { getCaptchaToken, postTokenToVerify } from "../../models/grecaptcha";
 
 export default {
@@ -269,31 +269,50 @@ export default {
       console.log("checkFacebookStatus:", response);
 
       if (response.status !== "connected") {
-        window.FB.login(this.onFacebookResponse);
+        window.FB.login(this.onFacebookResponse, {
+          scope: "public_profile,email",
+        });
+      } else {
+        this.onFacebookResponse(response);
       }
     },
-    /*async*/ onFacebookResponse(response) {
+    onFacebookResponse(response) {
       console.log("onFacebookResponse:", response);
 
-      /*if (response.status === "connected") {
-        try {
-          await registerWithFacebook({ email: "", facebookId: "" });
+      if (
+        response.status === "connected" &&
+        response.authResponse &&
+        response.authResponse.userID !== ""
+      ) {
+        window.FB.api(
+          `/${response.authResponse.userID}`,
+          { fields: "email" },
+          (response) => this.onFacebookRegister(response)
+        );
+      }
+    },
+    async onFacebookRegister(response) {
+      console.log("onFacebookRegister:", response);
 
-          localStorage.isLoggedIn = true;
+      try {
+        await registerWithFacebook({ email: response.email, id: response.id });
 
-          this.$emit("registered");
-        } catch (error) {
-          console.error(error);
+        localStorage.isLoggedIn = true;
 
-          // Message
-          this.$message.warning(
-            this.$root.$options.languages.lang.common.failMessage[
-              this.$root.$options.languages.current
-            ],
-            5
-          );
-        }
-      }*/
+        this.$emit("registered");
+      } catch (error) {
+        console.error(error);
+
+        localStorage.clear();
+
+        // Message
+        this.$message.warning(
+          this.$root.$options.languages.lang.common.failMessage[
+            this.$root.$options.languages.current
+          ],
+          5
+        );
+      }
     },
   },
   beforeCreate() {
