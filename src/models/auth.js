@@ -53,7 +53,9 @@ export const login = (params) => {
       },
       body,
     })
-      .then((data) => resolve(data))
+      .then((data) => {
+        resolve(data)
+      })
       .catch((error) => {
         reject(error)
       })
@@ -81,7 +83,35 @@ export const register = (params) => {
       body,
     })
       .then((data) => {
-        localStorage.isLoggedIn = true
+        resolve(data)
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
+export const registerWithFacebook = (params) => {
+  return new Promise((resolve, reject) => {
+    // Check params
+    if (!params || !params.email || !params.facebookId) {
+      reject('Email and facebookId required!')
+    }
+
+    let body = joinParamsAsString(params)
+
+    // Request
+    xhr({
+      method: 'POST',
+      url: `${process.env.VUE_APP_API}auth/register-with-facebook`,
+      async: true,
+      credentials: true,
+      headers: {
+        'Content-type': 'application/x-www-form-urlencoded',
+      },
+      body,
+    })
+      .then((data) => {
         resolve(data)
       })
       .catch((error) => {

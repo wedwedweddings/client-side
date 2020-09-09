@@ -100,6 +100,24 @@
 
     <a-divider />
 
+    <!-- Facebook -->
+    <a-form-item class="weddings_form-item" style="text-align:center;">
+      <a-button
+        class="btn_facebook--login"
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        @click="getFacebookState"
+      >
+        {{ facebookButton }}
+        <a-icon class="icon_facebook" type="facebook" />
+      </a-button>
+    </a-form-item>
+
+    <a-divider />
+
     <!-- Have account or Forgot password -->
     <p style="text-align:center;">
       <router-link :to="{ name: 'login' }">{{ haveAccount }}</router-link>
@@ -156,6 +174,10 @@ export default {
     registerButton() {
       return this.$root.$options.languages.lang.gettingStarted.registerForm
         .registerButton[this.$root.$options.languages.current];
+    },
+    facebookButton() {
+      return this.$root.$options.languages.lang.gettingStarted.registerForm
+        .facebookButton[this.$root.$options.languages.current];
     },
     haveAccount() {
       return this.$root.$options.languages.lang.gettingStarted.registerForm
@@ -214,6 +236,9 @@ export default {
     async requestRegister(body) {
       try {
         await register(body);
+
+        localStorage.isLoggedIn = true;
+
         this.$emit("registered");
       } catch (error) {
         console.error(error);
@@ -235,6 +260,40 @@ export default {
       }
 
       callback();
+    },
+    // Facebook
+    getFacebookState() {
+      window.FB.getLoginStatus(this.checkFacebookStatus);
+    },
+    checkFacebookStatus(response) {
+      console.log("checkFacebookStatus:", response);
+
+      if (response.status !== "connected") {
+        window.FB.login(this.onFacebookResponse);
+      }
+    },
+    /*async*/ onFacebookResponse(response) {
+      console.log("onFacebookResponse:", response);
+
+      /*if (response.status === "connected") {
+        try {
+          await registerWithFacebook({ email: "", facebookId: "" });
+
+          localStorage.isLoggedIn = true;
+
+          this.$emit("registered");
+        } catch (error) {
+          console.error(error);
+
+          // Message
+          this.$message.warning(
+            this.$root.$options.languages.lang.common.failMessage[
+              this.$root.$options.languages.current
+            ],
+            5
+          );
+        }
+      }*/
     },
   },
   beforeCreate() {

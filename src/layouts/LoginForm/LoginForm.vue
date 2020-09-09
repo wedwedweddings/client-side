@@ -54,20 +54,30 @@
 
     <a-divider />
 
+    <!-- Facebook -->
+    <a-form-item class="weddings_form-item" style="text-align:center;">
+      <a-button
+        class="btn_facebook--login"
+        data-size="large"
+        data-button-type="continue_with"
+        data-layout="default"
+        data-auto-logout-link="false"
+        data-use-continue-as="false"
+        @click="getFacebookState"
+      >
+        {{ buttonFacebook }}
+        <a-icon class="icon_facebook" type="facebook" />
+      </a-button>
+    </a-form-item>
+
+    <a-divider />
+
     <!-- Login or Forgot password -->
     <p style="text-align:center;">
       <router-link :to="{ name: 'getting-started' }">{{ noAccount }}</router-link>
       <span>&nbsp;|&nbsp;</span>
       <router-link :to="{ name: 'forgot-password' }">{{ forgotPassword }}</router-link>
     </p>
-
-    <!-- Facebook Login -->
-    <a-form-item class="weddings_form-item" style="text-align:center;">
-      <a-button class="btn_facebook--login" @click="getFacebookLoginState">
-        {{ buttonFacebook }}
-        <a-icon class="icon_facebook" type="facebook" />
-      </a-button>
-    </a-form-item>
   </a-form>
 </template>
 
@@ -117,19 +127,6 @@ export default {
     },
   },
   methods: {
-    getFacebookLoginState() {
-      window.FB.getLoginStatus(this.checkFacebookStatus);
-    },
-    checkFacebookStatus(response) {
-      console.log("checkFacebookStatus:", response);
-
-      if (response.status !== "connected") {
-        return window.FB.login();
-      }
-
-      localStorage.isLoggedIn = true;
-      return this.$router.push("/tables-planner");
-    },
     async onSubmit(e) {
       e.preventDefault();
 
@@ -177,6 +174,30 @@ export default {
           5
         );
       }
+    },
+    // Facebook
+    getFacebookState() {
+      window.FB.getLoginStatus(this.checkFacebookStatus);
+    },
+    checkFacebookStatus(response) {
+      console.log("checkFacebookStatus:", response);
+
+      if (response.status !== "connected") {
+        return window.FB.login(this.onFacebookResponse);
+      }
+
+      localStorage.isLoggedIn = true;
+      return this.$router.push("/tables-planner");
+    },
+    onFacebookResponse(response) {
+      console.log("onFacebookResponse:", response);
+
+      if (response.status === "connected") {
+        localStorage.isLoggedIn = true;
+        return this.$router.push("/tables-planner");
+      }
+
+      return (localStorage.isLoggedIn = false);
     },
   },
   beforeCreate() {

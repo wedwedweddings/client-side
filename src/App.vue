@@ -38,14 +38,6 @@ export default {
       ];
     },
   },
-  created() {
-    // Check Facebook status
-    /*FB.getLoginStatus(function (response) {
-      if (!localStorage.isLoggedIn && response.status !== "connected") {
-        this.$router.push("/login");
-      }
-    });*/
-  },
 };
 </script>
 
