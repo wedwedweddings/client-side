@@ -166,6 +166,8 @@ export default {
       } catch (error) {
         console.error(error);
 
+        localStorage.clear();
+
         // Message
         this.$message.warning(
           this.$root.$options.languages.lang.common.failMessage[
@@ -180,23 +182,19 @@ export default {
       window.FB.getLoginStatus(this.checkFacebookStatus);
     },
     checkFacebookStatus(response) {
-      console.log("checkFacebookStatus:", response);
-
       if (response.status !== "connected") {
-        window.FB.login(this.onFacebookResponse, {
+        window.FB.login(this.onFacebookResponseAfterLogin, {
           scope: "public_profile,email",
         });
       } else {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookRegister(response)
+          (response) => this.onFacebookLogin(response)
         );
       }
     },
-    onFacebookResponse(response) {
-      console.log("onFacebookResponse:", response);
-
+    onFacebookResponseAfterLogin(response) {
       if (
         response.status === "connected" &&
         response.authResponse &&
@@ -205,23 +203,23 @@ export default {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookRegister(response)
+          (response) => this.onFacebookLogin(response)
         );
       }
     },
-    async onFacebookRegister(response) {
-      console.log("onFacebookRegister:", response);
-
+    async onFacebookLogin(response) {
       try {
         await loginWithFacebook({ email: response.email, id: response.id });
 
         localStorage.isLoggedIn = true;
 
-        this.$emit("registered");
+        this.$router.push("/tables-planner");
       } catch (error) {
         console.error(error);
 
         localStorage.clear();
+
+        this.$router.push("/getting-started");
 
         // Message
         this.$message.warning(

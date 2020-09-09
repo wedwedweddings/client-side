@@ -63,6 +63,8 @@ export default {
   },
   computed: {
     showLoginButon() {
+      this.getUserStatus();
+
       return this.$route.path !== "/login" && !this.isLoggedIn;
     },
     // Lang

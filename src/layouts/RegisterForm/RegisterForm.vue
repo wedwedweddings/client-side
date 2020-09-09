@@ -266,10 +266,8 @@ export default {
       window.FB.getLoginStatus(this.checkFacebookStatus);
     },
     checkFacebookStatus(response) {
-      console.log("checkFacebookStatus:", response);
-
       if (response.status !== "connected") {
-        window.FB.login(this.onFacebookResponse, {
+        window.FB.login(this.onFacebookResponseAfterLogin, {
           scope: "public_profile,email",
         });
       } else {
@@ -280,9 +278,7 @@ export default {
         );
       }
     },
-    onFacebookResponse(response) {
-      console.log("onFacebookResponse:", response);
-
+    onFacebookResponseAfterLogin(response) {
       if (
         response.status === "connected" &&
         response.authResponse &&
@@ -296,8 +292,6 @@ export default {
       }
     },
     async onFacebookRegister(response) {
-      console.log("onFacebookRegister:", response);
-
       try {
         await registerWithFacebook({ email: response.email, id: response.id });
 
@@ -309,9 +303,11 @@ export default {
 
         localStorage.clear();
 
+        this.$router.push("/login");
+
         // Message
         this.$message.warning(
-          this.$root.$options.languages.lang.common.failMessage[
+          this.$root.$options.languages.lang.common.loginAgain[
             this.$root.$options.languages.current
           ],
           5
