@@ -281,7 +281,21 @@ export default {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookRegister(response)
+          (response) => {
+            if (!response || response.error) {
+              console.error("Facebook API");
+
+              // Message
+              this.$message.warning(
+                this.$root.$options.languages.lang.common.failMessage[
+                  this.$root.$options.languages.current
+                ],
+                5
+              );
+            } else {
+              this.onFacebookRegister(response);
+            }
+          }
         );
       }
     },
@@ -294,7 +308,21 @@ export default {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookRegister(response)
+          (response) => {
+            if (!response || response.error) {
+              console.error("Facebook API");
+
+              // Message
+              this.$message.warning(
+                this.$root.$options.languages.lang.common.failMessage[
+                  this.$root.$options.languages.current
+                ],
+                5
+              );
+            } else {
+              this.onFacebookRegister(response);
+            }
+          }
         );
       }
     },

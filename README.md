@@ -6,7 +6,7 @@ Application to manage weddings tasks like guests invitations, tables planning or
 
 ## 🎓 Tech
 
-This website is a SPA built with Vue, using the pre-rendering strategy and stylized with Ant Design Vue.
+This website is a SPA built with Vue and stylized with Ant Design Vue.
 
 ## 📚 Web Pages
 
@@ -67,15 +67,23 @@ This website is a SPA built with Vue, using the pre-rendering strategy and styli
   - 🖨️ **Mind the SEO:** No
 
 - **Terms and Conditions**
+
   - 🔔 **Slug:** `/terms-and-conditions`
+  - 🔓 **Auth:** public
+  - 🖨️ **Rendering:** static
+  - 🖨️ **Mind the SEO:** No
+
+- **Guest Landing**
+
+  - 🔔 **Slug:** `/guest-updates`
   - 🔓 **Auth:** public
   - 🖨️ **Rendering:** static
   - 🖨️ **Mind the SEO:** No
 
 ## 🌍 Languages
 
-- 🇺🇸 English
-- 🇪🇸 Español 🔧 Not available yet
+- 🇺🇸 English 🔧 Not available yet
+- 🇪🇸 Español
 
 ## Powered by
 
@@ -88,4 +96,4 @@ Made with JavaScript and a lot of ❤️.
 ## This README.md file looks pretty because of
 
 [GitHub Markdown](https://guides.github.com/features/mastering-markdown/) \
-[Emoji Cheat Sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)
+[Emojipedia](https://emojipedia.org/)

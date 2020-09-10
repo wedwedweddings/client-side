@@ -198,7 +198,21 @@ export default {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookLogin(response)
+          (response) => {
+            if (!response || response.error) {
+              console.error("Facebook API");
+
+              // Message
+              this.$message.warning(
+                this.$root.$options.languages.lang.common.failMessage[
+                  this.$root.$options.languages.current
+                ],
+                5
+              );
+            } else {
+              this.onFacebookLogin(response);
+            }
+          }
         );
       }
     },
@@ -211,7 +225,21 @@ export default {
         window.FB.api(
           `/${response.authResponse.userID}`,
           { fields: "email" },
-          (response) => this.onFacebookLogin(response)
+          (response) => {
+            if (!response || response.error) {
+              console.error("Facebook API");
+
+              // Message
+              this.$message.warning(
+                this.$root.$options.languages.lang.common.failMessage[
+                  this.$root.$options.languages.current
+                ],
+                5
+              );
+            } else {
+              this.onFacebookLogin(response);
+            }
+          }
         );
       }
     },
@@ -231,7 +259,7 @@ export default {
 
         // Message
         this.$message.warning(
-          this.$root.$options.languages.lang.common.failMessage[
+          this.$root.$options.languages.lang.common.loginAgain[
             this.$root.$options.languages.current
           ],
           5
