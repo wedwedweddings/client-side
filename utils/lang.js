@@ -335,6 +335,10 @@ export const lang = {
         en: 'Register',
         es: 'Registrarse',
       },
+      haveFacebook: {
+        en: 'Do have a Facebook account?',
+        es: '¿Usar una cuenta de Facebook?',
+      },
       facebookButton: {
         en: 'Sign up with',
         es: 'Registrarse con',
@@ -595,12 +599,16 @@ export const lang = {
       },
     },
     title: {
-      en: 'Hi! 😊',
-      es: '¡Hola! 😊',
+      en: '👋😊 Good to see you again!',
+      es: '👋😊 ¡Qué bien que vuelvas!',
     },
     button: {
       en: 'Log in',
       es: 'Entrar',
+    },
+    haveFacebook: {
+      en: 'Do have a Facebook account?',
+      es: '¿Usar una cuenta de Facebook?',
     },
     buttonFacebook: {
       en: 'Sign in with',

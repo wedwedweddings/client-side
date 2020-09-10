@@ -55,7 +55,10 @@
     <a-divider />
 
     <!-- Facebook -->
-    <a-form-item class="weddings_form-item" style="text-align:center;">
+
+    <a-form-item class="weddings_form-item weddings_form-item--facebook" style="text-align:center;">
+      <p class="haveFacebook">{{ haveFacebook }}</p>
+
       <a-button
         class="btn_facebook--login"
         data-size="large"
@@ -108,6 +111,11 @@ export default {
     },
     button() {
       return this.$root.$options.languages.lang.login.button[
+        this.$root.$options.languages.current
+      ];
+    },
+    haveFacebook() {
+      return this.$root.$options.languages.lang.login.haveFacebook[
         this.$root.$options.languages.current
       ];
     },

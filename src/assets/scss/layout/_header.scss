@@ -20,7 +20,7 @@
   }
 
   & .header_menu-container {
-    & .header_menu {
+    & ul.header_menu {
       background: none;
       border: none;
       height: $header-height;
@@ -28,23 +28,19 @@
       text-align: right;
 
       & li {
+        border-bottom: 2px solid transparent !important;
         color: $color-white !important;
         margin: 0;
         padding: 0 1.5rem;
 
-        &:hover {
+        &:active,
+        &:focus,
+        &:hover,
+        &:visited {
           color: $color-secondary-light !important;
-          border-color: transparent;
         }
 
         &.item--primary {
-          &:active,
-          &:focus,
-          &:hover,
-          &:visited {
-            border-bottom: 2px solid transparent;
-          }
-
           & a {
             background-color: $color-white !important;
             border: 1px solid $color-white;

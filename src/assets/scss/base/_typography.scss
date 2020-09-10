@@ -163,12 +163,25 @@ body {
         & .whyus_highlight {
           & h4 {
             color: $color-primary;
-            font-size: 3rem;
+            font-size: 4rem;
             margin-bottom: 0;
+
+            @include respond(tab-port) {
+              font-size: 5rem;
+            }
+
+            @include respond(phone) {
+              text-align: center;
+            }
           }
 
           & p.home_txt {
             color: $color-grey;
+
+            @include respond(phone) {
+              padding: 0 4rem;
+              text-align: center;
+            }
           }
         }
       }

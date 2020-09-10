@@ -47,12 +47,28 @@
       & .col--1r {
         & img {
           border-radius: 100px 0 0 100px !important;
+
+          @include respond(tab-port) {
+            border-radius: 64px 0 0 64px !important;
+          }
+
+          @include respond(phone) {
+            border-radius: 200px 0 0 0 !important;
+          }
         }
       }
 
       & .col--2l {
         & img {
           border-radius: 0 100px 100px 0 !important;
+
+          @include respond(tab-port) {
+            border-radius: 0 64px 64px 0 !important;
+          }
+
+          @include respond(phone) {
+            border-radius: 0 0 200px 0 !important;
+          }
         }
       }
     }
@@ -98,22 +114,36 @@
       & .whyus_highlights {
         background-color: $color-white;
         clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0% 85%);
-        margin-top: -1px;
-        padding: 0rem 0 6rem 0;
+        padding: 0 0 6rem 0;
 
         & .ant-col {
           &.whyus_highlight {
             padding: 2rem;
 
+            @include respond(tab-port) {
+              padding: 2rem 8rem;
+              width: 50%;
+            }
+
             @include respond(phone) {
+              padding: 2rem;
               width: 100%;
+
+              &:last-of-type {
+                padding-bottom: 2rem;
+              }
             }
           }
         }
 
         @include respond(phone) {
+          clip-path: polygon(0 0, 100% 0, 100% 90%, 50% 100%, 0% 90%);
           padding: 0 0 6rem 0;
         }
+      }
+
+      @include respond(tab-land) {
+        margin-top: -1px;
       }
     }
   }
