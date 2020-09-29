@@ -29,7 +29,11 @@ export const joinParamsAsString = (params) => {
 
   Object.keys(params).forEach((key) => {
     i++
-    body += `${key}=${params[key]}`
+
+    if (params[key]) {
+      body += `${key}=${params[key]}`
+    }
+
     body += i < Object.keys(params).length ? '&' : ''
   })
 
